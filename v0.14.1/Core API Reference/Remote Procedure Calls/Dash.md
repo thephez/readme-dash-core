@@ -52,7 +52,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | Information about the mixing pool
 →<br>`state` | string | Required<br>(exactly 1) | Mixing pool state.  Will be one of the following:<br>• `IDLE` <br>• `QUEUE` <br>• `ACCEPTING_ENTRIES` <br>• `SIGNING` <br>• `ERROR` <br>• `SUCCESS` <br>• `UNKNOWN` <br>
-→<br>`mixing_mode` | string | Required<br>(exactly 1) | Mixing mode - will be one of the following:<br>• `normal` <br>• `multi-session` <br> 
+→<br>`mixing_mode` | string | Required<br>(exactly 1) | Mixing mode - will be one of the following:<br>• `normal` <br>• `multi-session` <br>
 →<br>`queue` | number (int) | Required<br>(exactly 1) | Queue size
 →<br>`entries` | number (int) | Required<br>(exactly 1) | The number of entries
 →<br>`status` | string | Required<br>(exactly 1) | A more detailed description of the current state
@@ -107,6 +107,93 @@ Result:
 ```
 
 *See also:*
+
+# GetPrivateSendInfo
+
+The `getprivatesendinfo` RPC returns an object containing an information about PrivateSend settings and state.
+
+*Parameters: none*
+
+*Result---(for regular nodes) information about the mixing pool*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | Information about the mixing pool
+→<br>`enabled` | bool | Required<br>(exactly 1) | Whether mixing functionality is enabled
+→<br>`running` | bool | Required<br>(exactly 1) | Whether mixing is currently running
+→<br>`multisession` | bool | Required<br>(exactly 1) | Whether PrivateSend Multisession option is enabled
+→<br>`max_sessions` | number (int) | Required<br>(exactly 1) | How many parallel mixing sessions can there be at once
+→<br>`max_rounds` | number (int) | Required<br>(exactly 1) | How many rounds to mix
+→<br>`max_amount` | number (int) | Required<br>(exactly 1) | How many DASH to keep anonymized
+→<br>`max_denoms` | number (int) | Required<br>(exactly 1) | How many inputs of each denominated amount to create
+→<br>`queue_size` | number (int) | Required<br>(exactly 1) | How many queues there are currently on the network
+→<br>`sessions` | array of json objects | Required<br>(exactly 1) | Information about session(s)
+→ →<br>Session | object | Optional<br>(1 or more) | Information for a session
+→ → →<br>`protxhash` | string | Required<br>(exactly 1) | The ProTxHash of the masternode
+→ → →<br>`outpoint` | string (txid-index) | Required<br>(exactly 1) | The outpoint of the masternode
+→ → →<br>`service` | string (host:port) | Required<br>(exactly 1) | The IP address and port of the masternode
+→ → →<br>`denomination` | number (int) | Required<br>(exactly 1) | The denomination of the mixing session in DASH
+→ → →<br>`state` | string | Required<br>(exactly 1) | Current state of the mixing session
+→ → →<br>`entries_count` | number (int) | Required<br>(exactly 1) | The number of entries in the mixing session
+→<br>`keys_left` | number (int) | Required<br>(exactly 1) | How many new keys are left since last automatic backup
+→<br>`warnings` | string | Optional<br>(exactly 1) | Any warnings
+
+*Result---(for masternodes) information about the mixing pool*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | Information about the mixing pool
+→<br>`queue_size` | number (int) | Required<br>(exactly 1) | How many queues there are currently on the network
+→<br>`denomination` | number (int) | Required<br>(exactly 1) | The denomination of the mixing session in DASH
+→<br>`state` | string | Required<br>(exactly 1) | Current state of the mixing session
+→<br>`entries_count` | number (int) | Required<br>(exactly 1) | The number of entries in the mixing session
+
+*Example from Dash Core 0.14.1 (regular node)*
+
+``` bash
+dash-cli -testnet getprivatesendinfo
+```
+
+Result:
+``` json
+{
+  "enabled": true,
+  "running": true,
+  "multisession": true,
+  "max_sessions": 4,
+  "max_rounds": 4,
+  "max_amount": 2000,
+  "max_denoms": 300,
+  "queue_size": 2,
+  "sessions": [
+    {
+      "denomination": 0.00000000,
+      "state": "ERROR",
+      "entries_count": 0
+    },
+    {
+      "protxhash": "7d336336b7e8910f518b2b270c6d72a2d7fc05aec3c6720108da80805ffc3aab",
+      "outpoint": "7d336336b7e8910f518b2b270c6d72a2d7fc05aec3c6720108da80805ffc3aab-1",
+      "service": "34.241.93.160:26039",
+      "denomination": 0.10000100,
+      "state": "QUEUE",
+      "entries_count": 0
+    },
+    {
+      "protxhash": "11eabc1e72394af02bbe86815975d054816fe69006fdc64c6d7a06b585e5c311",
+      "outpoint": "ee7741bac62cb468c09c00e7a78148064db9da781d183a8f23c7beef9ed569d6-0",
+      "service": "95.183.53.17:10004",
+      "denomination": 10.00010000,
+      "state": "QUEUE",
+      "entries_count": 0
+    }
+  ],
+  "keys_left": 996,
+  "warnings": ""
+}
+```
+
+*See also: none*
 
 # GetSuperblockBudget
 
@@ -873,7 +960,7 @@ Name | Type | Presence | Description
 Result | object | Required<br>(exactly 1) | The governance object votes
 →<br>`overall` | string | Required<br>(1 or more) | Reports number of vote successes/failures
 →<br>`detail` | object | Required<br>(exactly 1) | Vote details
-→ →<br>`dash.conf` | object | Required<br>(1 or more) | 
+→ →<br>`dash.conf` | object | Required<br>(1 or more) |
 → → →<br>`result` | string | Required<br>(exactly 1) | Vote result
 
 *Example from Dash Core 0.12.2*
