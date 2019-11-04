@@ -6,7 +6,7 @@ excerpt: ""
 
 # InstantSend (original)
 
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Please see [here for details of the current InstantSend design](#instantsend).**
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Please see [here for details of the current InstantSend design](core-guide-dash-features-instantsend).**
 
 Dash Core's InstantSend feature provides a way to lock transaction inputs and enable secure, instantaneous transactions. Since Dash Core 0.13.0, any qualifying transaction is automatically upgraded to InstantSend by the network without a need for the sending wallet to explicitly request it. For these simple transactions (those containing 4 or fewer inputs), the previous requirement for a special InstantSend transaction fee was also removed. The criteria for determining eligibility can be found in the lists of limitations below.
 
@@ -19,8 +19,17 @@ The following video provides an overview with a good introduction to the details
  - 9:00 - Description of Dash Core pre-0.12.2 InstantSend vulnerability
  - 13:00 - Description of vulnerability fix / Post Dash Core 0.12.2 operation
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/n4PELomRiFY?rel=0;start=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
+[block:embed]
+{
+  "html": false,
+  "url": "https://www.youtube-nocookie.com/embed/n4PELomRiFY?rel=0;start=0",
+  "title": "Matt Robertson - Instant Send - The Dash Conference - YouTube",
+  "favicon": "https://www.youtube-nocookie.com/favicon.ico",
+  "iframe": true,
+  "width": "",
+  "height": ""
+}
+[/block]
 *InstantSend Data Flow*
 
 | **InstantSend Client** | **Direction**  | **Peers**   | **Description** |
@@ -28,7 +37,7 @@ The following video provides an overview with a good introduction to the details
 | `inv` message (ix)          | → |                         | Client sends inventory for transaction lock request
 |                             | ← | `getdata` message (ix)  | Peer responds with request for transaction lock request
 | `ix` message                | → |                         | Client sends InstantSend transaction lock request
-|                             | ← | `inv` message (txlvote) | Masternodes in the [quorum](#quorum-selection) respond with votes
+|                             | ← | `inv` message (txlvote) | Masternodes in the [quorum](core-guide-dash-features-masternode-quorums#section-quorum-selection) respond with votes
 | `getdata` message (txlvote) | → |                         | Client requests vote
 |                             | ← | `txlvote` message       | Peer responds with vote
 
@@ -68,7 +77,7 @@ NOTE: The 5 "pseudo-confirmations" were shown to convey confidence that the tran
 
 ![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **The following information is for historical reference only. It describes the masternode payment process that was used prior to the deterministic masternode list update in Dash Core v0.13 that implemented DIP3.**
 
-Please see [here for details of the current system](#masternode-payment)
+Please see [here for details of the current system](core-guide-dash-features-masternode-payment)
 
 Prior to DIP3, the masternode payment process operated as described below.
 
@@ -84,7 +93,7 @@ Nodes receiving a `mnw` message verify the validity of the message before relayi
 
 ![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **The following information is for historical reference only. It describes the masternode sync process that was used prior to the deterministic masternode list update in Dash Core v0.13 that implemented DIP3.**
 
-Please see [here for details of the current system](#masternode-sync)
+Please see [here for details of the current system](core-guide-dash-features-masternode-sync)
 
 ## Initial Sync
 
@@ -114,7 +123,7 @@ The following table details the data flow of P2P messages exchanged during initi
 |                                                | ← | `inv` message(s) (mnw)         | MSG_MASTERNODE_PAYMENT_VOTE
 | `getdata` message(s) (mnw) | → |                           | (Optional)
 |                                                | ← | `mnw` message(s)          | (If requested) Masternode payment vote message
-| **4. Governance** |   |  | See [Governance sync](#governance) |
+| **4. Governance** |   |  | See [Governance sync](core-guide-dash-features-governance) |
 
 ## Ongoing Sync
 

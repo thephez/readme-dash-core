@@ -77,42 +77,41 @@ The mixing phase involves exchanging a sequence of messages with a masternode so
 
 **Additional notes**
 
-  _**Step 0 - Pool Selection**_
-
+_**Step 0 - Pool Selection**_
   * Existing mixing pool information is derived from the Queue messages seen by the client
   * Dash Core attempts to join an existing mixing pool and only requests creation of a new one if that fails, although this is not a requirement that alternative implementations would be required to follow
 
-  _**Step 1 - Pool Request**_
+_**Step 1 - Pool Request**_
 
   * The `dsa` message contains a collateral transaction
     * This transaction uses a collateral input created in the [Wallet Preparation](#privatesend-wallet-preparation) phase
     * The collateral is a signed transaction that pays the collateral back to a client address minus a fee of 0.001 DASH
 
-  _**Step 3 - Queue**_
+_**Step 3 - Queue**_
 
   * A masternode broadcasts `dsq` messages when it starts a new queue. These message are relayed by all peers.
   * As of protocol version 70214, mixing sessions have a variable number of participants defined by the range `nPoolMinParticipants` (3) to `nPoolMaxParticipants` (5). Prior protocol version mixing sessions always contained exactly 3 participants
   * Once the masternode has received valid `dsa` messages from the appropriate number of clients (`nSessionMaxParticipants`), it sends a `dsq` message with the ready bit set
     * Clients must respond to the Queue ready within 30 seconds or risk forfeiting the collateral they provided in the `dsa` message (Step 1) ([Dash Core Reference](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L23))
 
-  _**Step 4 - Inputs**_
+_**Step 4 - Inputs**_
 
   * The collateral transaction can be the same in the `dsi` message as the one in the `dsa` message (Step 1) as long as it has not been spent
   * Each client can provide up to 9 (`PRIVATESEND_ENTRY_MAX_SIZE`) inputs (and an equal number of outputs) to be mixed ([Dash Core Reference](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L29))
   * This is the only message in the PrivateSend process that contains enough information to link a wallet's PrivateSend inputs with its outputs
     * This message is sent directly between a client and the mixing masternode (not relayed across the Dash network) so no other clients see it
 
-  _**Step 6 - Final Transaction (unsigned)**_
+_**Step 6 - Final Transaction (unsigned)**_
 
   * Once the masternode has received valid `dsi` messages from all clients, it creates the final transaction and sends a `dsf` message
     * Inputs/outputs are ordered deterministically as defined by [BIP-69](https://github.com/dashevo/bips/blob/master/bip-0069.mediawiki#Abstract) to avoid leaking any data ([Dash Core Reference](https://github.com/dashpay/dash/blob/e596762ca22d703a79c6880a9d3edb1c7c972fd3/src/privatesend-server.cpp#L321-#L322))
     * Clients must sign their inputs to the Final Transaction within 15 seconds or risk forfeiting the collateral they provided in the `dsi` message (Step 4) ([Dash Core Reference](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L24))
 
-  _**Step 10 - Final Transaction broadcast**_
+_**Step 10 - Final Transaction broadcast**_
 
   * Prior to protocol version 70213, masternodes could only send a single un-mined `dstx` message at a time. As of protocol version 70213, up to 5 (`MASTERNODE_MAX_MIXING_TXES`) un-mined `dstx` messages per masternode are allowed.
 
-  _**General**_
+_**General**_
 
   With the exception of the `dsq` message and the `dstx` message (which need to be public and do not expose any private information), all PrivateSend P2P messages are sent directly between the mixing masternode and relevant client(s).
 
