@@ -1,5 +1,5 @@
 ---
-title: "Control"
+title: "Control RPCs"
 excerpt: ""
 ---
 # Debug

@@ -1,5 +1,5 @@
 ---
-title: "Blockchain"
+title: "Blockchain RPCs"
 excerpt: ""
 ---
 # GetBestBlockHash

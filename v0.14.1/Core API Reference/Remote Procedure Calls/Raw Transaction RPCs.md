@@ -1,5 +1,5 @@
 ---
-title: "Raw Transactions"
+title: "Raw Transaction RPCs"
 excerpt: ""
 ---
 # CombineRawTransaction

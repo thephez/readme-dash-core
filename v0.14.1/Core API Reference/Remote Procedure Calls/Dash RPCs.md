@@ -1,5 +1,5 @@
 ---
-title: "Dash"
+title: "Dash RPCs"
 excerpt: ""
 ---
 # GetGovernanceInfo

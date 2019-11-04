@@ -1,5 +1,5 @@
 ---
-title: "Removed"
+title: "Removed RPCs"
 excerpt: ""
 ---
 # EstimatePriority

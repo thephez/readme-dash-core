@@ -1,5 +1,5 @@
 ---
-title: "Mining"
+title: "Mining RPCs"
 excerpt: ""
 ---
 # GetBlockTemplate

@@ -1,5 +1,5 @@
 ---
-title: "Address Index"
+title: "Address Index RPCs"
 excerpt: ""
 ---
 # GetAddressBalance

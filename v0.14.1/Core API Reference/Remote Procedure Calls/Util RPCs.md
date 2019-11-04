@@ -1,5 +1,5 @@
 ---
-title: "Util"
+title: "Util RPCs"
 excerpt: ""
 ---
 # CreateMultiSig

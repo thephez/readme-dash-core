@@ -1,5 +1,5 @@
 ---
-title: "Wallet"
+title: "Wallet RPCs"
 excerpt: ""
 ---
 # AbandonTransaction

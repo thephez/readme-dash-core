@@ -1,5 +1,5 @@
 ---
-title: "Network"
+title: "Network RPCs"
 excerpt: ""
 ---
 # AddNode

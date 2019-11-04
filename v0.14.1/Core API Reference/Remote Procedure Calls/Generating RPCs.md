@@ -1,5 +1,5 @@
 ---
-title: "Generating"
+title: "Generating RPCs"
 excerpt: ""
 ---
 # Generate
