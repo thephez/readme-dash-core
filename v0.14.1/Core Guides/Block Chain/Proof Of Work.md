@@ -10,7 +10,7 @@ The <<glossary:proof of work>> used in Dash takes advantage of the apparently ra
 
 To prove you did some extra work to create a block, you must create a hash of the block header which does not exceed a certain value. For example, if the maximum possible hash value is <span class="math">2<sup>256</sup> − 1</span>, you can prove that you tried up to two combinations by producing a hash value less than <span class="math">2<sup>255</sup></span>.
 
-In the example given above, you will produce a successful hash on average every other try. You can even estimate the probability that a given hash attempt will generate a number below the <<glossary:target>> threshold. Dash assumes a linear probability that the lower it makes the target threshold, the more hash attempts (on average) will need to be tried.
+In the example given above, you will produce a successful hash on average every other try. You can even estimate the probability that a given hash attempt will generate a number below the <<glossary:target threshold>>. Dash assumes a linear probability that the lower it makes the target threshold, the more hash attempts (on average) will need to be tried.
 
 New blocks will only be added to the block chain if their hash is at least as challenging as a <<glossary:difficulty>> value expected by the consensus protocol. Every block, the network uses the difficulty of the last 24 blocks and number of seconds elapsed between generation of the first and last of those last 24 blocks. The ideal value is 3600 (one hour).
 

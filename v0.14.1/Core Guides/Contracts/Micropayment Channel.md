@@ -2,7 +2,7 @@
 title: "Micropayment Channel"
 excerpt: ""
 ---
-Alice also works part-time moderating forum posts for Bob. Every time someone posts to Bob's busy forum, Alice skims the post to make sure it isn't offensive or spam. Alas, Bob often forgets to pay her, so Alice demands to be paid immediately after each post she approves or rejects. Bob says he can't do that because hundreds of small payments will cost him thousands of duffs in transaction fees, so Alice suggests they use a <<glossary:micropayment channel>>.
+Alice also works part-time moderating forum posts for Bob. Every time someone posts to Bob's busy forum, Alice skims the post to make sure it isn't offensive or spam. Alas, Bob often forgets to pay her, so Alice demands to be paid immediately after each post she approves or rejects. Bob says he can't do that because hundreds of small payments will cost him thousands of duffs in transaction fees, so Alice suggests they use a micropayment channel.
 
 Bob asks Alice for her public key and then creates two transactions. The first transaction pays 100 millidash to a P2SH output whose 2-of-2 multisig redeem script requires signatures from both Alice and Bob. This is the bond transaction. Broadcasting this transaction would let Alice hold the millidash hostage, so Bob keeps this transaction private for now and creates a second transaction.
 

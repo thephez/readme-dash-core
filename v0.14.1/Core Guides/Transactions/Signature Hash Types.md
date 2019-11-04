@@ -6,13 +6,13 @@ excerpt: ""
 
 The various options for what to sign are called <<glossary:signature hash>> types. There are three base SIGHASH types currently available:
 
-* <<glossary:`SIGHASH_ALL`>>, the default, signs all the inputs and outputs, protecting everything except the signature scripts against modification.
+* <<glossary:SIGHASH_ALL>>, the default, signs all the inputs and outputs, protecting everything except the signature scripts against modification.
 
-* <<glossary:`SIGHASH_NONE`>> signs all of the inputs but none of the outputs, allowing anyone to change where the duffs are going unless other signatures using other signature hash flags protect the outputs.
+* <<glossary:SIGHASH_NONE>> signs all of the inputs but none of the outputs, allowing anyone to change where the duffs are going unless other signatures using other signature hash flags protect the outputs.
 
-* <<glossary:`SIGHASH_SINGLE`>> the only output signed is the one corresponding to this input (the output with the same output index number as this input), ensuring nobody can change your part of the transaction but allowing other signers to change their part of the transaction. The corresponding output must exist or the value "1" will be signed, breaking the security scheme. This input, as well as other inputs, are included in the signature. The sequence numbers of other inputs are not included in the signature, and can be updated.
+* <<glossary:SIGHASH_SINGLE>> the only output signed is the one corresponding to this input (the output with the same output index number as this input), ensuring nobody can change your part of the transaction but allowing other signers to change their part of the transaction. The corresponding output must exist or the value "1" will be signed, breaking the security scheme. This input, as well as other inputs, are included in the signature. The sequence numbers of other inputs are not included in the signature, and can be updated.
 
-The base types can be modified with the <<glossary:`SIGHASH_ANYONECANPAY`>> (anyone can pay) flag, creating three new combined types:
+The base types can be modified with the <<glossary:SIGHASH_ANYONECANPAY>> (anyone can pay) flag, creating three new combined types:
 
 * `SIGHASH_ALL|SIGHASH_ANYONECANPAY` signs all of the outputs but only this one input, and it also allows anyone to add or remove other inputs, so anyone can contribute additional duffs but they cannot change how many duffs are sent nor where they go.
 

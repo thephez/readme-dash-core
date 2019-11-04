@@ -2,7 +2,7 @@
 title: "Transaction Malleability"
 excerpt: ""
 ---
-None of Dash's signature hash types protect the signature script, leaving the door open for a limited denial of service attack called <<glossary:transaction malleability>>. The signature script contains the secp256k1 signature, which can't sign itself, allowing attackers to make non-functional modifications to a transaction without rendering it invalid. For example, an attacker can add some data to the signature script which will be dropped before the previous pubkey script is processed.
+None of Dash's signature hash types protect the signature script, leaving the door open for a limited denial of service attack called transaction <<glossary:malleability>>. The signature script contains the secp256k1 signature, which can't sign itself, allowing attackers to make non-functional modifications to a transaction without rendering it invalid. For example, an attacker can add some data to the signature script which will be dropped before the previous pubkey script is processed.
 
 Although the modifications are non-functional---so they do not change what inputs the transaction uses nor what outputs it pays---they do change the computed hash of the transaction. Since each transaction links to previous transactions using hashes as a transaction identifier (txid), a modified transaction will not have the txid its creator expected.
 

@@ -74,11 +74,11 @@ For this reason, Bitcoin Core (and Dash Core) uses several different identifier 
 
 The hierarchical deterministic key creation and transfer protocol (<<glossary:HD protocol>>) greatly simplifies wallet backups, eliminates the need for repeated communication between multiple programs using the same wallet, permits creation of child accounts which can operate independently, gives each parent account the ability to monitor or control its children even if the child account is compromised, and divides each account into full-access and restricted-access parts so untrusted users or programs can be allowed to receive or monitor payments without being able to spend them.
 
-The HD protocol takes advantage of the ECDSA public key creation function, <<glossary:`point()`>>, which takes a large integer (the private key) and turns it into a graph point (the public key):
+The HD protocol takes advantage of the ECDSA public key creation function, <<glossary:point()>>, which takes a large integer (the private key) and turns it into a graph point (the public key):
 
     point(private_key) == public_key
 
-Because of the way `point()` works, it's possible to create a <<glossary:child public key>> by combining an existing <<glossary:(parent) public key>> with another public key created from any integer (*i*) value. This child public key is the same public key which would be created by the `point()` function if you added the *i* value to the original (parent) private key and then found the remainder of that sum divided by a global constant used by all Dash software (*p*):
+Because of the way `point()` works, it's possible to create a <<glossary:child public key>> by combining an existing <<glossary:parent public key>> with another public key created from any integer (*i*) value. This child public key is the same public key which would be created by the `point()` function if you added the *i* value to the original (parent) private key and then found the remainder of that sum divided by a global constant used by all Dash software (*p*):
 
     point( (parent_private_key + i) % p ) == parent_public_key + point(i)
 
