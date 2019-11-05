@@ -74,7 +74,7 @@ For this reason, Bitcoin Core (and Dash Core) uses several different identifier 
 
 The hierarchical deterministic key creation and transfer protocol (<<glossary:HD protocol>>) greatly simplifies wallet backups, eliminates the need for repeated communication between multiple programs using the same wallet, permits creation of child accounts which can operate independently, gives each parent account the ability to monitor or control its children even if the child account is compromised, and divides each account into full-access and restricted-access parts so untrusted users or programs can be allowed to receive or monitor payments without being able to spend them.
 
-The HD protocol takes advantage of the ECDSA public key creation function, <<glossary:point()>>, which takes a large integer (the private key) and turns it into a graph point (the public key):
+The HD protocol takes advantage of the ECDSA public key creation function, `<<glossary:point>>()`, which takes a large integer (the private key) and turns it into a graph point (the public key):
 
     point(private_key) == public_key
 

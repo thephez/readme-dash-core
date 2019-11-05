@@ -2,7 +2,7 @@
 title: "Special Transactions"
 excerpt: ""
 ---
-The Special Transaction framework established by DIP2 enabled the implementation of new on-chain features and consensus mechanisms. These transactions provide the flexibility to expand beyond the financial uses of classical transactions. DIP2 transactions modified classical transactions by:
+The <<glossary:Special Transactions>> framework established by [DIP2](https://github.com/dashpay/dips/blob/master/dip-0002.md) enabled the implementation of new on-chain features and <<glossary:consensus>> mechanisms. These transactions provide the flexibility to expand beyond the financial uses of classical transactions. DIP2 transactions modified classical transactions by:
 
 1. Splitting the 32 bit `version` field into two 16 bit fields (`version` and `type`)
 2. Adding support for a generic extra payload following the `lock_time` field. The maximum allowed size for a transaction version 3 extra payload is 10000 bytes (`MAX_TX_EXTRA_PAYLOAD`).
@@ -15,20 +15,20 @@ Classical (financial) transactions have a `type` of 0 while special transactions
 | - | - | - | - | - | - |
 | v0.12.3 | 2 | - | n/a | n/a | n/a |
 | v0.13.0 | 3 | 0 | n/a | Standard (Classical) Transaction |  n/a | n/a |
-| v0.13.0 | 3 | 1 | ProRegTx | Masternode Registration | hex | compactSize uint |
-| v0.13.0 | 3 | 2 | ProUpServTx | Update Masternode Service | hex | compactSize uint |
-| v0.13.0 | 3 | 3 | ProUpRegTx| Update Masternode Operator | hex | compactSize uint |
-| v0.13.0 | 3 | 4 | ProUpRevTx| Masternode Operator Revocation | hex | compactSize uint |
-| v0.13.0 | 3 | 5 | CbTx| Masternode List Merkle Proof | hex | compactSize uint |
-| v0.13.0 | 3 | 6 | QcTx| Long-Living Masternode Quorum Commitment | hex | compactSize uint |
+| v0.13.0 | 3 | 1 | [ProRegTx](#section-proregtx) | Masternode Registration | hex | compactSize uint |
+| v0.13.0 | 3 | 2 | [ProUpServTx](#section-proupservtx) | Update Masternode Service | hex | compactSize uint |
+| v0.13.0 | 3 | 3 | [ProUpRegTx](#section-proupregtx) | Update Masternode Operator | hex | compactSize uint |
+| v0.13.0 | 3 | 4 | [ProUpRevTx](#section-prouprevtx) | Masternode Operator Revocation | hex | compactSize uint |
+| v0.13.0 | 3 | 5 | [CbTx](#section-cbtx) | Masternode List Merkle Proof | hex | compactSize uint |
+| v0.13.0 | 3 | 6 | [QcTx](#section-qctx) | Long-Living Masternode Quorum Commitment | hex | compactSize uint |
 
 # ProRegTx
 
 *Added in protocol version 70213 of Dash Core as described by DIP3*
 
-The Masternode Registration (ProRegTx) special transaction is used to join the masternode list by proving ownership of the 1000 DASH necessary to create a masternode.
+The <<glossary:masternode>> Registration (ProRegTx) special transaction is used to join the masternode list by proving ownership of the 1000 DASH necessary to create a masternode.
 
-A ProRegTx is created and sent using the `protx` RPC. The ProRegTx must either include an output with 1000 DASH (`protx register`) or refer to an existing unspent output holding 1000 DASH (`protx fund_register`). If the 1000 DASH is an output of the ProRegTx, the collateralOutpoint hash field should be null.
+A ProRegTx is created and sent using the [`protx` RPC](core-api-ref-remote-procedure-calls-evo#section-protx). The ProRegTx must either include an <<glossary:output>> with 1000 DASH (`protx register`) or refer to an existing unspent output holding 1000 DASH (`protx fund_register`). If the 1000 DASH is an output of the ProRegTx, the collateralOutpoint hash field should be null.
 
 The special transaction type is 1 and the extra payload consists of the following data:
 
@@ -169,11 +169,11 @@ ProRegTx Payload
 
 *Added in protocol version 70213 of Dash Core as described by DIP3*
 
-The Masternode Provider Update Service (ProUpServTx) special transaction is used to update the IP Address and port of a masternode. If a non-zero operatorReward was set in the initial ProRegTx, the operator may also set the scriptOperatorPayout field in the ProUpServTx.
+The <<glossary:masternode>> Provider Update Service (ProUpServTx) special transaction is used to update the IP Address and port of a masternode. If a non-zero operatorReward was set in the initial [ProRegTx](#section-proregtx), the operator may also set the scriptOperatorPayout field in the ProUpServTx.
 
 A ProUpServTx is only valid for masternodes in the registered masternodes subset. When processed, it updates the metadata of the masternode entry and revives the masternode if it was previously marked as PoSe-banned.
 
-A ProUpServTx is created and sent using the `protx update_service` RPC.
+A ProUpServTx is created and sent using the [`protx update_service` RPC](core-api-ref-remote-procedure-calls-evo#section-protx-update-service).
 
 The special transaction type used for ProUpServTx Transactions is 2 and the extra payload consists of the following data:
 
@@ -231,12 +231,11 @@ ProUpServTx Payload
 
 *Added in protocol version 70213 of Dash Core as described by DIP3*
 
-The Masternode Provider Update Registrar (ProUpRegTx) special transaction is used by a masternode owner to update masternode metadata (e.g. operator/voting key details or the payout script).
+The <<glossary:masternode>> Provider Update Registrar (ProUpRegTx) special transaction is used by a masternode owner to update masternode metadata (e.g. operator/voting key details or the payout script).
 
-A ProUpRegTx is created and sent using the `protx update_registrar` RPC.
+A ProUpRegTx is created and sent using the [`protx update_registrar` RPC](core-api-ref-remote-procedure-calls-evo#section-protx-update-registrar).
 
-The special transaction type is 3 and the extra payload consists of the following
-data:
+The special transaction type is 3 and the extra payload consists of the following data:
 
 | Bytes | Name | Data type |  Description |
 | ---------- | ----------- | -------- | -------- |
@@ -303,9 +302,9 @@ ProRegTx Payload
 
 *Added in protocol version 70213 of Dash Core as described by DIP3*
 
-The Masternode Operator Revocation (ProUpRevTx) special transaction allows an operator to revoke their key in case of compromise or if they wish to terminate service. If a masternode's operator key is revoked, the masternode becomes ineligible for payment until the owner provides a new operator key (via a ProUpRegTx).
+The <<glossary:masternode>> Operator Revocation (ProUpRevTx) special transaction allows an operator to revoke their key in case of compromise or if they wish to terminate service. If a masternode's operator key is revoked, the masternode becomes ineligible for payment until the owner provides a new operator key (via a ProUpRegTx).
 
-A ProUpRevTx is created and sent using the `protx revoke` RPC.
+A ProUpRevTx is created and sent using the [`protx revoke` RPC](core-api-ref-remote-procedure-calls-evo#section-protx-revoke).
 
 The special transaction type used for ProUpServTx Transactions is 4 and the extra payload consists of the following data:
 
@@ -355,7 +354,7 @@ ProUpRevTx Payload
 
 *Added in protocol version 70213 of Dash Core as described by DIP4*
 
-The Coinbase (CbTx) special transaction adds information to the block’s coinbase transaction that enables verification of the deterministic masternode list without the full chain (e.g. from SPV clients). This allows light-clients to properly verify InstantSend transactions and support additional deterministic masternode list functionality in the future.
+The Coinbase (CbTx) special transaction adds information to the <<glossary:block>> <<glossary:coinbase transaction>> that enables verification of the deterministic masternode list without the full chain (e.g. from <<glossary:SPV>> clients). This allows light-clients to properly verify <<glossary:InstantSend>> transactions and support additional deterministic masternode list functionality in the future.
 
 The special transaction type used for CbTx Transactions is 5 and the extra payload consists of the following data:
 
@@ -370,8 +369,8 @@ Version History
 
 | CbTx Version | First Supported Protocol Version | Dash Core Version |  Notes |
 | ---------- | ----------- | -------- | -------- |
-| 1 | 70213 | 0.13.0 | Enabled by activation of DIP3
-| 2 | 70214 | 0.14.0 | Enabled by activation of DIP8
+| 1 | 70213 | 0.13.0 | Enabled by activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)
+| 2 | 70214 | 0.14.0 | Enabled by activation of [DIP8](https://github.com/dashpay/dips/blob/master/dip-0008.md)
 
 The following annotated hexdump shows a CbTx transaction.
 
@@ -424,14 +423,18 @@ Coinbase Transaction Payload
 # QcTx
 
 *Added in protocol version 70213 of Dash Core as described by DIP6*
+[block:callout]
+{
+  "type": "warning",
+  "body": "This special transaction has no inputs and no outputs and thus also pays no fee",
+  "title": "Note"
+}
+[/block]
+The Quorum Commitment (QcTx) special transaction adds the best final commitment from a <<glossary:Long-Living Masternode Quorum>> (LLMQ) Distributed Key Generation (DKG) session to the chain.
 
-**NOTE: This special transaction has no inputs and no outputs and thus also pays no fee.**
+Since this special transaction pays no fees, it is mandatory by <<glossary:consensus rules>> to ensure that miners include it. Exactly one quorum commitment transaction MUST be included in every <<glossary:block>> while in the mining phase of the LLMQ process until a valid commitment is present in a block.
 
-The Quorum Commitment (QcTx) special transaction adds the best final commitment from a Long-Living Masternode Quorum (LLMQ) Distributed Key Generation (DKG) session to the chain.
-
-Since this special transaction pays no fees, it is mandatory by consensus rules to ensure that miners include it. Exactly one quorum commitment transaction MUST be included in every block while in the mining phase of the LLMQ process until a valid commitment is present in a block.
-
-If a DKG failed or a miner did not receive a final commitment in-time, a null commitment has to be included in the special transaction payload. A null commitment must have the `signers` and `validMembers` bitsets set to the `quorumSize` and all bits set to zero. All other fields must be set to the null representation of the field’s types.
+If a DKG failed or a <<glossary:miner>> did not receive a final commitment in-time, a null commitment has to be included in the special transaction payload. A null commitment must have the `signers` and `validMembers` bitsets set to the `quorumSize` and all bits set to zero. All other fields must be set to the null representation of the field’s types.
 
 The special transaction type used for Quorum Commitment Transactions is 6 and
 the extra payload consists of the following data:
@@ -440,7 +443,7 @@ the extra payload consists of the following data:
 | ---------- | ----------- | -------- | -------- |
 | 2 | version | uint_16 | Quorum Commitment version number. Currently set to 1.
 | 4 | height | uint32_t | Height of the block
-| Variable | commitment | qfcommit | The payload of the `qfcommit` message
+| Variable | commitment | qfcommit | The payload of the [`qfcommit` message](quorum-messages#section-qfcommit)
 
 The following annotated hexdump shows a QcTx transaction.
 

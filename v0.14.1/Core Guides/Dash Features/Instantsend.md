@@ -20,7 +20,8 @@ Sporks 2 (`SPORK_2_INSTANTSEND_ENABLED`) and 20 (`SPORK_20_INSTANTSEND_LLMQ_BASE
 
 Note: A transaction will __not__ be included in the block template (from `getblocktemplate`) unless it:
 
- 1. Has been locked, or 2. Has been in the mempool for >=10 minutes (`WAIT_FOR_ISLOCK_TIMEOUT`)
+ 1. Has been locked, or 
+ 2. Has been in the mempool for >=10 minutes (`WAIT_FOR_ISLOCK_TIMEOUT`)
 
 A miner may still include any transaction, but blocks containing only locked transactions (or ones older than the timeout) should achieve a ChainLock faster. This is desirable to miners since it prevents any reorgs that might orphan their block.
 

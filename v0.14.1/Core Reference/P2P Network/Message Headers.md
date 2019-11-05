@@ -2,7 +2,7 @@
 title: "Message Headers"
 excerpt: ""
 ---
-All messages in the network protocol use the same container format, which provides a required multi-field message header and an optional payload. The message header format is:
+All messages in the network protocol use the same container format, which provides a required multi-field <<glossary:message header>> and an optional payload. The message header format is:
 
 | Bytes | Name         | Data Type | Description
 |-------|--------------|-----------|-------------
@@ -11,7 +11,7 @@ All messages in the network protocol use the same container format, which provid
 | 4     | payload size | uint32_t  | Number of bytes in payload.  The current maximum number of bytes ([`MAX_SIZE`](https://github.com/dashpay/dash/blob/c31ba8ba4c07e72620bd71753f2103ca103bb1c2/src/serialize.h#L26)) allowed in the payload by Dash Core is 32 MiB---messages with a payload size larger than this will be dropped or rejected.
 | 4     | checksum     | char[4]   | *Added in protocol version 209.* <br><br>First 4 bytes of SHA256(SHA256(payload)) in internal byte order.<br /><br /> If payload is empty, as in `verack` and `getaddr` messages, the checksum is always 0x5df6e0e2 (SHA256(SHA256(<empty string>))).
 
-The following example is an annotated hex dump of a mainnet message header from a `verack` message which has no payload.
+The following example is an annotated hex dump of a <<glossary:mainnet>> message header from a `verack` message which has no payload.
 
 ``` text
 bf0c6bbd ................... Start string: Mainnet
