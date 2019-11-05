@@ -13,7 +13,7 @@ In the following documentation, some strings have been shortened or wrapped:
 
 This Developer Documentation describes how Dash works to help educate new Dash developers, but it is not a specification---and it never will be.
 
-Dash security depends on consensus. Should your program diverge from consensus, its security is weakened or destroyed. The cause of the divergence doesn't matter: it could be a bug in your program, it could be an error in this documentation which you implemented as described, or it could be you do everything right but other software on the network [behaves unexpectedly](https://bitcoin.org/en/alert/2013-03-11-chain-fork) as in the case of Bitcoin's v0.8 chain fork. The specific cause will not matter to the users of your software whose wealth is lost.
+Dash security depends on <<glossary:consensus>>. Should your program diverge from consensus, its security is weakened or destroyed. The cause of the divergence doesn't matter: it could be a bug in your program, it could be an error in this documentation which you implemented as described, or it could be you do everything right but other software on the <<glossary:network>> [behaves unexpectedly](https://bitcoin.org/en/alert/2013-03-11-chain-fork) as in the case of Bitcoin's v0.8 chain fork. The specific cause will not matter to the users of your software whose wealth is lost.
 
 The only correct specification of consensus behavior is the actual behavior of programs on the network which maintain consensus. As that behavior is subject to arbitrary inputs in a large variety of unique environments, it cannot ever be fully documented here or anywhere else.
 
