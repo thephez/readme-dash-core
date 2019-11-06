@@ -2,60 +2,60 @@
 # Called by update-all-message-urls.sh
 
 perl \
-	-pe "s~ \`block\` message~ \[\`block\` message\](core-ref-p2p-network-data-messages#section-block)~g;" \
-	-pe "s~ \`blocktxn\` message~ \[\`blocktxn\` message\](core-ref-p2p-network-data-messages#section-blocktxn)~g;" \
-	-pe "s~ \`cmpctblock\` message~ \[\`cmpctblock\` message\](core-ref-p2p-network-data-messages#section-cmpctblock)~g;" \
-	-pe "s~ \`getblocks\` message~ \[\`getblocks\` message\](core-ref-p2p-network-data-messages#section-getblocks)~g;" \
-	-pe "s~ \`getblocktxn\` message~ \[\`getblocktxn\` message\](core-ref-p2p-network-data-messages#section-getblocktxn)~g;" \
-	-pe "s~ \`getdata\` message~ \[\`getdata\` message\](core-ref-p2p-network-data-messages#section-getdata)~g;" \
-	-pe "s~ \`getheaders\` message~ \[\`getheaders\` message\](core-ref-p2p-network-data-messages#section-getheaders)~g;" \
-	-pe "s~ \`getmnlistd\` message~ \[\`getmnlistd\` message\](core-ref-p2p-network-data-messages#section-getmnlistd)~g;" \
-	-pe "s~ \`headers\` message~ \[\`headers\` message\](core-ref-p2p-network-data-messages#section-headers)~g;" \
-	-pe "s~ \`inv\` message~ \[\`inv\` message\](core-ref-p2p-network-data-messages#section-inv)~g;" \
-	-pe "s~ \`mempool\` message~ \[\`mempool\` message\](core-ref-p2p-network-data-messages#section-mempool)~g;" \
-	-pe "s~ \`merkleblock\` message~ \[\`merkleblock\` message\](core-ref-p2p-network-data-messages#section-merkleblock)~g;" \
-	-pe "s~ \`mnlistdiff\` message~ \[\`mnlistdiff\` message\](core-ref-p2p-network-data-messages#section-mnlistdiff)~g;" \
-	-pe "s~ \`notfound\` message~ \[\`notfound\` message\](core-ref-p2p-network-data-messages#section-notfound)~g;" \
-	-pe "s~ \`tx\` message~ \[\`tx\` message\](core-ref-p2p-network-data-messages#section-tx)~g;" \
-	-pe "s~ \`addr\` message~ \[\`addr\` message\](core-ref-p2p-network-control-messages#section-addr)~g;" \
-	-pe "s~ \`filteradd\` message~ \[\`filteradd\` message\](core-ref-p2p-network-control-messages#section-filteradd)~g;" \
-	-pe "s~ \`filterclear\` message~ \[\`filterclear\` message\](core-ref-p2p-network-control-messages#section-filterclear)~g;" \
-	-pe "s~ \`filterload\` message~ \[\`filterload\` message\](core-ref-p2p-network-control-messages#section-filterload)~g;" \
-	-pe "s~ \`getaddr\` message~ \[\`getaddr\` message\](core-ref-p2p-network-control-messages#section-getaddr)~g;" \
-	-pe "s~ \`getsporks\` message~ \[\`getsporks\` message\](core-ref-p2p-network-control-messages#section-getsporks)~g;" \
-	-pe "s~ \`ping\` message~ \[\`ping\` message\](core-ref-p2p-network-control-messages#section-ping)~g;" \
-	-pe "s~ \`pong\` message~ \[\`pong\` message\](core-ref-p2p-network-control-messages#section-pong)~g;" \
-	-pe "s~ \`reject\` message~ \[\`reject\` message\](core-ref-p2p-network-control-messages#section-reject)~g;" \
-	-pe "s~ \`sendcmpct\` message~ \[\`sendcmpct\` message\](core-ref-p2p-network-control-messages#section-sendcmpct)~g;" \
-	-pe "s~ \`senddsq\` message~ \[\`senddsq\` message\](core-ref-p2p-network-control-messages#section-senddsq)~g;" \
-	-pe "s~ \`sendheaders\` message~ \[\`sendheaders\` message\](core-ref-p2p-network-control-messages#section-sendheaders)~g;" \
-	-pe "s~ \`spork\` message~ \[\`spork\` message\](core-ref-p2p-network-control-messages#section-spork)~g;" \
-	-pe "s~ \`verack\` message~ \[\`verack\` message\](core-ref-p2p-network-control-messages#section-verack)~g;" \
-	-pe "s~ \`version\` message~ \[\`version\` message\](core-ref-p2p-network-control-messages#section-version)~g;" \
-	-pe "s~ \`govobj\` message~ \[\`govobj\` message\](core-ref-p2p-network-governance-messages#section-govobj)~g;" \
-	-pe "s~ \`govobjvote\` message~ \[\`govobjvote\` message\](core-ref-p2p-network-governance-messages#section-govobjvote)~g;" \
-	-pe "s~ \`govsync\` message~ \[\`govsync\` message\](core-ref-p2p-network-governance-messages#section-govsync)~g;" \
-	-pe "s~ \`clsig\` message~ \[\`clsig\` message\](core-ref-p2p-network-instantsend-messages#section-clsig)~g;" \
-	-pe "s~ \`islock\` message~ \[\`islock\` message\](core-ref-p2p-network-instantsend-messages#section-islock)~g;" \
-	-pe "s~ \`ssc\` message~ \[\`ssc\` message\](core-ref-p2p-network-masternode-messages#section-ssc)~g;" \
-	-pe "s~ \`mnauth\` message~ \[\`mnauth\` message\](core-ref-p2p-network-masternode-messages#section-mnauth)~g;" \
-	-pe "s~ \`dsa\` message~ \[\`dsa\` message\](core-ref-p2p-network-privatesend-messages#section-dsa)~g;" \
-	-pe "s~ \`dsc\` message~ \[\`dsc\` message\](core-ref-p2p-network-privatesend-messages#section-dsc)~g;" \
-	-pe "s~ \`dsf\` message~ \[\`dsf\` message\](core-ref-p2p-network-privatesend-messages#section-dsf)~g;" \
-	-pe "s~ \`dsi\` message~ \[\`dsi\` message\](core-ref-p2p-network-privatesend-messages#section-dsi)~g;" \
-	-pe "s~ \`dsq\` message~ \[\`dsq\` message\](core-ref-p2p-network-privatesend-messages#section-dsq)~g;" \
-	-pe "s~ \`dss\` message~ \[\`dss\` message\](core-ref-p2p-network-privatesend-messages#section-dss)~g;" \
-	-pe "s~ \`dssu\` message~ \[\`dssu\` message\](core-ref-p2p-network-privatesend-messages#section-dssu)~g;" \
-	-pe "s~ \`dstx\` message~ \[\`dstx\` message\](core-ref-p2p-network-privatesend-messages#section-dstx)~g;" \
-	-pe "s~ \`qcontrib\` message~ \[\`qcontrib\` message\](core-ref-p2p-network-quorum-messages#section-qcontrib)~g;" \
-	-pe "s~ \`qcomplaint\` message~ \[\`qcomplaint\` message\](core-ref-p2p-network-quorum-messages#section-qcomplaint)~g;" \
-	-pe "s~ \`qjustify\` message~ \[\`qjustify\` message\](core-ref-p2p-network-quorum-messages#section-qjustify)~g;" \
-	-pe "s~ \`qpcommit\` message~ \[\`qpcommit\` message\](core-ref-p2p-network-quorum-messages#section-qpcommit)~g;" \
-	-pe "s~ \`qfcommit\` message~ \[\`qfcommit\` message\](core-ref-p2p-network-quorum-messages#section-qfcommit)~g;" \
-	-pe "s~ \`qbsigs\` message~ \[\`qbsigs\` message\](core-ref-p2p-network-quorum-messages#section-qbsigs)~g;" \
-	-pe "s~ \`qgetsigs\` message~ \[\`qgetsigs\` message\](core-ref-p2p-network-quorum-messages#section-qgetsigs)~g;" \
-	-pe "s~ \`qsendrecsigs\` message~ \[\`qsendrecsigs\` message\](core-ref-p2p-network-quorum-messages#section-qsendrecsigs)~g;" \
-	-pe "s~ \`qsigrec\` message~ \[\`qsigrec\` message\](core-ref-p2p-network-quorum-messages#section-qsigrec)~g;" \
-	-pe "s~ \`qsigsesann\` message~ \[\`qsigsesann\` message\](core-ref-p2p-network-quorum-messages#section-qsigsesann)~g;" \
-	-pe "s~ \`sqsigsinv\` message~ \[\`sqsigsinv\` message\](core-ref-p2p-network-quorum-messages#section-sqsigsinv)~g;" \
-	-pe "s~ \`qwatch\` message~ \[\`qwatch\` message\](core-ref-p2p-network-quorum-messages#section-qwatch)~g;" \
+	-pe "s~ (\`block\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-block)~g;" \
+	-pe "s~ (\`blocktxn\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-blocktxn)~g;" \
+	-pe "s~ (\`cmpctblock\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-cmpctblock)~g;" \
+	-pe "s~ (\`getblocks\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-getblocks)~g;" \
+	-pe "s~ (\`getblocktxn\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-getblocktxn)~g;" \
+	-pe "s~ (\`getdata\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-getdata)~g;" \
+	-pe "s~ (\`getheaders\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-getheaders)~g;" \
+	-pe "s~ (\`getmnlistd\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-getmnlistd)~g;" \
+	-pe "s~ (\`headers\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-headers)~g;" \
+	-pe "s~ (\`inv\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-inv)~g;" \
+	-pe "s~ (\`mempool\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-mempool)~g;" \
+	-pe "s~ (\`merkleblock\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-merkleblock)~g;" \
+	-pe "s~ (\`mnlistdiff\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-mnlistdiff)~g;" \
+	-pe "s~ (\`notfound\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-notfound)~g;" \
+	-pe "s~ (\`tx\` message[s]?)~ \[\1\](core-ref-p2p-network-data-messages#section-tx)~g;" \
+	-pe "s~ (\`addr\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-addr)~g;" \
+	-pe "s~ (\`filteradd\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-filteradd)~g;" \
+	-pe "s~ (\`filterclear\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-filterclear)~g;" \
+	-pe "s~ (\`filterload\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-filterload)~g;" \
+	-pe "s~ (\`getaddr\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-getaddr)~g;" \
+	-pe "s~ (\`getsporks\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-getsporks)~g;" \
+	-pe "s~ (\`ping\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-ping)~g;" \
+	-pe "s~ (\`pong\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-pong)~g;" \
+	-pe "s~ (\`reject\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-reject)~g;" \
+	-pe "s~ (\`sendcmpct\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-sendcmpct)~g;" \
+	-pe "s~ (\`senddsq\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-senddsq)~g;" \
+	-pe "s~ (\`sendheaders\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-sendheaders)~g;" \
+	-pe "s~ (\`spork\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-spork)~g;" \
+	-pe "s~ (\`verack\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-verack)~g;" \
+	-pe "s~ (\`version\` message[s]?)~ \[\1\](core-ref-p2p-network-control-messages#section-version)~g;" \
+	-pe "s~ (\`govobj\` message[s]?)~ \[\1\](core-ref-p2p-network-governance-messages#section-govobj)~g;" \
+	-pe "s~ (\`govobjvote\` message[s]?)~ \[\1\](core-ref-p2p-network-governance-messages#section-govobjvote)~g;" \
+	-pe "s~ (\`govsync\` message[s]?)~ \[\1\](core-ref-p2p-network-governance-messages#section-govsync)~g;" \
+	-pe "s~ (\`clsig\` message[s]?)~ \[\1\](core-ref-p2p-network-instantsend-messages#section-clsig)~g;" \
+	-pe "s~ (\`islock\` message[s]?)~ \[\1\](core-ref-p2p-network-instantsend-messages#section-islock)~g;" \
+	-pe "s~ (\`ssc\` message[s]?)~ \[\1\](core-ref-p2p-network-masternode-messages#section-ssc)~g;" \
+	-pe "s~ (\`mnauth\` message[s]?)~ \[\1\](core-ref-p2p-network-masternode-messages#section-mnauth)~g;" \
+	-pe "s~ (\`dsa\` message[s]?)~ \[\1\](core-ref-p2p-network-privatesend-messages#section-dsa)~g;" \
+	-pe "s~ (\`dsc\` message[s]?)~ \[\1\](core-ref-p2p-network-privatesend-messages#section-dsc)~g;" \
+	-pe "s~ (\`dsf\` message[s]?)~ \[\1\](core-ref-p2p-network-privatesend-messages#section-dsf)~g;" \
+	-pe "s~ (\`dsi\` message[s]?)~ \[\1\](core-ref-p2p-network-privatesend-messages#section-dsi)~g;" \
+	-pe "s~ (\`dsq\` message[s]?)~ \[\1\](core-ref-p2p-network-privatesend-messages#section-dsq)~g;" \
+	-pe "s~ (\`dss\` message[s]?)~ \[\1\](core-ref-p2p-network-privatesend-messages#section-dss)~g;" \
+	-pe "s~ (\`dssu\` message[s]?)~ \[\1\](core-ref-p2p-network-privatesend-messages#section-dssu)~g;" \
+	-pe "s~ (\`dstx\` message[s]?)~ \[\1\](core-ref-p2p-network-privatesend-messages#section-dstx)~g;" \
+	-pe "s~ (\`qcontrib\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qcontrib)~g;" \
+	-pe "s~ (\`qcomplaint\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qcomplaint)~g;" \
+	-pe "s~ (\`qjustify\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qjustify)~g;" \
+	-pe "s~ (\`qpcommit\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qpcommit)~g;" \
+	-pe "s~ (\`qfcommit\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qfcommit)~g;" \
+	-pe "s~ (\`qbsigs\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qbsigs)~g;" \
+	-pe "s~ (\`qgetsigs\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qgetsigs)~g;" \
+	-pe "s~ (\`qsendrecsigs\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qsendrecsigs)~g;" \
+	-pe "s~ (\`qsigrec\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qsigrec)~g;" \
+	-pe "s~ (\`qsigsesann\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qsigsesann)~g;" \
+	-pe "s~ (\`sqsigsinv\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-sqsigsinv)~g;" \
+	-pe "s~ (\`qwatch\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qwatch)~g;" \
