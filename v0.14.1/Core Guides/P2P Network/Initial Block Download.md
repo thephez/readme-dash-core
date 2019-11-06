@@ -64,7 +64,7 @@ All of these problems are addressed in part or in full by the headers-first IBD 
 
 **Resources:** The table below summarizes the messages mentioned throughout this subsection. The links in the message field will take you to the reference page for that message.
 
-| **Message** | `getblocks` message | `inv` message                             | `getdata` message  | `block` message
+| **Message** | getblocks message | inv message                             | getdata message  | block message
 | --- | --- | --- | --- | --- |
 | **From→To** | IBD→Sync                         | Sync→IBD                                         | IBD→Sync                      | Sync→IBD
 | **Payload** | One or more header hashes        | Up to 500 block inventories (unique identifiers) | One or more block inventories | One serialized block
@@ -105,7 +105,7 @@ Once the IBD node is synced to the tip of the block chain, it will accept blocks
 
 **Resources:** The table below summarizes the messages mentioned throughout this subsection. The links in the message field will take you to the reference page for that message.
 
-| **Message** | `getheaders` message | `headers` message | `getdata` message                             | `block` message
+| **Message** | getheaders message | headers message | getdata message                             | block message
 | --- | --- | --- | --- | --- |
 | **From→To** | IBD→Sync                           | Sync→IBD                     | IBD→*Many*                                               | *Many*→IBD
 | **Payload** | One or more header hashes          | Up to 2,000 block headers    | One or more block inventories derived from header hashes | One serialized block
