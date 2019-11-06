@@ -57,5 +57,5 @@ perl \
 	-pe "s~ (\`qsendrecsigs\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qsendrecsigs)~g;" \
 	-pe "s~ (\`qsigrec\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qsigrec)~g;" \
 	-pe "s~ (\`qsigsesann\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qsigsesann)~g;" \
-	-pe "s~ (\`sqsigsinv\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-sqsigsinv)~g;" \
+	-pe "s~ (\`qsigsinv\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qsigsinv)~g;" \
 	-pe "s~ (\`qwatch\` message[s]?)~ \[\1\](core-ref-p2p-network-quorum-messages#section-qwatch)~g;" \
