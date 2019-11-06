@@ -4,7 +4,7 @@ excerpt: ""
 ---
 # GetBlockTemplate
 
-The `getblocktemplate` RPC gets a block template or proposal for use with mining software. For more
+The [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-getblocktemplate) gets a block template or proposal for use with mining software. For more
 information, please see the following resources:
 
 * [Bitcoin Wiki GetBlockTemplate](https://en.bitcoin.it/wiki/Getblocktemplate)
@@ -147,7 +147,7 @@ Result:
 
 # GetMiningInfo
 
-The `getmininginfo` RPC returns various mining-related information.
+The [`getmininginfo` RPC](core-api-ref-remote-procedure-calls-mining#section-getmininginfo) returns various mining-related information.
 
 *Parameters: none*
 
@@ -162,7 +162,7 @@ Name | Type | Presence | Description
 →<br>`difficulty` | number (real) | Required<br>(exactly 1) | If generation was enabled since the last time this node was restarted, this is the difficulty of the highest-height block in the local best block chain.  Otherwise, this is the value `0`
 →<br>`errors` | string | Required<br>(exactly 1) | A plain-text description of any errors this node has encountered or detected.  If there are no errors, an empty string will be returned.  This is not related to the JSON-RPC `error` field
 →<br>`genproclimit` | number (int) | Required<br>(exactly 1) | The processor limit for generation (-1 if no generation - see getgenerate or setgenerate calls).<br><br>*Removed in Bitcoin Core 0.13.0*
-→<br>`networkhashps` | number (int) | Required<br>(exactly 1) | An estimate of the number of hashes per second the network is generating to maintain the current difficulty.  See the `getnetworkhashps` RPC for configurable access to this data
+→<br>`networkhashps` | number (int) | Required<br>(exactly 1) | An estimate of the number of hashes per second the network is generating to maintain the current difficulty.  See the [`getnetworkhashps` RPC](core-api-ref-remote-procedure-calls-mining#section-getnetworkhashps) for configurable access to this data
 →<br>`pooledtx` | number (int) | Required<br>(exactly 1) | The number of transactions in the memory pool
 →<br>`testnet` | bool | Required<br>(exactly 1) | Set to `true` if this node is running on testnet.  Set to `false` if this node is on mainnet or a regtest<br><br>*Removed in Bitcoin Core 0.14.0*
 →<br>`chain` | string | Required<br>(exactly 1) | Set to `main` for mainnet, `test` for testnet, and `regtest` for regtest
@@ -201,7 +201,7 @@ Result:
 
 # GetNetworkHashPS
 
-The `getnetworkhashps` RPC returns the estimated network hashes per second based on the last n blocks.
+The [`getnetworkhashps` RPC](core-api-ref-remote-procedure-calls-mining#section-getnetworkhashps) returns the estimated network hashes per second based on the last n blocks.
 
 *Parameter #1---number of blocks to average*
 
@@ -243,7 +243,7 @@ Result:
 
 # PrioritiseTransaction
 
-The `prioritisetransaction` RPC adds virtual priority or fee to a transaction, allowing it to be accepted into blocks mined by this node (or miners which use this node) with a lower priority or fee. (It can also remove virtual priority or fee, requiring the transaction have a higher priority or fee to be accepted into a locally-mined block.)
+The [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) adds virtual priority or fee to a transaction, allowing it to be accepted into blocks mined by this node (or miners which use this node) with a lower priority or fee. (It can also remove virtual priority or fee, requiring the transaction have a higher priority or fee to be accepted into a locally-mined block.)
 
 *Parameter #1---the TXID of the transaction to modify*
 
@@ -284,7 +284,7 @@ true
 
 # SubmitBlock
 
-The `submitblock` RPC accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.
+The [`submitblock` RPC](core-api-ref-remote-procedure-calls-mining#section-submitblock) accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.
 
 *Parameter #1---the new block in serialized block format as hex*
 

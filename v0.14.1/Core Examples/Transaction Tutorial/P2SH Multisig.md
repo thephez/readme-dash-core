@@ -46,7 +46,7 @@ Recall from the Guide that the hashed public keys used in addresses obfuscate th
 > NEW_ADDRESS3_PUBLIC_KEY=038007ef6fd812d73da054271b68a42dae0667[...]
 ```
 
-Use the `validateaddress` RPC to display the full (unhashed) public key for one of the addresses.  This is the information which will actually be included in the multisig redeem script.  This is also the information you would give another person or device as part of creating a multisig output or P2SH multisig redeem script.
+Use the [`validateaddress` RPC](core-api-ref-remote-procedure-calls-utility#section-validateaddress) to display the full (unhashed) public key for one of the addresses.  This is the information which will actually be included in the multisig redeem script.  This is also the information you would give another person or device as part of creating a multisig output or P2SH multisig redeem script.
 
 We save the address returned to a shell variable.
 
@@ -73,13 +73,13 @@ We save the address returned to a shell variable.
 > P2SH_REDEEM_SCRIPT=522103fa8866cccae3c975a72884443a351801a0ea9[...]
 ```
 
-Use the `createmultisig` RPC with two arguments, the number (*n*) of signatures required and a list of addresses or public keys.  Because P2PKH addresses can't be used in the multisig redeem script created by this RPC, the only addresses which can be provided are those belonging to a public key in the wallet.  In this case, we provide two addresses and one public key---all of which will be converted to public keys in the redeem script.
+Use the [`createmultisig` RPC](core-api-ref-remote-procedure-calls-utility#section-createmultisig) with two arguments, the number (*n*) of signatures required and a list of addresses or public keys.  Because P2PKH addresses can't be used in the multisig redeem script created by this RPC, the only addresses which can be provided are those belonging to a public key in the wallet.  In this case, we provide two addresses and one public key---all of which will be converted to public keys in the redeem script.
 
 The P2SH address is returned along with the redeem script which must be provided when we spend duffs sent to the P2SH address.
 
 ![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** You must not lose the redeem script, especially if you don't have a record of which public keys you used to create the P2SH multisig address. You need the redeem script to spend any dash sent to the P2SH address. If you lose the redeem script, you can recreate it by running the same command above, with the public keys listed in the same order. However, if you lose both the redeem script and even one of the public keys, you will never be able to spend duffs sent to that P2SH address.
 
-Neither the address nor the redeem script are stored in the wallet when you use `createmultisig`. To store them in the wallet, use the `addmultisigaddress` RPC instead.  If you add an address to the wallet, you should also make a new backup.
+Neither the address nor the redeem script are stored in the wallet when you use `createmultisig`. To store them in the wallet, use the [`addmultisigaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-addmultisigaddress) instead.  If you add an address to the wallet, you should also make a new backup.
 
 ``` bash
 > dash-cli -regtest sendtoaddress $P2SH_ADDRESS 10.00
@@ -165,7 +165,7 @@ We save that txid to a shell variable as the txid of the UTXO we plan to spend n
 > UTXO_OUTPUT_SCRIPT=a9144f334f26e350c8903c92ff25b733670902cfad5a87
 ```
 
-We use the `getrawtransaction` RPC with the optional second argument (*true*) to get the decoded transaction we just created with `sendtoaddress`. We choose one of the outputs to be our UTXO and get its output index number (vout) and pubkey script (scriptPubKey).
+We use the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-getrawtransaction) with the optional second argument (*true*) to get the decoded transaction we just created with `sendtoaddress`. We choose one of the outputs to be our UTXO and get its output index number (vout) and pubkey script (scriptPubKey).
 
 ``` bash
 > dash-cli -regtest getnewaddress

@@ -6,7 +6,7 @@ excerpt: ""
 
 *Requires wallet support.*
 
-The `generate` RPC mines blocks immediately (before the RPC call returns).
+The [`generate` RPC](core-api-ref-remote-procedure-calls-generating#section-generate) mines blocks immediately (before the RPC call returns).
 
 *Parameter #1---the number of blocks to generate*
 
@@ -58,7 +58,7 @@ Result:
 
 *Requires wallet support.*
 
-The `generatetoaddress` RPC mines blocks immediately to a specified address.
+The [`generatetoaddress` RPC](core-api-ref-remote-procedure-calls-generating#section-generatetoaddress) mines blocks immediately to a specified address.
 
 *Parameter #1---the number of blocks to generate*
 

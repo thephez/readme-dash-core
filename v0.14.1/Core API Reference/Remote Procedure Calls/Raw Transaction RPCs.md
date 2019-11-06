@@ -4,7 +4,7 @@ excerpt: ""
 ---
 # CombineRawTransaction
 
-The `combinerawtransaction` RPC combine multiple partially signed transactions into one transaction.
+The [`combinerawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-combinerawtransaction) combine multiple partially signed transactions into one transaction.
 
 The combined transaction may be another partially signed transaction or a
 fully signed transaction.
@@ -60,7 +60,7 @@ a8f027d8a77cbdcb88ac00000000
 
 # CreateRawTransaction
 
-The `createrawtransaction` RPC creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+The [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction) creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 
 *Parameter #1---Inputs*
 
@@ -125,7 +125,7 @@ cfc9f32ef388acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b4\
 
 # DecodeRawTransaction
 
-The `decoderawtransaction` RPC decodes a serialized transaction hex string into a JSON object describing the transaction.
+The [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction) decodes a serialized transaction hex string into a JSON object describing the transaction.
 
 *Parameter #1---serialized transaction in hex*
 
@@ -319,7 +319,7 @@ Result:
 
 # DecodeScript
 
-The `decodescript` RPC decodes a hex-encoded P2SH redeem script.
+The [`decodescript` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-decodescript) decodes a hex-encoded P2SH redeem script.
 
 *Parameter #1---a hex-encoded redeem script*
 
@@ -377,7 +377,7 @@ Result:
 
 *Requires wallet support.*
 
-The `fundrawtransaction` RPC adds inputs to a transaction until it has enough in value to meet its out value.  This will not modify existing inputs, and will add one change output to the outputs.
+The [`fundrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-fundrawtransaction) adds inputs to a transaction until it has enough in value to meet its out value.  This will not modify existing inputs, and will add one change output to the outputs.
 Note that inputs which were signed may need to be resigned after completion since in/outputs have been added.  The inputs added will not be signed, use signrawtransaction for that.
 All existing inputs must have their previous output transaction be in the wallet.
 
@@ -442,7 +442,7 @@ Result:
 
 # GetRawTransaction
 
-The `getrawtransaction` RPC gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
+The [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-getrawtransaction) gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
 
 Note: By default this function only works for mempool transactions. If the
 `-txindex` option is enabled, it also works for blockchain transactions. For now,
@@ -724,7 +724,7 @@ Result:
 
 # SendRawTransaction
 
-The `sendrawtransaction` RPC validates a transaction and broadcasts it to the peer-to-peer network.
+The [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction) validates a transaction and broadcasts it to the peer-to-peer network.
 
 *Parameter #1---a serialized transaction to broadcast*
 
@@ -780,7 +780,7 @@ Result:
 
 # SignRawTransaction
 
-The `signrawtransaction` RPC signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+The [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction) signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
 
 *Parameter #1---the transaction to sign*
 
@@ -811,7 +811,7 @@ Private Keys | array | Optional<br>(0 or 1) | An array holding private keys.  If
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the `signrawtransaction` RPC if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
+SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
 
 *Result---the transaction with any signatures made*
 

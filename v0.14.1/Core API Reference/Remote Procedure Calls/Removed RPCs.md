@@ -6,7 +6,7 @@ excerpt: ""
 
 {{WARNING}} **_Removed in Dash Core 0.14.0._**
 
-The `estimatepriority` RPC was removed in Dash Core 0.14.0. This should not to be confused with the `prioritisetransaction` RPC which will remain supported for adding fee deltas to transactions.
+The [`estimatepriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimatepriority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) which will remain supported for adding fee deltas to transactions.
 
 *Parameter #1---how many blocks the transaction may wait before being included as a free high-priority transaction*
 
@@ -52,7 +52,7 @@ Result:
 
 {{WARNING}} **_Removed in Dash Core 0.14.0._**
 
-The `estimatesmartpriority` RPC was removed in Dash Core 0.14.0. This should not to be confused with the `prioritisetransaction` RPC which will remain supported for adding fee deltas to transactions.
+The [`estimatesmartpriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimatesmartpriority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) which will remain supported for adding fee deltas to transactions.
 
 *Parameter #1---how many blocks the transaction may wait before being included as a free high-priority transaction*
 
@@ -106,7 +106,7 @@ Result:
 
 *Requires wallet support.*
 
-{{WARNING_ICON}} The `gethashespersec` RPC was removed in Bitcoin Core 0.11.0 and is not part of Dash.
+{{WARNING_ICON}} The [`gethashespersec` RPC](core-api-ref-remote-procedure-calls-removed#section-gethashespersec) was removed in Bitcoin Core 0.11.0 and is not part of Dash.
 
 *See also*
 
@@ -115,7 +115,7 @@ Result:
 
 # GetWork
 
-{{WARNING_ICON}} The `getwork` RPC was removed in Bitcoin Core 0.10.0. and is not part of Dash.
+{{WARNING_ICON}} The [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-getwork) was removed in Bitcoin Core 0.10.0. and is not part of Dash.
 
 *See also*
 
@@ -128,7 +128,7 @@ Result:
 
 **_Removed in Dash Core 0.12.3 / Bitcoin Core 0.13.0._**
 
-The `getgenerate` RPC was removed in Dash Core 0.12.3.
+The [`getgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-getgenerate) was removed in Dash Core 0.12.3.
 
 *Parameters: none*
 
@@ -161,7 +161,7 @@ false
 
 {{WARNING}} **_Removed in Dash Core 0.14.0._**
 
-The `masternodebroadcast` RPC was removed in Dash Core 0.14.0.
+The [`masternodebroadcast` RPC](core-api-ref-remote-procedure-calls-removed#section-masternodebroadcast) was removed in Dash Core 0.14.0.
 
 *Parameter #1---masternode broadcast command*
 
@@ -262,7 +262,7 @@ Result | object | Required<br>(exactly 1) | Object containing result data
 →<br>`vchSig` | string (base64) | Required<br>(exactly 1) | Masternode signature
 →<br>`sigTime` | int64_t | Required<br>(exactly 1) | Signature time as a Unix epoch
 →<br>`protocolVersion` | int | Required<br>(exactly 1) | Dash protocol version
-→<br>`nLastDsq` | int64_t | Required<br>(exactly 1) | Dsq count from the last `dsq` message from this node
+→<br>`nLastDsq` | int64_t | Required<br>(exactly 1) | Dsq count from the last [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) from this node
 →<br>lastPing | object | Required<br>(exactly 1) | Ping object (`mnp` message)
 → →<br>`outpoint` | string (hex) | Required<br>(exactly 1) | Masternode outpoint
 → →<br>`blockHash` | string (hex) | Required<br>(exactly 1) | Block hash from 12 blocks prior to the current tip
@@ -365,7 +365,7 @@ Result:
 
 {{WARNING}} **_Removed in Dash Core 0.14.0._**
 
-The `sentinelping` RPC was removed in Dash Core 0.14.0.
+The [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed#section-sentinelping) was removed in Dash Core 0.14.0.
 
 *Parameter #1---sentinel version*
 
@@ -398,7 +398,7 @@ true
 
 **_Removed in Dash Core 0.12.3 / Bitcoin Core 0.13.0._**
 
-The `setgenerate` RPC was removed in Dash Core 0.12.3.
+The [`setgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-setgenerate) was removed in Dash Core 0.12.3.
 
 *Parameter #1---enable/disable generation*
 

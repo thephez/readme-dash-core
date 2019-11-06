@@ -18,9 +18,9 @@ Get a new Dash address and save it in the shell variable `$NEW_ADDRESS`.
 c7e5ae1240fdd83bb94c94a93816ed2ab7bcb56ec3ff8a9725c5c1e0482684ea
 ```
 
-Send 10 dash to the address using the `sendtoaddress` RPC.  The returned hex string is the transaction identifier (txid).
+Send 10 dash to the address using the [`sendtoaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-sendtoaddress).  The returned hex string is the transaction identifier (txid).
 
-The `sendtoaddress` RPC automatically selects an unspent transaction output (UTXO) from which to spend the duffs. In this case, it withdrew the duffs from our only available UTXO, the coinbase transaction for block #1 which matured with the creation of block #101. To spend a specific UTXO, you could use the `sendfrom` RPC instead.
+The [`sendtoaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-sendtoaddress) automatically selects an unspent transaction output (UTXO) from which to spend the duffs. In this case, it withdrew the duffs from our only available UTXO, the coinbase transaction for block #1 which matured with the creation of block #101. To spend a specific UTXO, you could use the [`sendfrom` RPC](core-api-ref-remote-procedure-calls-wallet#section-sendfrom) instead.
 
 ``` bash
 > dash-cli -regtest listunspent
@@ -28,7 +28,7 @@ The `sendtoaddress` RPC automatically selects an unspent transaction output (UTX
 ]
 ```
 
-Use the `listunspent` RPC to display the UTXOs belonging to this wallet. The list is empty because it defaults to only showing confirmed UTXOs and we just spent our only confirmed UTXO.
+Use the [`listunspent` RPC](core-api-ref-remote-procedure-calls-wallet#section-listunspent) to display the UTXOs belonging to this wallet. The list is empty because it defaults to only showing confirmed UTXOs and we just spent our only confirmed UTXO.
 
 ``` bash
 > dash-cli -regtest listunspent 0
@@ -62,7 +62,7 @@ Use the `listunspent` RPC to display the UTXOs belonging to this wallet. The lis
 ]
 ```
 
-Re-running the `listunspent` RPC with the argument "0" to also display unconfirmed transactions shows that we have two UTXOs, both with the same txid. The first UTXO shown is a change output that `sendtoaddress` created using a new address from the key pool. The second UTXO shown is the spend to the address we provided. If we had spent those duffs to someone else, that second transaction would not be displayed in our list of UTXOs.
+Re-running the [`listunspent` RPC](core-api-ref-remote-procedure-calls-wallet#section-listunspent) with the argument "0" to also display unconfirmed transactions shows that we have two UTXOs, both with the same txid. The first UTXO shown is a change output that `sendtoaddress` created using a new address from the key pool. The second UTXO shown is the spend to the address we provided. If we had spent those duffs to someone else, that second transaction would not be displayed in our list of UTXOs.
 
 ``` bash
 > dash-cli -regtest generate 1

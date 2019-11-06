@@ -24,7 +24,7 @@ bb3183301d7a1fb3bd174fcfa40a2b65 ... Hash #2
 1d ................................. Flags: 1 0 1 1 1 0 0 0
 ```
 
-We parse the above `merkleblock` message using the following instructions.  Each illustration is described in the paragraph below it.
+We parse the above [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) using the following instructions.  Each illustration is described in the paragraph below it.
 
 ![Parsing A MerkleBlock](https://dash-docs.github.io/img/dev/gifs/en-merkleblock-parsing/en-merkleblock-parsing-001.svg)
 
@@ -36,7 +36,7 @@ The first flag is a 1 and the merkle root is (as always) a non-TXID node, so we 
 
 ![Parsing A MerkleBlock](https://dash-docs.github.io/img/dev/gifs/en-merkleblock-parsing/en-merkleblock-parsing-003.svg)
 
-The next flag in the example is a 0 and this is also a non-TXID node, so we apply the first hash from the `merkleblock` message to this node. We also don't process any child nodes---according to the peer which created the `merkleblock` message, none of those nodes will lead to TXIDs of transactions that match our filter, so we don't need them. We go back up to the merkle root and then descend into its right child and look at the next (third) flag for instructions.
+The next flag in the example is a 0 and this is also a non-TXID node, so we apply the first hash from the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) to this node. We also don't process any child nodes---according to the peer which created the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock), none of those nodes will lead to TXIDs of transactions that match our filter, so we don't need them. We go back up to the merkle root and then descend into its right child and look at the next (third) flag for instructions.
 
 ![Parsing A MerkleBlock](https://dash-docs.github.io/img/dev/gifs/en-merkleblock-parsing/en-merkleblock-parsing-004.svg)
 

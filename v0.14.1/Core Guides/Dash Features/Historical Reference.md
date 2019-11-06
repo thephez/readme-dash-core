@@ -34,14 +34,14 @@ The following video provides an overview with a good introduction to the details
 
 | **InstantSend Client** | **Direction**  | **Peers**   | **Description** |
 | --- | :---: | --- | --- |
-| `inv` message (ix)          | → |                         | Client sends inventory for transaction lock request
-|                             | ← | `getdata` message (ix)  | Peer responds with request for transaction lock request
+| [`inv` message](core-ref-p2p-network-data-messages#section-inv) (ix)          | → |                         | Client sends inventory for transaction lock request
+|                             | ← | [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) (ix)  | Peer responds with request for transaction lock request
 | `ix` message                | → |                         | Client sends InstantSend transaction lock request
-|                             | ← | `inv` message (txlvote) | Masternodes in the [quorum](core-guide-dash-features-masternode-quorums#section-quorum-selection) respond with votes
-| `getdata` message (txlvote) | → |                         | Client requests vote
+|                             | ← | [`inv` message](core-ref-p2p-network-data-messages#section-inv) (txlvote) | Masternodes in the [quorum](core-guide-dash-features-masternode-quorums#section-quorum-selection) respond with votes
+| [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) (txlvote) | → |                         | Client requests vote
 |                             | ← | `txlvote` message       | Peer responds with vote
 
-Once an InstantSend lock has been requested, the `instantsend` field of various RPCs (e.g. the `getmempoolentry` RPC) is set to `true`. Then, if a sufficient number of votes approve the transaction lock, the InstantSend transaction is approved the `instantlock` field of the RPC is set to `true`.
+Once an InstantSend lock has been requested, the `instantsend` field of various RPCs (e.g. the [`getmempoolentry` RPC](core-api-ref-remote-procedure-calls-blockchain#section-getmempoolentry)) is set to `true`. Then, if a sufficient number of votes approve the transaction lock, the InstantSend transaction is approved the `instantlock` field of the RPC is set to `true`.
 
 If an InstantSend transaction is a valid transaction but does not receive a transaction lock, it reverts to being a standard transaction.
 
@@ -106,22 +106,22 @@ The following table details the data flow of P2P messages exchanged during initi
 | **Syncing Node Message** | **Direction**  | **Masternode Response**   | **Description** |
 | --- | :---: | --- | --- |
 | **1. Sporks** |   |  |  |
-| `getsporks` message                            | → |                           | Syncing node requests sporks
-|                                                | ← | `spork` message(s)        |
+| [`getsporks` message](core-ref-p2p-network-control-messages#section-getsporks)                            | → |                           | Syncing node requests sporks
+|                                                | ← | [`spork` message](core-ref-p2p-network-control-messages#section-spork)(s)        |
 | **2. Masternode List** |   |  | Sync Masternode list from other connected clients |
 | `dseg` message                                 | → |                           | Syncing node requests masternode list
-|                                                | ← | `ssc` message | Number of entries in masternode list (MASTERNODE_SYNC_LIST)<br><br>Only sent if requesting entire list
-|                                                | ← | `inv` message(s) (mnb)         | MSG_MASTERNODE_ANNOUNCE
-|                                                | ← | `inv` message(s) (mnp)         | MSG_MASTERNODE_PING
-| `getdata` message(s) (mnb) | → |                           | (Optional)
-| `getdata` message(s) (mnp)     | → |                           | (Optional)
+|                                                | ← | [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) | Number of entries in masternode list (MASTERNODE_SYNC_LIST)<br><br>Only sent if requesting entire list
+|                                                | ← | [`inv` message](core-ref-p2p-network-data-messages#section-inv)(s) (mnb)         | MSG_MASTERNODE_ANNOUNCE
+|                                                | ← | [`inv` message](core-ref-p2p-network-data-messages#section-inv)(s) (mnp)         | MSG_MASTERNODE_PING
+| [`getdata` message](core-ref-p2p-network-data-messages#section-getdata)(s) (mnb) | → |                           | (Optional)
+| [`getdata` message](core-ref-p2p-network-data-messages#section-getdata)(s) (mnp)     | → |                           | (Optional)
 |                                                | ← | `mnb` message(s)          | (If requested) Masternode announce message
 |                                                | ← | `mnp` message(s)          | (If requested) Masternode ping message
 | **3. Masternode payments** |   |  | Ask node for all payment votes it has (new nodes will only return votes for future payments) |
 | `mnget` message                                | → |                           | Syncing node requests masternode payment sync
-|                                                | ← | `ssc` message | Number of entries in masternode payment list
-|                                                | ← | `inv` message(s) (mnw)         | MSG_MASTERNODE_PAYMENT_VOTE
-| `getdata` message(s) (mnw) | → |                           | (Optional)
+|                                                | ← | [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) | Number of entries in masternode payment list
+|                                                | ← | [`inv` message](core-ref-p2p-network-data-messages#section-inv)(s) (mnw)         | MSG_MASTERNODE_PAYMENT_VOTE
+| [`getdata` message](core-ref-p2p-network-data-messages#section-getdata)(s) (mnw) | → |                           | (Optional)
 |                                                | ← | `mnw` message(s)          | (If requested) Masternode payment vote message
 | **4. Governance** |   |  | See [Governance sync](core-guide-dash-features-governance) |
 
