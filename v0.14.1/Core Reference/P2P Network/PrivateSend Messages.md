@@ -175,7 +175,7 @@ Transaction Message
 
 # dsi
 
-The [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) replies to a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) that has the Ready field set to 0x01. The [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) contains user inputs for mixing along with the outputs and a collateral. Once the masternode receives [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi)s from all members of the pool, it responds with a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf).
+The [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) replies to a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) that has the Ready field set to 0x01. The [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) contains user inputs for mixing along with the outputs and a collateral. Once the masternode receives [`dsi` messages](core-ref-p2p-network-privatesend-messages#section-dsi) from all members of the pool, it responds with a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf).
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
@@ -303,7 +303,7 @@ User outputs
 
 The [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) provides nodes with mixing queue details and notifies them when to sign final mixing TX messages.
 
-If the message indicates the queue is not ready, the node verifies the message is valid. It also verifies that the masternode is not flooding the network with [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq)s in an attempt to dominate the queuing process. It then relays the message to its connected peers.
+If the message indicates the queue is not ready, the node verifies the message is valid. It also verifies that the masternode is not flooding the network with [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) in an attempt to dominate the queuing process. It then relays the message to its connected peers.
 
 If the message indicates the queue is ready, the node responds with a [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi).
 
@@ -353,7 +353,7 @@ Masternode Outpoint
 
 The [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss) replies to a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf) sent by the masternode managing the mixing session.  The [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf) provides the unsigned transaction inputs for all members of the mixing pool. Each node verifies that the final transaction matches what is expected. They then sign any transaction inputs belonging to them and then relay them to the masternode via this [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss).
 
-Once the masternode receives and validates all [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss)s, it issues a [`dsc` message](core-ref-p2p-network-privatesend-messages#section-dsc). If a node does not respond to a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf) with signed transaction inputs, it may forfeit the collateral it provided. This is to minimize malicious behavior.
+Once the masternode receives and validates all [`dss` messages](core-ref-p2p-network-privatesend-messages#section-dss), it issues a [`dsc` message](core-ref-p2p-network-privatesend-messages#section-dsc). If a node does not respond to a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf) with signed transaction inputs, it may forfeit the collateral it provided. This is to minimize malicious behavior.
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |

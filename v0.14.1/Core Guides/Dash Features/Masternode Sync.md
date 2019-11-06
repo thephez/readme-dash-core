@@ -28,7 +28,7 @@ The following table details the data flow of P2P messages exchanged during initi
 
 *Masternode Sync Status*
 
-There are several status values used to track masternode synchronization. They are used in both [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc)s and the `mnsync` RPC.
+There are several status values used to track masternode synchronization. They are used in both [`ssc` messages](core-ref-p2p-network-masternode-messages#section-ssc) and the `mnsync` RPC.
 
 | **Value** | **Status**  | **Description** |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ Once a masternode completes an initial full sync, continuing synchronization is 
 
 **Governance**
 
-After the initial governance synchronization, governance information is kept current by the [`govobj` message](core-ref-p2p-network-governance-messages#section-govobj)s and [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote)s relayed on the network. Unsynchronized peers may send [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync)s to request governance sync.
+After the initial governance synchronization, governance information is kept current by the [`govobj` messages](core-ref-p2p-network-governance-messages#section-govobj) and [`govobjvote` messages](core-ref-p2p-network-governance-messages#section-govobjvote) relayed on the network. Unsynchronized peers may send [`govsync` messages](core-ref-p2p-network-governance-messages#section-govsync) to request governance sync.
 
 # Masternode Sync Schedule
 

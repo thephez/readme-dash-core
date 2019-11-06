@@ -16,7 +16,7 @@ When a miner discovers a new block, it broadcasts the new block to its peers usi
 
    * Each Simplified Payment Verification (SPV) client that wants the block replies with a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) typically requesting a merkle block.
 
-   The miner replies to each request accordingly by sending the block in a [`block` message](core-ref-p2p-network-data-messages#section-block), one or more headers in a [`headers` message](core-ref-p2p-network-data-messages#section-headers), or the merkle block and transactions relative to the SPV client's bloom filter in a [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) followed by zero or more [`tx` message](core-ref-p2p-network-data-messages#section-tx)s.
+   The miner replies to each request accordingly by sending the block in a [`block` message](core-ref-p2p-network-data-messages#section-block), one or more headers in a [`headers` message](core-ref-p2p-network-data-messages#section-headers), or the merkle block and transactions relative to the SPV client's bloom filter in a [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) followed by zero or more [`tx` messages](core-ref-p2p-network-data-messages#section-tx).
 
 By default, Dash Core broadcasts blocks using standard block relay, but it will accept blocks sent using either of the methods described above.
 
