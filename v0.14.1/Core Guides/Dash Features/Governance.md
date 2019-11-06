@@ -10,8 +10,7 @@ The [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync
 
 There are two distinct stages of governance sync:
 
-1. Initial request (object sync) - requests the governance objects only via a
-`govsync` message sent with a hash of all zeros.  
+1. Initial request (object sync) - requests the governance objects only via a `govsync` message sent with a hash of all zeros.  
 
 2. Follow up request(s) (vote sync) - request governance object votes for a specific object via a [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync) containing the hash of the object. One message is required for each object. Dash Core periodically (~ every 6 seconds) sends messages to connected nodes until all the governance objects have been synchronized.
 
@@ -22,16 +21,13 @@ Masternodes respond to the [`govsync` message](core-ref-p2p-network-governance-m
 
 For Object Sync:
 
-* First, the Masternode sends a [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) (Sync Status Count) for `govobj`
-objects. This message indicates how many inventory items will be sent.
+* First, the Masternode sends a [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) (Sync Status Count) for `govobj` objects. This message indicates how many inventory items will be sent.
 
-* Second, the Masternode sends an [`inv` message](core-ref-p2p-network-data-messages#section-inv) for the `govobj` and `govobjvote`
-objects.
+* Second, the Masternode sends an [`inv` message](core-ref-p2p-network-data-messages#section-inv) for the `govobj` and `govobjvote` objects.
 
 For Vote Sync:
 
-* First, the Masternode sends a [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) (Sync Status Count) for `govobjvote`
-objects. This message indicates how many inventory items will be sent.
+* First, the Masternode sends a [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) (Sync Status Count) for `govobjvote` objects. This message indicates how many inventory items will be sent.
 
 * Second, the Masternode sends an [`inv` message](core-ref-p2p-network-data-messages#section-inv) for the `govobjvote` object(s).
 
@@ -76,8 +72,7 @@ Sentinel manages superblock creation, voting, and submission to dashd for networ
 
 Beginning ~3 days (1662 blocks) prior to a superblock, Sentinel selects one masternode per block to rank proposals. This ranking is used to determine what a candidate superblock (or "superblock trigger") should contain. Based on the results, it creates and broadcasts a new superblock trigger if a matching one was not found.
 
-All masternodes vote for existing superblock triggers. Each masternode casts only 1 superblock trigger "Yes" vote per superblock cycle. It will vote "No"
-for any other triggers it receives.
+All masternodes vote for existing superblock triggers. Each masternode casts only 1 superblock trigger "Yes" vote per superblock cycle. It will vote "No" for any other triggers it receives.
 
 Note: This means that proposal votes submitted _after_ superblock trigger creation begins will _not_ be counted by some masternodes (those that have already voted on a superblock trigger).
 

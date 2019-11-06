@@ -81,11 +81,9 @@ Please see [here for details of the current system](core-guide-dash-features-mas
 
 Prior to DIP3, the masternode payment process operated as described below.
 
-Masternode payment uses a verifiable process to determine which masternode is paid in each block. When a new block is processed, a quorum of
-`MNPAYMENTS_SIGNATURES_TOTAL` (10) masternodes vote on the next masternode payee. The quorum is calculated deterministically based on the distance between masternode's hash and the block's proof of work.
+Masternode payment uses a verifiable process to determine which masternode is paid in each block. When a new block is processed, a quorum of `MNPAYMENTS_SIGNATURES_TOTAL` (10) masternodes vote on the next masternode payee. The quorum is calculated deterministically based on the distance between masternode's hash and the block's proof of work.
 
-Each member of the quorum issues a 'mnw' message that is relayed to the network. The payee is selected from a subset of masternodes made up of 10%
-of eligible nodes that have been waiting the longest since their last payment. The winner is then determined based on a number of parameters including the distance between the its hash and the block's proof of work. For additional detail, reference this [Official Documentation Payment Logic page](https://docs.dash.org/en/0.12.3/masternodes/understanding.html#payment-logic).
+Each member of the quorum issues a 'mnw' message that is relayed to the network. The payee is selected from a subset of masternodes made up of 10% of eligible nodes that have been waiting the longest since their last payment. The winner is then determined based on a number of parameters including the distance between the its hash and the block's proof of work. For additional detail, reference this [Official Documentation Payment Logic page](https://docs.dash.org/en/0.12.3/masternodes/understanding.html#payment-logic).
 
 Nodes receiving a `mnw` message verify the validity of the message before relaying it to their peers. If the message is invalid, the sending node may be treated as misbehaving and have its ban score increased.
 
