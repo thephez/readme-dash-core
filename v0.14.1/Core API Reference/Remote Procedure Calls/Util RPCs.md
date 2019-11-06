@@ -4,7 +4,7 @@ excerpt: ""
 ---
 # CreateMultiSig
 
-The `createmultisig` RPC creates a P2SH multi-signature address.
+The [`createmultisig` RPC](core-api-ref-remote-procedure-calls-utility#section-createmultisig) creates a P2SH multi-signature address.
 
 *Parameter #1---the number of signatures required*
 
@@ -59,7 +59,7 @@ Result:
 
 # EstimateFee
 
-The `estimatefee` RPC estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
+The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-utility#section-estimatefee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 
 *Parameter #1---how many blocks the transaction may wait before being included*
 
@@ -103,7 +103,7 @@ Result:
 
 # EstimateSmartFee
 
-The `estimatesmartfee` RPC estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
+The [`estimatesmartfee` RPC](core-api-ref-remote-procedure-calls-utility#section-estimatesmartfee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
 
 *Parameter #1---how many confirmations the transaction may wait before being included*
 
@@ -166,7 +166,7 @@ Result:
 
 *Added in Dash Core 0.12.3 / Bitcoin Core 0.13.0*
 
-The `signmessagewithprivkey` RPC signs a message with a given private key.
+The [`signmessagewithprivkey` RPC](core-api-ref-remote-procedure-calls-utility#section-signmessagewithprivkey) signs a message with a given private key.
 
 *Parameter #1---the private key to sign with*
 
@@ -208,7 +208,7 @@ IBx8jxFjutPlcZcFdQPlA2n/B4yTrYhH43qYJURKRj7LWhSD0ERE/nnRLOnXi/gwULUcqfqOKqnqkSvu
 
 # ValidateAddress
 
-The `validateaddress` RPC returns information about the given Dash address.
+The [`validateaddress` RPC](core-api-ref-remote-procedure-calls-utility#section-validateaddress) returns information about the given Dash address.
 
 *Parameter #1---a P2PKH or P2SH address*
 
@@ -300,7 +300,7 @@ Result:
 
 # VerifyMessage
 
-The `verifymessage` RPC verifies a signed message.
+The [`verifymessage` RPC](core-api-ref-remote-procedure-calls-utility#section-verifymessage) verifies a signed message.
 
 *Parameter #1---the address corresponding to the signing key*
 
@@ -312,7 +312,7 @@ Address | string (base58) | Required<br>(exactly 1) | The P2PKH address correspo
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Signature | string (base64) | Required<br>(exactly 1) | The signature created by the signer encoded as base-64 (the format output by the `signmessage` RPC)
+Signature | string (base64) | Required<br>(exactly 1) | The signature created by the signer encoded as base-64 (the format output by the [`signmessage` RPC](core-api-ref-remote-procedure-calls-wallet#section-signmessage))
 
 *Parameter #3---the message*
 

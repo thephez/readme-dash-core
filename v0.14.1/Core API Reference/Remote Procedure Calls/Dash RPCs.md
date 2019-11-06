@@ -4,7 +4,7 @@ excerpt: ""
 ---
 # GetGovernanceInfo
 
-The `getgovernanceinfo` RPC returns an object containing governance parameters.
+The [`getgovernanceinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-getgovernanceinfo) returns an object containing governance parameters.
 
 *Parameters: none*
 
@@ -42,7 +42,7 @@ Result:
 
 # GetPoolInfo
 
-The `getpoolinfo` RPC returns an object containing mixing pool related information.
+The [`getpoolinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-getpoolinfo) returns an object containing mixing pool related information.
 
 *Parameters: none*
 
@@ -110,7 +110,7 @@ Result:
 
 # GetPrivateSendInfo
 
-The `getprivatesendinfo` RPC returns an object containing an information about PrivateSend settings and state.
+The [`getprivatesendinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-getprivatesendinfo) returns an object containing an information about PrivateSend settings and state.
 
 *Parameters: none*
 
@@ -197,7 +197,7 @@ Result:
 
 # GetSuperblockBudget
 
-The `getsuperblockbudget` RPC returns the absolute maximum sum of superblock payments allowed.
+The [`getsuperblockbudget` RPC](core-api-ref-remote-procedure-calls-dash#section-getsuperblockbudget) returns the absolute maximum sum of superblock payments allowed.
 
 *Parameter #1---block index*
 
@@ -228,7 +228,7 @@ Result:
 
 # GObject
 
-The `gobject` RPC provides a set of commands for managing governance objects and displaying information about them.
+The [`gobject` RPC](core-api-ref-remote-procedure-calls-dash#section-gobject) provides a set of commands for managing governance objects and displaying information about them.
 
 ## GObject Check
 
@@ -1044,7 +1044,7 @@ dash-cli -testnet gobject vote-many \
 
 # Masternode
 
-The `masternode` RPC provides a set of commands for managing masternodes and displaying information about them.
+The [`masternode` RPC](core-api-ref-remote-procedure-calls-dash#section-masternode) provides a set of commands for managing masternodes and displaying information about them.
 
 ## Masternode Count
 
@@ -1409,7 +1409,7 @@ Prints masternode.conf in JSON format.
 
 # MasternodeList
 
-The `masternodelist` RPC returns a list of masternodes in different modes.
+The [`masternodelist` RPC](core-api-ref-remote-procedure-calls-dash#section-masternodelist) returns a list of masternodes in different modes.
 
 *Parameter #1---List mode*
 
@@ -1523,7 +1523,7 @@ Result:
 
 # MnSync
 
-The `mnsync` RPC returns the sync status, updates to the next step or resets it entirely.
+The [`mnsync` RPC](core-api-ref-remote-procedure-calls-dash#section-mnsync) returns the sync status, updates to the next step or resets it entirely.
 
 *Parameter #1---Command mode*
 
@@ -1626,7 +1626,7 @@ success
 
 As of Dash Core 0.12.3, client-side mixing is not supported on masternodes.
 
-The `privatesend` RPC controls the mixing process.
+The [`privatesend` RPC](core-api-ref-remote-procedure-calls-dash#section-privatesend) controls the mixing process.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
@@ -1693,7 +1693,7 @@ Mixing was reset
 
 # Spork
 
-The `spork` RPC reads or updates spork settings on the network.
+The [`spork` RPC](core-api-ref-remote-procedure-calls-dash#section-spork) reads or updates spork settings on the network.
 
 To display the status of sporks, use the `show` or `active` syntax.
 
@@ -1800,7 +1800,7 @@ failure
 
 # VoteRaw
 
-The `voteraw` RPC compiles and relays a governance vote with provided external signature instead of signing vote internally
+The [`voteraw` RPC](core-api-ref-remote-procedure-calls-dash#section-voteraw) compiles and relays a governance vote with provided external signature instead of signing vote internally
 
 *Parameter #1---masternode transaction hash*
 

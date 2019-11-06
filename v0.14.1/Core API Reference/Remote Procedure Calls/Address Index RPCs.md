@@ -6,7 +6,7 @@ excerpt: ""
 
 *Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
-The `getaddressbalance` RPC returns the balance for address(es).
+The [`getaddressbalance` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddressbalance) returns the balance for address(es).
 
 *Parameter #1---an array of addresses*
 
@@ -49,7 +49,7 @@ Result:
 
 *Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
-The `getaddressdeltas` RPC returns all changes for an address.
+The [`getaddressdeltas` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddressdeltas) returns all changes for an address.
 
 *Parameter #1---an array of addresses*
 
@@ -117,7 +117,7 @@ Result:
 
 *Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
-The `getaddressmempool` RPC returns all mempool deltas for an address.
+The [`getaddressmempool` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddressmempool) returns all mempool deltas for an address.
 
 *Parameter #1---an array of addresses*
 
@@ -158,7 +158,7 @@ Result:
 
 *Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
-The `getaddresstxids` RPC returns the txids for an address(es).
+The [`getaddresstxids` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddresstxids) returns the txids for an address(es).
 
 *Parameter #1---an array of addresses*
 
@@ -207,7 +207,7 @@ Result:
 
 *Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
-The `getaddressutxos` RPC returns all unspent outputs for an address.
+The [`getaddressutxos` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddressutxos) returns all unspent outputs for an address.
 
 *Parameter #1---an array of addresses*
 

@@ -86,7 +86,7 @@ Get a new address to use in the raw transaction.
 > RAW_TX=0100000001a8364935baa9ef11de59a7ee3d956934d75297724fcd5[...]
 ```
 
-Using two arguments to the `createrawtransaction` RPC, we create a new raw format transaction. The first argument (a JSON array) references the txid of the coinbase transaction from block #2 and the index number (0) of the output from that transaction we want to spend. The second argument (a JSON object) creates the output with the address (public key hash) and number of dash we want to transfer. We save the resulting raw format transaction to a shell variable.
+Using two arguments to the [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction), we create a new raw format transaction. The first argument (a JSON array) references the txid of the coinbase transaction from block #2 and the index number (0) of the output from that transaction we want to spend. The second argument (a JSON object) creates the output with the address (public key hash) and number of dash we want to transfer. We save the resulting raw format transaction to a shell variable.
 
 ![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `createrawtransaction` does not automatically create change outputs, so you can easily accidentally pay a large transaction fee. In this example, our input had 500.0000 dash and our output (`$NEW_ADDRESS`) is being paid 499.9999 dash, so the transaction will include a fee of 0.0001 dash. If we had paid `$NEW_ADDRESS` only 100 dash with no other changes to this transaction, the transaction fee would be a whopping 400 dash. See the Complex Raw Transaction subsection below for how to create a transaction with multiple outputs so you can send the change back to yourself.
 
@@ -130,7 +130,7 @@ Using two arguments to the `createrawtransaction` RPC, we create a new raw forma
 }
 ```
 
-Use the `decoderawtransaction` RPC to see exactly what the transaction we just created does.
+Use the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction) to see exactly what the transaction we just created does.
 
 ``` bash
 > dash-cli -regtest signrawtransaction $RAW_TX
@@ -151,7 +151,7 @@ Use the `decoderawtransaction` RPC to see exactly what the transaction we just c
 > SIGNED_RAW_TX=0100000001a8364935baa9ef11de59a7ee3d956934d75297[...]
 ```
 
-Use the `signrawtransaction` RPC to sign the transaction created by `createrawtransaction` and save the returned "hex" raw format signed transaction to a shell variable.
+Use the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction) to sign the transaction created by `createrawtransaction` and save the returned "hex" raw format signed transaction to a shell variable.
 
 Even though the transaction is now complete, the Dash Core node we're connected to doesn't know anything about the transaction, nor does any other part of the network. We've created a spend, but we haven't actually spent anything because we could simply unset the `$SIGNED_RAW_TX` variable to eliminate the transaction.
 
@@ -160,7 +160,7 @@ Even though the transaction is now complete, the Dash Core node we're connected 
 fa0f4105b0a2b2706d65581c5e6411d3970253c7f231944fa2f978b4a3d9010d
 ```
 
-Send the signed transaction to the connected node using the `sendrawtransaction` RPC. After accepting the transaction, the node would usually then broadcast it to other peers, but we're not currently connected to other peers because we started in regtest mode.
+Send the signed transaction to the connected node using the [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction). After accepting the transaction, the node would usually then broadcast it to other peers, but we're not currently connected to other peers because we started in regtest mode.
 
 ``` bash
 > dash-cli -regtest generate 1

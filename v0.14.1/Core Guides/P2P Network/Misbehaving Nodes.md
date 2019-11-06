@@ -6,14 +6,14 @@ Take note that for both types of broadcasting, mechanisms are in place to punish
 
 | Type | Misbehavior | Ban Score | Description |
 | ---- | ----------- | --------- | ----------- |
-| Net | GetBlockTxn Index Error | **100** | Peer relayed a `getblocktxn` message with out-of-bound indices
-| Net | Bloom Filter Service | **100** | Bloom filter message received from peer that has bloom filter commands disabled by default (protocol version > 70201) (`filterload` message, `filteradd` message, or `filterclear` message)
+| Net | GetBlockTxn Index Error | **100** | Peer relayed a [`getblocktxn` message](core-ref-p2p-network-data-messages#section-getblocktxn) with out-of-bound indices
+| Net | Bloom Filter Service | **100** | Bloom filter message received from peer that has bloom filter commands disabled by default (protocol version > 70201) (`filterload` message, [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd), or [`filterclear` message](core-ref-p2p-network-control-messages#section-filterclear))
 | Net | Block Rejected | 1 | Peer rejected the block it requested from us
-| Net | Duplicate Version | 1 | Duplicate `version` message received
+| Net | Duplicate Version | 1 | Duplicate [`version` message](core-ref-p2p-network-control-messages#section-version) received
 | Net | Wrong Devnet | **100** | Peer responded with the wrong devnet version (`version` message)
 | Net | Wrong Devnet | 1 | Peer connected using the wrong devnet version (`version` message)
-| Net | No Version | 1 | Received a message prior to receiving a `version` message
-| Net | No Verack | 1 | After sending `version` message, received a message other than a `verack` message back first
+| Net | No Version | 1 | Received a message prior to receiving a [`version` message](core-ref-p2p-network-control-messages#section-version)
+| Net | No Verack | 1 | After sending [`version` message](core-ref-p2p-network-control-messages#section-version), received a message other than a [`verack` message](core-ref-p2p-network-control-messages#section-verack) back first
 | Net | Address List Size | 20 | More than 1000 addresses received (`addr` message)
 | Net | Inventory List | 20 | More than `MAX_INV_SZ` (50000) inventories received (`inv` message)
 | Net | Get Data Size | 20 | More than `MAX_INV_SZ` (50000) inventories requested (`getdata` message)
@@ -24,7 +24,7 @@ Take note that for both types of broadcasting, mechanisms are in place to punish
 | Net | Header List Size | 20 | More than `MAX_HEADERS_RESULTS` (2000) headers received (`headers` message)
 | Net | Header List Sequence | 20 | Non-continous headers sequence received (`headers` message)
 | Net | Invalid Block | **Varies** | Invalid block header received from peer
-| Net | Bloom Filter Size | **100** | Maximum script element size (520) exceeded (`filterload` message or `filteradd` message)
+| Net | Bloom Filter Size | **100** | Maximum script element size (520) exceeded (`filterload` message or [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd))
 | Net | MN List Diff | 1 | Failed to get masternode list diff (`getmnlistd` message)
 | Net | Unrequested MN List Diff | **100** | Peer provided an unrequested masternode list diff (`mnlistdiff` message)
 | InstantSend | Invalid Lock Message | **100** | Invalid TXID or inputs in lock message (`islock` message)
@@ -40,7 +40,7 @@ Take note that for both types of broadcasting, mechanisms are in place to punish
 | LLMQ DKG | Preverify Failed | **100** | Peer relayed a message that could not be pre-verified
 | LLMQ DKG | Signature  | **100** | Peer relayed a message with an invalid signature
 | LLMQ DKG | Full Verify Failed | **100** | Peer relayed a message that failed full verification
-| LLMQ Signing | Too Many Messages | **100** | Maximum message count exceed in `qsigsesann` message, `qsigsinv` message, `qgetsigs` message, or `qbsigs` message
+| LLMQ Signing | Too Many Messages | **100** | Maximum message count exceed in [`qsigsesann` message](core-ref-p2p-network-quorum-messages#section-qsigsesann), [`qsigsinv` message](core-ref-p2p-network-quorum-messages#section-qsigsinv), [`qgetsigs` message](core-ref-p2p-network-quorum-messages#section-qgetsigs), or [`qbsigs` message](core-ref-p2p-network-quorum-messages#section-qbsigs)
 | LLMQ Signing | Signature  | **100** | Peer relayed a message with an invalid recovered signature or signature share
 | Masternode Authentication | Duplicate Message | **100** | Only 1 message allowed (`mnauth` message)
 | Masternode Authentication | Signature | **100** | Peer relayed a message with an invalid signature (`mnauth` message)
@@ -48,7 +48,7 @@ Take note that for both types of broadcasting, mechanisms are in place to punish
 | Governance | Sync | 20 | Requesting a governance sync too frequently (`govsync` message with empty hash)
 | Governance | Invalid Object | 20 | Peer relayed an invalid governance object (`govobj` message)
 | Governance | Invalid Vote | 20 | Peer relayed an invalid/invalid old vote(`govobjvote` message)
-| Governance | Unsupported Vote Signal | 20 | Vote signal outside the accepted range (see `govobjvote` message)
+| Governance | Unsupported Vote Signal | 20 | Vote signal outside the accepted range (see [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote))
 | PrivateSend | Signature  | 10 | Peer relayed a message with an invalid signature (`dsq` message)
 | Spork | Invalid Time | **100** | Peer relayed a spork with a timestamp too far in the future (`spork` message)
 | Spork | Signature  | **100** | Peer relayed a spork with an invalid signature (`spork` message)
