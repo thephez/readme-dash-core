@@ -46,7 +46,7 @@ Upon receipt of the second [`getblocks` message](core-ref-p2p-network-data-messa
 
 This repeated search allows the sync node to send useful inventories even if the IBD node's local block chain forked from the sync node's local block chain. This fork detection becomes increasingly useful the closer the IBD node gets to the tip of the block chain.
 
-When the IBD node receives the second [`inv` message](core-ref-p2p-network-data-messages#section-inv), it will request those blocks using [`getdata` message](core-ref-p2p-network-data-messages#section-getdata)s.  The sync node will respond with [`block` message](core-ref-p2p-network-data-messages#section-block)s.  Then the IBD node will request more inventories with another [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks)---and the cycle will repeat until the IBD node is synced to the tip of the block chain.  At that point, the node will accept blocks sent through the regular block broadcasting described in a later subsection.
+When the IBD node receives the second [`inv` message](core-ref-p2p-network-data-messages#section-inv), it will request those blocks using [`getdata` messages](core-ref-p2p-network-data-messages#section-getdata).  The sync node will respond with [`block` messages](core-ref-p2p-network-data-messages#section-block).  Then the IBD node will request more inventories with another [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks)---and the cycle will repeat until the IBD node is synced to the tip of the block chain.  At that point, the node will accept blocks sent through the regular block broadcasting described in a later subsection.
 
 ## Blocks-First Advantages & Disadvantages
 

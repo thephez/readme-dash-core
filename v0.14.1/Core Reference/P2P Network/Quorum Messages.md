@@ -420,7 +420,7 @@ Signature share request 2
 
 *Added in protocol version 70214 of Dash Core*
 
-The [`qsendrecsigs` message](core-ref-p2p-network-quorum-messages#section-qsendrecsigs) is used to notify a peer to send plain LLMQ recovered signatures (inventory type `MSG_QUORUM_RECOVERED_SIG`). Otherwise the peer would only announce/send the higher level messages produced when a recovered signature is found (e.g. InstantSend [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock)s or ChainLock [`clsig` message](core-ref-p2p-network-instantsend-messages#section-clsig)s).
+The [`qsendrecsigs` message](core-ref-p2p-network-quorum-messages#section-qsendrecsigs) is used to notify a peer to send plain LLMQ recovered signatures (inventory type `MSG_QUORUM_RECOVERED_SIG`). Otherwise the peer would only announce/send the higher level messages produced when a recovered signature is found (e.g. InstantSend [`islock` messages](core-ref-p2p-network-instantsend-messages#section-islock) or ChainLock [`clsig` messages](core-ref-p2p-network-instantsend-messages#section-clsig)).
 
 Note: SPV nodes should not send this message as they are usually only interested in the higher level messages.
 
@@ -564,6 +564,6 @@ The following annotated hexdump shows a `qsigsinv` message. (The message header 
 
 *Added in protocol version 70214 of Dash Core*
 
-The [`qwatch` message](core-ref-p2p-network-quorum-messages#section-qwatch) tells the receiving peer to relay LLMQ messages (`qcontrib` messages, [`qcomplaint` message](core-ref-p2p-network-quorum-messages#section-qcomplaint)s, [`qjustify` message](core-ref-p2p-network-quorum-messages#section-qjustify)s, and [`qpcommit` message](core-ref-p2p-network-quorum-messages#section-qpcommit)s).
+The [`qwatch` message](core-ref-p2p-network-quorum-messages#section-qwatch) tells the receiving peer to relay LLMQ messages (`qcontrib` messages, [`qcomplaint` messages](core-ref-p2p-network-quorum-messages#section-qcomplaint), [`qjustify` messages](core-ref-p2p-network-quorum-messages#section-qjustify), and [`qpcommit` messages](core-ref-p2p-network-quorum-messages#section-qpcommit)).
 
 There is no payload in a [`qwatch` message](core-ref-p2p-network-quorum-messages#section-qwatch).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.

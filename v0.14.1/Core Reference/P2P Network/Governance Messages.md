@@ -96,7 +96,7 @@ The initial [`govobjvote` message](core-ref-p2p-network-governance-messages#sect
 
 When a node receives a valid, **new** [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote), it relays the message to all its connected peers to propagate the vote.
 
-Additionally, nodes can request [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote)s for specific governance objects via a [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync). Masternodes ignore requests for votes if they are not fully synced.
+Additionally, nodes can request [`govobjvote` messages](core-ref-p2p-network-governance-messages#section-govobjvote) for specific governance objects via a [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync). Masternodes ignore requests for votes if they are not fully synced.
 
 ``` text
 Dash Core limits how frequently a masternode can vote on a governance object.

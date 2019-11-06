@@ -19,13 +19,13 @@ The currently-available type identifiers are:
 |-----------------|-------------------------------------------------------------------------------|---------------
 | 1               | `<<glossary:MSG_TX>>`                                     | The hash is a TXID.
 | 2               | `<<glossary:MSG_BLOCK>>`                            | The hash is of a block header.
-| 3               | `<<glossary:MSG_FILTERED_BLOCK>>` | The hash is of a block header; identical to `MSG_BLOCK`. When used in a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata), this indicates the response should be a [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) rather than a [`block` message](core-ref-p2p-network-data-messages#section-block) (but this only works if a bloom filter was previously configured).  **Only for use in [`getdata` message](core-ref-p2p-network-data-messages#section-getdata)s.**
+| 3               | `<<glossary:MSG_FILTERED_BLOCK>>` | The hash is of a block header; identical to `MSG_BLOCK`. When used in a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata), this indicates the response should be a [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) rather than a [`block` message](core-ref-p2p-network-data-messages#section-block) (but this only works if a bloom filter was previously configured).  **Only for use in [`getdata` messages](core-ref-p2p-network-data-messages#section-getdata).**
 | 4               | `<<glossary:MSG_LEGACY_TXLOCK_REQUEST>>` | `MSG_TXLOCK_REQUEST` prior to Dash Core 0.14.1. The hash is an Instant Send transaction lock request. Transactions received this way are automatically converted to a standard [`tx` message](core-ref-p2p-network-data-messages#section-tx) as of Dash Core 0.14.1.
 | 6               | `<<glossary:MSG_SPORK>>`                            | The hash is Spork ID.
 | 16               | `<<glossary:MSG_DSTX>>`                              | The hash is Private Send (Dark Send) Broadcast TX.
 | 17               | `<<glossary:MSG_GOVERNANCE_OBJECT>>`                                     | The hash is a Governance Object.
 | 18               | `<<glossary:MSG_GOVERNANCE_OBJECT_VOTE>>`                                     | The hash is a Governance Object Vote.
-| 20               | `<<glossary:MSG_CMPCT_BLOCK>>`                                     | The hash is of a block header; identical to `MSG_BLOCK`. When used in a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata), this indicates the response should be a [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock). **Only for use in [`getdata` message](core-ref-p2p-network-data-messages#section-getdata)s.**
+| 20               | `<<glossary:MSG_CMPCT_BLOCK>>`                                     | The hash is of a block header; identical to `MSG_BLOCK`. When used in a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata), this indicates the response should be a [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock). **Only for use in [`getdata` messages](core-ref-p2p-network-data-messages#section-getdata).**
 | 21               | `<<glossary:MSG_QUORUM_FINAL_COMMITMENT>>`                | The hash is a long-living masternode quorum final commitment.<br>_Added in 0.13.0_
 | 23               | `<<glossary:MSG_QUORUM_CONTRIB>>`                                     | The hash is a long-living masternode quorum contribution.<br>_Added in 0.14.0_
 | 24               | `<<glossary:MSG_QUORUM_COMPLAINT>>`                                     | The hash is a long-living masternode quorum complaint.<br>_Added in 0.14.0_
@@ -62,7 +62,7 @@ The [`block` message](core-ref-p2p-network-data-messages#section-block) transmit
 
 1. **GetData Response:** Nodes will always send it in response to a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) that requests the block with an inventory type of `MSG_BLOCK` (provided the node has that block available for relay).
 
-2. **Unsolicited:** Some miners will send unsolicited [`block` message](core-ref-p2p-network-data-messages#section-block)s broadcasting their newly-mined blocks to all of their peers. Many mining pools do the same thing, although some may be misconfigured to send the block from multiple nodes, possibly sending the same block to some peers more than once.
+2. **Unsolicited:** Some miners will send unsolicited [`block` messages](core-ref-p2p-network-data-messages#section-block) broadcasting their newly-mined blocks to all of their peers. Many mining pools do the same thing, although some may be misconfigured to send the block from multiple nodes, possibly sending the same block to some peers more than once.
 
 # Blocktxn
 
@@ -85,7 +85,7 @@ The structure of `BlockTransactions` is defined below.
 |----------|----------------------|----------------------|----------|------------|
 | 32       | blockhash            | Binary blob          | The output from a double-SHA256 of the block header, as used elsewhere | The blockhash of the block which the transactions being provided are in
 | 1 or 3   | transactions<br>_length | CompactSize          | As used to encode array lengths elsewhere | The number of transactions provided
-| *Varies* | transactions         | List of transactions | As encoded in [`tx` message](core-ref-p2p-network-data-messages#section-tx)s in response to `getdata MSG_TX` | The transactions provided
+| *Varies* | transactions         | List of transactions | As encoded in [`tx` messages](core-ref-p2p-network-data-messages#section-tx) in response to `getdata MSG_TX` | The transactions provided
 
 The following annotated hexdump shows a [`blocktxn` message](core-ref-p2p-network-data-messages#section-blocktxn).  (The message header has been omitted.)
 
@@ -153,13 +153,13 @@ The [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock
 | Bytes    | Name                 | Data Type            | Encoding | Description|
 |----------|----------------------|----------------------|----------|------------|
 | 1 or 3   | index                | CompactSize          | Compact Size, differentially encoded since the last PrefilledTransaction in a list | The index into the block at which this transaction is
-| *Varies* | tx                   | Transaction          | As encoded in [`tx` message](core-ref-p2p-network-data-messages#section-tx)s sent in response to `getdata MSG_TX` | Transaction which is in the block at index `index`
+| *Varies* | tx                   | Transaction          | As encoded in [`tx` messages](core-ref-p2p-network-data-messages#section-tx) sent in response to `getdata MSG_TX` | Transaction which is in the block at index `index`
 
 The [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock) is compromised of a serialized `HeaderAndShortIDs` structure which is defined below. A `HeaderAndShortIDs` structure is used to relay a block header, the short transactions IDs used for matching already-available transactions, and a select few transactions which we expect a peer may be missing.
 
 | Bytes    | Name                 | Data Type            | Encoding | Description|
 |----------|----------------------|----------------------|----------|------------|
-| 80       | header               | Block header         | First 80 bytes of the block as defined by the encoding used by [`block` message](core-ref-p2p-network-data-messages#section-block)s | The header of the block being provided
+| 80       | header               | Block header         | First 80 bytes of the block as defined by the encoding used by [`block` messages](core-ref-p2p-network-data-messages#section-block) | The header of the block being provided
 | 8        | nonce                | uint64_t             | Little Endian | A nonce for use in short transaction ID calculations
 | 1 or 3   | shortids_<br>length  | CompactSize          | As used to encode array lengths elsewhere | The number of short transaction IDs in `shortids` (i.e. block tx count - `prefilledtxn`<br>`_length`)
 | *Varies* | shortids  | List of 6-byte integers | Little Endian | The short transaction IDs calculated from the transactions which were not provided explicitly in `prefilledtxn`
@@ -384,13 +384,13 @@ ab17057f9ce4b50c2aef4fadf3729a2e ... Hash (txlvote)
 
 *Added in protocol version 60002 (of Bitcoin).*
 
-The [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) requests the TXIDs of transactions that the receiving node has verified as valid but which have not yet appeared in a block. That is, transactions which are in the receiving node's memory pool. The response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is one or more [`inv` message](core-ref-p2p-network-data-messages#section-inv)s containing the TXIDs in the usual inventory format.
+The [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) requests the TXIDs of transactions that the receiving node has verified as valid but which have not yet appeared in a block. That is, transactions which are in the receiving node's memory pool. The response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is one or more [`inv` messages](core-ref-p2p-network-data-messages#section-inv) containing the TXIDs in the usual inventory format.
 
 Sending the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is mostly useful when a program first connects to the network. Full nodes can use it to quickly gather most or all of the unconfirmed transactions available on the network; this is especially useful for miners trying to gather transactions for their transaction fees. SPV clients can set a filter before sending a `mempool` to only receive transactions that match that filter; this allows a recently-started client to get most or all unconfirmed transactions related to its wallet.
 
 The `inv` response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is, at best, one node's view of the network---not a complete list of unconfirmed transactions on the network. Here are some additional reasons the list might not be complete:
 
-* Before Bitcoin Core 0.9.0, the response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) was only one [`inv` message](core-ref-p2p-network-data-messages#section-inv). An [`inv` message](core-ref-p2p-network-data-messages#section-inv) is limited to 50,000 inventories, so a node with a memory pool larger than 50,000 entries would not send everything.  Later versions of Bitcoin Core send as many [`inv` message](core-ref-p2p-network-data-messages#section-inv)s as needed to reference its complete memory pool.
+* Before Bitcoin Core 0.9.0, the response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) was only one [`inv` message](core-ref-p2p-network-data-messages#section-inv). An [`inv` message](core-ref-p2p-network-data-messages#section-inv) is limited to 50,000 inventories, so a node with a memory pool larger than 50,000 entries would not send everything.  Later versions of Bitcoin Core send as many [`inv` messages](core-ref-p2p-network-data-messages#section-inv) as needed to reference its complete memory pool.
 
 * The [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is not currently fully compatible with the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload)'s `BLOOM_UPDATE_ALL` and `BLOOM_UPDATE_P2PUBKEY_ONLY` flags. Mempool transactions are not sorted like in-block transactions, so a transaction (tx2) spending an output can appear before the transaction (tx1) containing that output, which means the automatic filter update mechanism won't operate until the second-appearing transaction (tx1) is seen---missing the first-appearing transaction (tx2). It has been proposed in [Bitcoin Core issue #2381](https://github.com/bitcoin/bitcoin/issues/2381) that the transactions should be sorted before being processed by the filter.
 
@@ -400,7 +400,7 @@ There is no payload in a [`mempool` message](core-ref-p2p-network-data-messages#
 
 *Added in protocol version 70001 as described by BIP37.*
 
-The [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) is a reply to a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) which requested a block using the inventory type `MSG_MERKLEBLOCK`.  It is only part of the reply: if any matching transactions are found, they will be sent separately as [`tx` message](core-ref-p2p-network-data-messages#section-tx)s.
+The [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) is a reply to a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) which requested a block using the inventory type `MSG_MERKLEBLOCK`.  It is only part of the reply: if any matching transactions are found, they will be sent separately as [`tx` messages](core-ref-p2p-network-data-messages#section-tx).
 
 If a filter has been previously set with the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload), the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) will contain the TXIDs of any transactions in the requested block that matched the filter, as well as any parts of the block's merkle tree necessary to connect those transactions to the block header's merkle root. The message also contains a complete copy of the block header to allow the client to hash it and confirm its proof of work.
 
