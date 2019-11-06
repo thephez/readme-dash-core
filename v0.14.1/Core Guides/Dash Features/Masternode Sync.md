@@ -22,13 +22,13 @@ The following table details the data flow of P2P messages exchanged during initi
 | **Syncing Node Message** | **Direction**  | **Masternode Response**   | **Description** |
 | --- | :---: | --- | --- |
 | **1. Sporks** |   |  |  |
-| `getsporks` message                            | → |                           | Syncing node requests sporks
-|                                                | ← | `spork` message(s)        |
+| [`getsporks` message](core-ref-p2p-network-control-messages#section-getsporks)                            | → |                           | Syncing node requests sporks
+|                                                | ← | [`spork` message](core-ref-p2p-network-control-messages#section-spork)(s)        |
 | **2. Governance** |   |  | See [Governance sync](#governance) |
 
 *Masternode Sync Status*
 
-There are several status values used to track masternode synchronization. They are used in both `ssc` messages and the `mnsync` RPC.
+There are several status values used to track masternode synchronization. They are used in both [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc)s and the `mnsync` RPC.
 
 | **Value** | **Status**  | **Description** |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ Once a masternode completes an initial full sync, continuing synchronization is 
 
 **Governance**
 
-After the initial governance synchronization, governance information is kept current by the `govobj` messages and `govobjvote` messages relayed on the network. Unsynchronized peers may send `govsync` messages to request governance sync.
+After the initial governance synchronization, governance information is kept current by the [`govobj` message](core-ref-p2p-network-governance-messages#section-govobj)s and [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote)s relayed on the network. Unsynchronized peers may send [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync)s to request governance sync.
 
 # Masternode Sync Schedule
 

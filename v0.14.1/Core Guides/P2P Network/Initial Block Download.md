@@ -14,39 +14,39 @@ Dash Core (up until version 0.12.0.x) uses a simple initial block download (IBD)
 
 ![Overview Of Blocks-First Method](https://dash-docs.github.io/img/dev/en-blocks-first-flowchart.svg)
 
-The first time a node is started, it only has a single block in its local best block chain---the hardcoded genesis block (block 0).  This node chooses a remote peer, called the sync node, and sends it the `getblocks` message illustrated below.
+The first time a node is started, it only has a single block in its local best block chain---the hardcoded genesis block (block 0).  This node chooses a remote peer, called the sync node, and sends it the [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks) illustrated below.
 
 ![First GetBlocks Message Sent During IBD](https://dash-docs.github.io/img/dev/en-ibd-getblocks.svg)
 
-In the header hashes field of the `getblocks` message, this new node sends the header hash of the only block it has, the genesis block (b67a...0000 in internal byte order).  It also sets the stop hash field to all zeroes to request a maximum-size response.
+In the header hashes field of the [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks), this new node sends the header hash of the only block it has, the genesis block (b67a...0000 in internal byte order).  It also sets the stop hash field to all zeroes to request a maximum-size response.
 
-Upon receipt of the `getblocks` message, the sync node takes the first (and only) header hash and searches its local best block chain for a block with that header hash. It finds that block 0 matches, so it replies with 500 block inventories (the maximum response to a `getblocks` message) starting from block 1. It sends these inventories in the `inv` message illustrated below.
+Upon receipt of the [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks), the sync node takes the first (and only) header hash and searches its local best block chain for a block with that header hash. It finds that block 0 matches, so it replies with 500 block inventories (the maximum response to a [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks)) starting from block 1. It sends these inventories in the [`inv` message](core-ref-p2p-network-data-messages#section-inv) illustrated below.
 
 ![First Inv Message Sent During IBD](https://dash-docs.github.io/img/dev/en-ibd-inv.svg)
 
 Inventories are unique identifiers for information on the network. Each inventory contains a type field and the unique identifier for an instance of the object. For blocks, the unique identifier is a hash of the block's header.
 
-The block inventories appear in the `inv` message in the same order they appear in the block chain, so this first `inv` message contains inventories for blocks 1 through 501. (For example, the hash of block 1 is 4343...0000 as seen in the illustration above.)
+The block inventories appear in the [`inv` message](core-ref-p2p-network-data-messages#section-inv) in the same order they appear in the block chain, so this first [`inv` message](core-ref-p2p-network-data-messages#section-inv) contains inventories for blocks 1 through 501. (For example, the hash of block 1 is 4343...0000 as seen in the illustration above.)
 
-The IBD node uses the received inventories to request 128 blocks from the sync node in the `getdata` message illustrated below.
+The IBD node uses the received inventories to request 128 blocks from the sync node in the [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) illustrated below.
 
 ![First GetData Message Sent During IBD](https://dash-docs.github.io/img/dev/en-ibd-getdata.svg)
 
 It's important to blocks-first nodes that the blocks be requested and sent in order because each block header references the header hash of the preceding block. That means the IBD node can't fully validate a block until its parent block has been received. Blocks that can't be validated because their parents haven't been received are called orphan blocks; a subsection below describes them in more detail.
 
-Upon receipt of the `getdata` message, the sync node replies with each of the blocks requested. Each block is put into serialized block format and sent in a separate `block` message. The first `block` message sent (for block 1) is illustrated below.
+Upon receipt of the [`getdata` message](core-ref-p2p-network-data-messages#section-getdata), the sync node replies with each of the blocks requested. Each block is put into serialized block format and sent in a separate [`block` message](core-ref-p2p-network-data-messages#section-block). The first [`block` message](core-ref-p2p-network-data-messages#section-block) sent (for block 1) is illustrated below.
 
 ![First Block Message Sent During IBD](https://dash-docs.github.io/img/dev/en-ibd-block.svg)
 
-The IBD node downloads each block, validates it, and then requests the next block it hasn't requested yet, maintaining a queue of up to 128 blocks to download. When it has requested every block for which it has an inventory, it sends another `getblocks` message to the sync node requesting the inventories of up to 500 more blocks.  This second `getblocks` message contains multiple header hashes as illustrated below:
+The IBD node downloads each block, validates it, and then requests the next block it hasn't requested yet, maintaining a queue of up to 128 blocks to download. When it has requested every block for which it has an inventory, it sends another [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks) to the sync node requesting the inventories of up to 500 more blocks.  This second [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks) contains multiple header hashes as illustrated below:
 
 ![Second GetBlocks Message Sent During IBD](https://dash-docs.github.io/img/dev/en-ibd-getblocks2.svg)
 
-Upon receipt of the second `getblocks` message, the sync node searches its local best block chain for a block that matches one of the header hashes in the message, trying each hash in the order they were received. If it finds a matching hash, it replies with 500 block inventories starting with the next block from that point. But if there is no matching hash (besides the stopping hash), it assumes the only block the two nodes have in common is block 0 and so it sends an `inv` starting with block 1 (the same `inv` message seen several illustrations above).
+Upon receipt of the second [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks), the sync node searches its local best block chain for a block that matches one of the header hashes in the message, trying each hash in the order they were received. If it finds a matching hash, it replies with 500 block inventories starting with the next block from that point. But if there is no matching hash (besides the stopping hash), it assumes the only block the two nodes have in common is block 0 and so it sends an `inv` starting with block 1 (the same [`inv` message](core-ref-p2p-network-data-messages#section-inv) seen several illustrations above).
 
 This repeated search allows the sync node to send useful inventories even if the IBD node's local block chain forked from the sync node's local block chain. This fork detection becomes increasingly useful the closer the IBD node gets to the tip of the block chain.
 
-When the IBD node receives the second `inv` message, it will request those blocks using `getdata` messages.  The sync node will respond with `block` messages.  Then the IBD node will request more inventories with another `getblocks` message---and the cycle will repeat until the IBD node is synced to the tip of the block chain.  At that point, the node will accept blocks sent through the regular block broadcasting described in a later subsection.
+When the IBD node receives the second [`inv` message](core-ref-p2p-network-data-messages#section-inv), it will request those blocks using [`getdata` message](core-ref-p2p-network-data-messages#section-getdata)s.  The sync node will respond with [`block` message](core-ref-p2p-network-data-messages#section-block)s.  Then the IBD node will request more inventories with another [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks)---and the cycle will repeat until the IBD node is synced to the tip of the block chain.  At that point, the node will accept blocks sent through the regular block broadcasting described in a later subsection.
 
 ## Blocks-First Advantages & Disadvantages
 
@@ -76,13 +76,13 @@ Dash Core 0.12.0 uses an initial block download (IBD) method called
 
 ![Overview Of Headers-First Method](https://dash-docs.github.io/img/dev/en-headers-first-flowchart.svg)
 
-The first time a node is started, it only has a single block in its local best block chain---the hardcoded genesis block (block 0).  The node chooses a remote peer, which we'll call the sync node, and sends it the `getheaders` message illustrated below.
+The first time a node is started, it only has a single block in its local best block chain---the hardcoded genesis block (block 0).  The node chooses a remote peer, which we'll call the sync node, and sends it the [`getheaders` message](core-ref-p2p-network-data-messages#section-getheaders) illustrated below.
 
 ![First getheaders message](https://dash-docs.github.io/img/dev/en-ibd-getheaders.svg)
 
-In the header hashes field of the `getheaders` message, the new node sends the header hash of the only block it has, the genesis block (b67a...0000 in internal byte order).  It also sets the stop hash field to all zeroes to request a maximum-size response.
+In the header hashes field of the [`getheaders` message](core-ref-p2p-network-data-messages#section-getheaders), the new node sends the header hash of the only block it has, the genesis block (b67a...0000 in internal byte order).  It also sets the stop hash field to all zeroes to request a maximum-size response.
 
-Upon receipt of the `getheaders` message, the sync node takes the first (and only) header hash and searches its local best block chain for a block with that header hash. It finds that block 0 matches, so it replies with 2,000 header (the maximum response) starting from block 1. It sends these header hashes in the `headers` message illustrated below.
+Upon receipt of the [`getheaders` message](core-ref-p2p-network-data-messages#section-getheaders), the sync node takes the first (and only) header hash and searches its local best block chain for a block with that header hash. It finds that block 0 matches, so it replies with 2,000 header (the maximum response) starting from block 1. It sends these header hashes in the [`headers` message](core-ref-p2p-network-data-messages#section-headers) illustrated below.
 
 ![First headers message](https://dash-docs.github.io/img/dev/en-ibd-headers.svg)
 
@@ -91,9 +91,9 @@ The IBD node can partially validate these block headers by ensuring that all fie
 After the IBD node has partially validated the block headers, it can do two things in parallel:
 
 1. **Download More Headers:** the IBD node can send another `getheaders`
-   message to the sync node to request the next 2,000 headers on the best header chain. Those headers can be immediately validated and another batch requested repeatedly until a `headers` message is received from the sync node with fewer than 2,000 headers, indicating that it has no more headers to offer. As of this writing, headers sync can be completed in fewer than 200 round trips, or about 32 MB of downloaded data.
+   message to the sync node to request the next 2,000 headers on the best header chain. Those headers can be immediately validated and another batch requested repeatedly until a [`headers` message](core-ref-p2p-network-data-messages#section-headers) is received from the sync node with fewer than 2,000 headers, indicating that it has no more headers to offer. As of this writing, headers sync can be completed in fewer than 200 round trips, or about 32 MB of downloaded data.
 
-    Once the IBD node receives a `headers` message with fewer than 2,000 headers from the sync node, it sends a `getheaders` message to each of its outbound peers to get their view of best header chain. By comparing the responses, it can easily determine if the headers it has downloaded belong to the best header chain reported by any of its outbound peers. This means a dishonest sync node will quickly be discovered even if checkpoints aren't used (as long as the IBD node connects to at least one honest peer; Dash Core will continue to provide checkpoints in case honest peers can't be found).
+    Once the IBD node receives a [`headers` message](core-ref-p2p-network-data-messages#section-headers) with fewer than 2,000 headers from the sync node, it sends a [`getheaders` message](core-ref-p2p-network-data-messages#section-getheaders) to each of its outbound peers to get their view of best header chain. By comparing the responses, it can easily determine if the headers it has downloaded belong to the best header chain reported by any of its outbound peers. This means a dishonest sync node will quickly be discovered even if checkpoints aren't used (as long as the IBD node connects to at least one honest peer; Dash Core will continue to provide checkpoints in case honest peers can't be found).
 
 2. **Download Blocks:** While the IBD node continues downloading headers, and after the headers finish downloading, the IBD node will request and download each block. The IBD node can use the block header hashes it computed from the header chain to create `getdata`
    messages that request the blocks it needs by their inventory. It doesn't need to request these from the sync node---it can request them from any of its full node peers. (Although not all full nodes may store all blocks.) This allows it to fetch blocks in parallel and avoid having its download speed constrained to the upload speed of a single sync node.

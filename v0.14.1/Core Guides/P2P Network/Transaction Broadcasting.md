@@ -2,7 +2,7 @@
 title: "Transaction Broadcasting"
 excerpt: ""
 ---
-In order to send a transaction to a peer, an `inv` message is sent. If a `getdata` message is received in reply, the transaction is sent using a `tx` message. If it is a valid transaction, the peer receiving the transaction also forwards the transaction to its peers.
+In order to send a transaction to a peer, an [`inv` message](core-ref-p2p-network-data-messages#section-inv) is sent. If a [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) is received in reply, the transaction is sent using a [`tx` message](core-ref-p2p-network-data-messages#section-tx). If it is a valid transaction, the peer receiving the transaction also forwards the transaction to its peers.
 
 # Memory Pool
 

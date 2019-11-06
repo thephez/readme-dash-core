@@ -2,7 +2,7 @@
 title: "Retrieving A MerkleBlock"
 excerpt: ""
 ---
-For the `merkleblock` message documentation on the reference page, an actual merkle block was retrieved from the network and manually processed.  This section walks through each step of the process, demonstrating basic network communication and merkle block processing.
+For the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) documentation on the reference page, an actual merkle block was retrieved from the network and manually processed.  This section walks through each step of the process, demonstrating basic network communication and merkle block processing.
 
 ``` python
 
@@ -57,14 +57,14 @@ send("version",
 )
 ```
 
-Peers on the network will not accept any requests until you send them a `version` message. The receiving node will reply with their `version` message and a `verack` message.
+Peers on the network will not accept any requests until you send them a [`version` message](core-ref-p2p-network-control-messages#section-version). The receiving node will reply with their [`version` message](core-ref-p2p-network-control-messages#section-version) and a [`verack` message](core-ref-p2p-network-control-messages#section-verack).
 
 ``` python
 sleep(1)
 send("verack", "")
 ```
 
-We're not going to validate their `version` message with this simple script, but we will sleep a short bit and send back our own `verack` message as if we had accepted their `version` message.
+We're not going to validate their [`version` message](core-ref-p2p-network-control-messages#section-version) with this simple script, but we will sleep a short bit and send back our own [`verack` message](core-ref-p2p-network-control-messages#section-verack) as if we had accepted their [`version` message](core-ref-p2p-network-control-messages#section-version).
 
 ``` python
 send("filterload",
@@ -76,7 +76,7 @@ send("filterload",
 )
 ```
 
-We set a bloom filter with the `filterload` message. This filter is described in the two preceding sections.
+We set a bloom filter with the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload). This filter is described in the two preceding sections.
 
 ``` python
 send("getdata",
