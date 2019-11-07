@@ -2,7 +2,7 @@
 title: "Governance Messages"
 excerpt: ""
 ---
-The following network messages enable the Governance features built in to Dash. For additional details on the governance system, see this [Budget System page](https://docs.dash.org/en/latest/governance/index.html).
+The following <<glossary:network>> messages enable the Governance features built in to Dash. For additional details on the governance system, see this [Budget System page](https://docs.dash.org/en/latest/governance/index.html).
 
 ![Overview Of P2P Protocol Governance Request And Reply Messages](https://dash-docs.github.io/img/dev/en-p2p-governance-messages.svg)
 
@@ -10,7 +10,7 @@ For additional details, refer to the Developer Guide [Governance section](core-g
 
 # govobj
 
-The [`govobj` message](core-ref-p2p-network-governance-messages#section-govobj) contains a governance object that is generally a proposal, contract, or setting. Masternodes ignore this request if they are not fully synced.
+The [`govobj` message](core-ref-p2p-network-governance-messages#section-govobj) contains a governance object that is generally a proposal, contract, or setting. <<glossary:Masternodes>> ignore this request if they are not fully synced.
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
@@ -20,10 +20,10 @@ The [`govobj` message](core-ref-p2p-network-governance-messages#section-govobj) 
 | 32 | nCollateralHash | uint256 | Required* | Hash of the collateral fee transaction for proposals.<br><br>Set to all zeros for Triggers.
 | 0-16384 | strData | string | Required | Data field - can be used for anything (leading varint indicates size of data)
 | 4 | nObjectType | int | Required | Type of governance object: <br>• `0` - Unknown<br>• `1` - Proposal<br>• `2` - Trigger
-| 36 | masternodeOutPoint | outPoint | Required* | The unspent outpoint of the masternode (holding 1000 DASH) which is signing this object.<br><br>Set to all zeros for proposals since they can be created by non-masternodes.
+| 36 | masternode<br>OutPoint | outPoint | Required* | The unspent outpoint of the masternode (holding 1000 DASH) which is signing this object.<br><br>Set to all zeros for proposals since they can be created by non-masternodes.
 | 97 | vchSig | char | Required* | _ECDSA signature (65 bytes) prior to DIP3 activation_<br><br>BLS Signature of the masternode (Length (1 byte) + Signature (96 bytes))<br><br>Not required for proposals - they will have a length of 0x00 and no Signature.
 
-Governance Object Types (defined by src/governance-object.h)
+Governance Object Types (defined by `src/governance-object.h`)
 
 | Type | Name                    | Description
 |------|-------------------------|------------
@@ -90,34 +90,34 @@ d289fca20905fd453620238a505582fa ..... Masternode BLS Signature
 
 # govobjvote
 
-The [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote) is used to indicate the voting status of a governance object.  Voting status is comprised of the vote outcome (how the masternode voted) and the vote signal (the network support status). A sufficient number of yes votes results in the proposed funding being payed out in the next superblock (assuming their are sufficient funds available in the budget).
+The [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote) is used to indicate the voting status of a governance object.  Voting status is comprised of the vote outcome (how the <<glossary:masternode>> voted) and the vote signal (the network support status). A sufficient number of yes votes results in the proposed funding being payed out in the next <<glossary:superblock>> (assuming their are sufficient funds available in the budget).
 
 The initial [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote) is created by a masternode to vote on a governance object (proposal, etc.). When the masternode votes, it broadcasts the [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote) to all its peers.
 
-When a node receives a valid, **new** [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote), it relays the message to all its connected peers to propagate the vote.
+When a <<glossary:node>> receives a valid, **new** [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote), it relays the message to all its connected <<glossary:peers>> to propagate the vote.
 
 Additionally, nodes can request [`govobjvote` messages](core-ref-p2p-network-governance-messages#section-govobjvote) for specific governance objects via a [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync). Masternodes ignore requests for votes if they are not fully synced.
-
-``` text
-Dash Core limits how frequently a masternode can vote on a governance object.
-A masternode's vote will not be processed if it has been less than 60 minutes
-since its last vote on that object. Additionally, invalid votes can result in
-the node being banned.
-```
+[block:callout]
+{
+  "type": "info",
+  "body": "Dash Core limits how frequently a masternode can vote on a governance object.\nA masternode's vote will not be processed if it has been less than 60 minutes\nsince its last vote on that object. Additionally, invalid votes can result in\nthe node being banned.",
+  "title": "Vote rate limiting"
+}
+[/block]
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
-| 36 | masternodeOutPoint | outPoint | Required | The unspent outpoint of the masternode (holding 1000 DASH) which is voting
+| 36 | masternode<br>OutPoint | outPoint | Required | The unspent outpoint of the masternode (holding 1000 DASH) which is voting
 | 32 | nParentHash | uint256 | Required | Object (`govobj`) being voted on (proposal, contract, setting or final budget)
 | 4 | nVoteOutcome | int | Required | None (0), Yes (1), No (2), Abstain (3)
 | 4 | nVoteSignal | int | Required |  None (0), Funding (1), Valid (2), Delete (3), Endorsed (4)
 | 8 | nTime | int64_t | Required | Time the vote was created
-| 97 | vchSig | char[] | Required | _ECDSA signature (65 bytes) prior to DIP3 activation_<br><br>BLS Signature of the masternode (Length (1 byte) + Signature (96 bytes))
+| 97 | vchSig | char[] | Required | _ECDSA signature (65 bytes) prior to [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) activation_<br><br>BLS Signature of the masternode (Length (1 byte) + Signature (96 bytes))
 
-Governance Object Vote Signals (defined by src/governance-object.h)
+Governance Object Vote Signals (defined by `src/governance-object.h`)
 
 | Value | Name | Description
-|------|-------|------------
+| :------: | ------- | ------------
 | 1 | Funding  | Minimum network support has been reached for this object to be funded (doesn't mean it will for sure though)
 | 2 | Valid    | Minimum network support has been reached flagging this object as a valid and understood governance object (e.g, the serialized data is correct format, etc.)
 | 3 | Delete   | Minimum network support has been reached saying this object should be deleted from the system entirely
@@ -148,7 +148,7 @@ d289fca20905fd453620238a505582fa ..... Masternode BLS Signature
 
 # govsync
 
-The [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync) is used to request syncing of governance objects (`govobj` message and [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote)) with peers. Masternodes ignore this request if they are not fully synced.
+The [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync) is used to request syncing of governance objects (`govobj` message and [`govobjvote` message](core-ref-p2p-network-governance-messages#section-govobjvote)) with peers. <<glossary:Masternodes>> ignore this request if they are not fully synced.
 
 This message responds in one of two ways depending on the request:
 
@@ -161,11 +161,13 @@ This message responds in one of two ways depending on the request:
 | ---------- | ----------- | --------- | -------- | -------- |
 | 32 | nHash | uint256 | Required | Hash of governance object to request<br>Set to all zeros to request all objects (excludes votes)
 | # | filter | CBloomFilter | Required | Can be set to all zeros.<br>Only supported since [protocol version 70206](core-ref-p2p-network-protocol-versions)
-
-``` text
-Dash Core limits how frequently the first type of sync (object sync) can be
-requested. Frequent requests will result in the node being banned.
-```
+[block:callout]
+{
+  "type": "info",
+  "body": "Dash Core limits how frequently the first type of sync (object sync) can be requested. Frequent requests will result in the node being banned.",
+  "title": "Object sync rate limiting"
+}
+[/block]
 
 The following annotated hexdump shows a [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync). (The message header has been omitted.)
 

@@ -2,7 +2,7 @@
 title: "Control Messages"
 excerpt: ""
 ---
-The following network messages all help control the connection between two peers or allow them to advise each other about the rest of the network.
+The following <<glossary:network>> messages all help control the connection between two <<glossary:peers>> or allow them to advise each other about the rest of the network.
 
 ![Overview Of P2P Protocol Control And Advisory Messages](https://dash-docs.github.io/img/dev/en-p2p-control-messages.svg)
 
@@ -28,7 +28,7 @@ Each encapsulated network IP address currently uses the following structure:
 | 16    | IP address | char      | IPv6 address in **big endian byte order**. IPv4 addresses can be provided as [IPv4-mapped IPv6 addresses](http://en.wikipedia.org/wiki/IPv6#IPv4-mapped_IPv6_addresses)
 | 2     | port       | uint16_t  | Port number in **big endian byte order**.  Note that Dash Core will only connect to nodes with non-standard port numbers as a last resort for finding peers.  This is to prevent anyone from trying to use the network to disrupt non-Dash services that run on other ports.
 
-The following annotated hexdump shows part of an [`addr` message](core-ref-p2p-network-control-messages#section-addr). (The message header has been omitted and the actual IP address has been replaced with a [RFC5737](http://tools.ietf.org/html/rfc5737) reserved IP address.)
+The following annotated hexdump shows part of an [`addr` message](core-ref-p2p-network-control-messages#section-addr). (The <<glossary:message header>> has been omitted and the actual IP address has been replaced with a [RFC5737](http://tools.ietf.org/html/rfc5737) reserved IP address.)
 
 ``` text
 fde803 ............................. Address count: 1000
@@ -45,7 +45,7 @@ d91f4854 ........................... Epoch time: 1414012889
 
 *Added in protocol version 70001 as described by BIP37.*
 
-The [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd) tells the receiving peer to add a single element to a previously-set bloom filter, such as a new public key. The element is sent directly to the receiving peer; the peer then uses the parameters set in the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload) to add the element to the bloom filter.
+The [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd) tells the receiving <<glossary:peer>> to add a single element to a previously-set <<glossary:bloom filter>>, such as a new <<glossary:public key>>. The element is sent directly to the receiving peer; the peer then uses the parameters set in the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload) to add the element to the bloom filter.
 
 Because the element is sent directly to the receiving peer, there is no obfuscation of the element and none of the plausible-deniability privacy provided by the bloom filter. Clients that want to maintain greater privacy should recalculate the bloom filter themselves and send a new [`filterload` message](core-ref-p2p-network-control-messages#section-filterload) with the recalculated bloom filter.
 
@@ -56,7 +56,7 @@ Because the element is sent directly to the receiving peer, there is no obfuscat
 
 Note: a [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd) will not be accepted unless a filter was previously set with the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload).
 
-The annotated hexdump below shows a [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd) adding a TXID. (The message header has been omitted.) This TXID appears in the same block used for the example hexdump in the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock); if that [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) is re-sent after sending this [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd), six hashes are returned instead of four.
+The annotated hexdump below shows a [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd) adding a <<glossary:TXID>>. (The message header has been omitted.) This TXID appears in the same block used for the example hexdump in the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock); if that [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) is re-sent after sending this [`filteradd` message](core-ref-p2p-network-control-messages#section-filteradd), six hashes are returned instead of four.
 
 ``` text
 20 ................................. Element bytes: 32
@@ -68,7 +68,7 @@ fdacf9b3eb077412e7a968d2e4f11b9a
 
 *Added in protocol version 70001 as described by BIP37.*
 
-The [`filterclear` message](core-ref-p2p-network-control-messages#section-filterclear) tells the receiving peer to remove a previously-set bloom filter.  This also undoes the effect of setting the relay field in the [`version` message](core-ref-p2p-network-control-messages#section-version) to 0, allowing unfiltered access to [`inv` messages](core-ref-p2p-network-data-messages#section-inv) announcing new transactions.
+The [`filterclear` message](core-ref-p2p-network-control-messages#section-filterclear) tells the receiving <<glossary:peer>> to remove a previously-set <<glossary:bloom filter>>.  This also undoes the effect of setting the relay field in the [`version` message](core-ref-p2p-network-control-messages#section-version) to 0, allowing unfiltered access to [`inv` messages](core-ref-p2p-network-data-messages#section-inv) announcing new transactions.
 
 Dash Core does not require a [`filterclear` message](core-ref-p2p-network-control-messages#section-filterclear) before a replacement filter is loaded with `filterload`.  It also doesn't require a [`filterload` message](core-ref-p2p-network-control-messages#section-filterload) before a [`filterclear` message](core-ref-p2p-network-control-messages#section-filterclear).
 
@@ -78,7 +78,7 @@ There is no payload in a [`filterclear` message](core-ref-p2p-network-control-me
 
 *Added in protocol version 70001 as described by BIP37.*
 
-The [`filterload` message](core-ref-p2p-network-control-messages#section-filterload) tells the receiving peer to filter all relayed transactions and requested merkle blocks through the provided filter. This allows clients to receive transactions relevant to their wallet plus a configurable rate of false positive transactions which can provide plausible-deniability privacy.
+The [`filterload` message](core-ref-p2p-network-control-messages#section-filterload) tells the receiving <<glossary:peer>> to filter all relayed transactions and requested <<glossary:merkle blocks>> through the provided filter. This allows clients to receive transactions relevant to their <<glossary:wallet>> plus a configurable rate of false positive transactions which can provide plausible-deniability privacy.
 
 | Bytes    | Name         | Data Type | Description
 |----------|--------------|-----------|---------------
@@ -98,7 +98,7 @@ b50f ....... Filter: 1010 1101 1111 0000
 00 ......... nFlags: BLOOM_UPDATE_NONE
 ```
 
-**Initializing A Bloom Filter**
+## Initializing A Bloom Filter
 
 Filters have two core parameters: the size of the bit field and the number of hash functions to run against each data element. The following formulas from BIP37 will allow you to automatically select appropriate values based on the number of elements you plan to insert into the filter (*n*) and the false positive rate (*p*) you desire to maintain plausible deniability.
 
@@ -113,7 +113,7 @@ According to BIP37, the formulas and limits described above provide support for 
 
 Once the size of the bit field is known, the bit field should be initialized as all zeroes.
 
-**Populating A Bloom Filter**
+## Populating A Bloom Filter
 
 The bloom filter is populated using between 1 and 50 unique hash functions (the number specified per filter by the *nHashFuncs* field). Instead of using up to 50 different hash function implementations, a single implementation is used with a unique seed value for each function.
 
@@ -129,7 +129,7 @@ If the seed resulting from the formula above is larger than four bytes, it must 
 
 The actual hash function implementation used is the [32-bit Murmur3 hash function](https://en.wikipedia.org/wiki/MurmurHash).
 
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** the Murmur3 hash function has separate 32-bit and 64-bit versions that produce different results for the same input.  Only the 32-bit Murmur3 version is used with Dash bloom filters.
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** the Murmur3 hash function has separate 32-bit and 64-bit versions that produce different results for the same <<glossary:input>>.  Only the 32-bit Murmur3 version is used with Dash bloom filters.
 
 The data to be hashed can be any transaction element which the bloom filter can match. See the next subsection for the list of transaction elements checked against the filter. The largest element which can be matched is a script data push of 520 bytes, so the data should never exceed 520 bytes.
 
@@ -145,24 +145,24 @@ It is expected that sometimes the same index number will be returned more than o
 
 After all data elements have been added to the filter, each set of eight bits is converted into a little-endian byte. These bytes are the value of the *filter* field.
 
-**Comparing Transaction Elements To A Bloom Filter**
+## Comparing Transaction Elements To A Bloom Filter
 
 To compare an arbitrary data element against the bloom filter, it is hashed using the same parameters used to create the bloom filter. Specifically, it is hashed *nHashFuncs* times, each time using the same
-*nTweak* provided in the filter, and the resulting output is modulo the size of the bit field provided in the *filter* field.  After each hash is performed, the filter is checked to see if the bit at that indexed location is set.  For example if the result of a hash is `5` and the filter is `01001110`, the bit is considered set.
+*nTweak* provided in the filter, and the resulting <<glossary:output>> is modulo the size of the bit field provided in the *filter* field.  After each hash is performed, the filter is checked to see if the bit at that indexed location is set.  For example if the result of a hash is `5` and the filter is `01001110`, the bit is considered set.
 
 If the result of every hash points to a set bit, the filter matches. If any of the results points to an unset bit, the filter does not match.
 
-The following transaction elements are compared against bloom filters. All elements will be hashed in the byte order used in blocks (for example, TXIDs will be in internal byte order).
+The following transaction elements are compared against bloom filters. All elements will be hashed in the byte order used in <<glossary:blocks>> (for example, <<glossary:TXIDs>> will be in <<glossary:internal byte order>>).
 
 * **TXIDs:** the transaction's SHA256(SHA256()) hash.
 
-* **Outpoints:** each 36-byte outpoint used this transaction's input section is individually compared to the filter.
+* **Outpoints:** each 36-byte <<glossary:outpoint>> used this transaction's input section is individually compared to the filter.
 
-* **Signature Script Data:** each element pushed onto the stack by a data-pushing opcode in a signature script from this transaction is individually compared to the filter.  This includes data elements present in P2SH redeem scripts when they are being spent.
+* **Signature Script Data:** each element pushed onto the stack by a <<glossary:data-pushing opcode>> in a <<glossary:signature script>> from this transaction is individually compared to the filter.  This includes data elements present in P2SH <<glossary:redeem script>> when they are being spent.
 
-* **PubKey Script Data:** each element pushed onto the the stack by a data-pushing opcode in any pubkey script from this transaction is individually compared to the filter. (If a pubkey script element matches the filter, the filter will be immediately updated if the `BLOOM_UPDATE_ALL` flag was set; if the pubkey script is in the P2PKH format and matches the filter, the filter will be immediately updated if the `BLOOM_UPDATE_P2PUBKEY_ONLY` flag was set. See the subsection below for details.)
+* **PubKey Script Data:** each element pushed onto the the stack by a data-pushing opcode in any <<glossary:pubkey script>> from this transaction is individually compared to the filter. (If a pubkey script element matches the filter, the filter will be immediately updated if the `BLOOM_UPDATE_ALL` flag was set; if the pubkey script is in the P2PKH format and matches the filter, the filter will be immediately updated if the `BLOOM_UPDATE_P2PUBKEY_ONLY` flag was set. See the subsection below for details.)
 
-As of  Dash Core 0.14.0, elements in the extra payload section of DIP2-based special transactions are also compared against bloom filters.
+As of  Dash Core 0.14.0, elements in the extra payload section of [DIP2](https://github.com/dashpay/dips/blob/master/dip-0002.md)-based <<glossary:special transactions>> are also compared against bloom filters.
 
 The following annotated hexdump of a transaction is from the [raw transaction format section](core-ref-transactions-raw-transaction-format); the elements which would be checked by the filter are emphasized in bold. Note that this transaction's TXID (**`01000000017b1eab[...]`**) would also be checked, and that the outpoint TXID and index number below would be checked as a single 36-byte element.
 
@@ -199,9 +199,9 @@ The following annotated hexdump of a transaction is from the [raw transaction fo
 00000000 ................................... locktime: 0 (a block height)
 </code></pre>
 
-**Updating A Bloom Filter**
+## Updating A Bloom Filter
 
-Clients will often want to track inputs that spend outputs (outpoints) relevant to their wallet, so the filterload field *nFlags* can be set to allow the filtering node to update the filter when a match is found. When the filtering node sees a pubkey script that pays a pubkey, address, or other data element matching the filter, the filtering node immediately updates the filter with the outpoint corresponding to that pubkey script.
+Clients will often want to track <<glossary:inputs>> that spend <<glossary:outputs>> (outpoints) relevant to their wallet, so the filterload field *nFlags* can be set to allow the filtering <<glossary:node>> to update the filter when a match is found. When the filtering node sees a <<glossary:pubkey script>> that pays a pubkey, <<glossary:address>>, or other data element matching the filter, the filtering node immediately updates the filter with the <<glossary:outpoint>> corresponding to that pubkey script.
 
 ![Automatically Updating Bloom Filters](https://dash-docs.github.io/img/dev/en-bloom-update.svg)
 
@@ -211,15 +211,15 @@ The *nFlags* field has three allowed values:
 
 | Value | Name                       | Description
 |-------|----------------------------|---------------
-| 0     | BLOOM_UPDATE_NONE          | The filtering node should not update the filter.
-| 1     | BLOOM_UPDATE_ALL           | If the filter matches any data element in a pubkey script, the corresponding outpoint is added to the filter.
-| 2     | BLOOM_UPDATE_P2PUBKEY_ONLY | If the filter matches any data element in a pubkey script and that script is either a P2PKH or non-P2SH pay-to-multisig script, the corresponding outpoint is added to the filter.
+| 0     | `BLOOM_UPDATE_NONE`          | The filtering node should not update the filter.
+| 1     | `BLOOM_UPDATE_ALL`           | If the filter matches any data element in a pubkey script, the corresponding outpoint is added to the filter.
+| 2     | `BLOOM_UPDATE_P2PUBKEY_ONLY` | If the filter matches any data element in a pubkey script and that script is either a P2PKH or non-P2SH pay-to-multisig script, the corresponding outpoint is added to the filter.
 
 In addition, because the filter size stays the same even though additional elements are being added to it, the false positive rate increases. Each false positive can result in another element being added to the filter, creating a feedback loop that can (after a certain point) make the filter useless. For this reason, clients using automatic filter updates need to monitor the actual false positive rate and send a new filter when the rate gets too high.
 
 # GetAddr
 
-The [`getaddr` message](core-ref-p2p-network-control-messages#section-getaddr) requests an [`addr` message](core-ref-p2p-network-control-messages#section-addr) from the receiving node, preferably one with lots of IP addresses of other receiving nodes. The transmitting node can use those IP addresses to quickly update its database of available nodes rather than waiting for unsolicited [`addr` messages](core-ref-p2p-network-control-messages#section-addr) to arrive over time.
+The [`getaddr` message](core-ref-p2p-network-control-messages#section-getaddr) requests an [`addr` message](core-ref-p2p-network-control-messages#section-addr) from the receiving <<glossary:node>>, preferably one with lots of IP addresses of other receiving nodes. The transmitting node can use those IP addresses to quickly update its database of available nodes rather than waiting for unsolicited [`addr` messages](core-ref-p2p-network-control-messages#section-addr) to arrive over time.
 
 There is no payload in a [`getaddr` message](core-ref-p2p-network-control-messages#section-getaddr).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
@@ -231,7 +231,7 @@ There is no payload in a [`getsporks` message](core-ref-p2p-network-control-mess
 
 # Ping
 
-The [`ping` message](core-ref-p2p-network-control-messages#section-ping) helps confirm that the receiving peer is still connected. If a TCP/IP error is encountered when sending the [`ping` message](core-ref-p2p-network-control-messages#section-ping) (such as a connection timeout), the transmitting node can assume that the receiving node is disconnected. The response to a [`ping` message](core-ref-p2p-network-control-messages#section-ping) is the [`pong` message](core-ref-p2p-network-control-messages#section-pong).
+The [`ping` message](core-ref-p2p-network-control-messages#section-ping) helps confirm that the receiving <<glossary:peer>> is still connected. If a TCP/IP error is encountered when sending the [`ping` message](core-ref-p2p-network-control-messages#section-ping) (such as a connection timeout), the transmitting node can assume that the receiving node is disconnected. The response to a [`ping` message](core-ref-p2p-network-control-messages#section-ping) is the [`pong` message](core-ref-p2p-network-control-messages#section-pong).
 
 Before protocol version 60000, the [`ping` message](core-ref-p2p-network-control-messages#section-ping) had no payload. As of protocol version 60001 and all later versions, the message includes a single field, the nonce.
 
@@ -249,18 +249,17 @@ The annotated hexdump below shows a [`ping` message](core-ref-p2p-network-contro
 
 *Added in protocol version 60001 as described by BIP31.*
 
-The [`pong` message](core-ref-p2p-network-control-messages#section-pong) replies to a [`ping` message](core-ref-p2p-network-control-messages#section-ping), proving to the pinging node that the ponging node is still alive. Dash Core will, by default, disconnect from any clients which have not responded to a [`ping` message](core-ref-p2p-network-control-messages#section-ping) within 20 minutes.
+The [`pong` message](core-ref-p2p-network-control-messages#section-pong) replies to a [`ping` message](core-ref-p2p-network-control-messages#section-ping), proving to the pinging <<glossary:node>> that the ponging node is still alive. Dash Core will, by default, disconnect from any clients which have not responded to a [`ping` message](core-ref-p2p-network-control-messages#section-ping) within 20 minutes.
 
 To allow nodes to keep track of latency, the [`pong` message](core-ref-p2p-network-control-messages#section-pong) sends back the same nonce received in the [`ping` message](core-ref-p2p-network-control-messages#section-ping) it is replying to.
 
-The format of the [`pong` message](core-ref-p2p-network-control-messages#section-pong) is identical to the [`ping` message](core-ref-p2p-network-control-messages#section-ping);
-only the message header differs.
+The format of the [`pong` message](core-ref-p2p-network-control-messages#section-pong) is identical to the [`ping` message](core-ref-p2p-network-control-messages#section-ping); only the message header differs.
 
 # Reject
 
 *Added in protocol version 70002 as described by BIP61.*
 
-The [`reject` message](core-ref-p2p-network-control-messages#section-reject) informs the receiving node that one of its previous messages has been rejected.
+The [`reject` message](core-ref-p2p-network-control-messages#section-reject) informs the receiving <<glossary:node>> that one of its previous messages has been rejected.
 
 | Bytes    | Name          | Data Type        | Description
 |----------|---------------|------------------|--------------
@@ -330,11 +329,11 @@ The annotated hexdump below shows a [`reject` message](core-ref-p2p-network-cont
 
 *Added in protocol version 70209 of Dash Core as described by BIP152*
 
-The [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) tells the receiving peer whether or not to announce new blocks using a [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock). It also sends the compact block protocol version it supports. The [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) is defined as a message containing a 1-byte integer followed by a 8-byte integer. The first integer is interpreted as a boolean and should have a value of either 1 or 0. The second integer is be interpreted as a little-endian version number.
+The [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) tells the receiving <<glossary:peer>> whether or not to announce new <<glossary:blocks>> using a [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock). It also sends the compact block protocol version it supports. The [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) is defined as a message containing a 1-byte integer followed by a 8-byte integer. The first integer is interpreted as a boolean and should have a value of either 1 or 0. The second integer is be interpreted as a little-endian version number.
 
-Upon receipt of a [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) with the first and second integers set to 1, the node should announce new blocks by sending a [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock).
+Upon receipt of a [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) with the first and second integers set to 1, the <<glossary:node>> should announce new blocks by sending a [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock).
 
-Upon receipt of a [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) with the first integer set to 0, the node shouldn't announce new blocks by sending a [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock), but instead announce new blocks by sending invs or headers, as defined by [BIP130](https://github.com/bitcoin/bips/blob/master/bip-0130.mediawiki).
+Upon receipt of a [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) with the first integer set to 0, the node shouldn't announce new blocks by sending a [`cmpctblock` message](core-ref-p2p-network-data-messages#section-cmpctblock), but instead announce new blocks by sending invs or <<glossary:headers>>, as defined by [BIP130](https://github.com/bitcoin/bips/blob/master/bip-0130.mediawiki).
 
 Upon receipt of a [`sendcmpct` message](core-ref-p2p-network-control-messages#section-sendcmpct) with the second integer set to something other than 1, nodes should treat the peer as if they had not received the message (as it indicates the peer will provide an unexpected encoding in [`cmpctblock` messages](core-ref-p2p-network-data-messages#section-cmpctblock), and/or other, messages). This allows future versions to send duplicate [`sendcmpct` messages](core-ref-p2p-network-control-messages#section-sendcmpct) with different versions as a part of a version handshake.
 
@@ -358,7 +357,7 @@ The annotated hexdump below shows a [`sendcmpct` message](core-ref-p2p-network-c
 
 *Added in protocol version 70214 of Dash Core*
 
-The [`senddsq` message](core-ref-p2p-network-control-messages#section-senddsq) is used to notify a peer whether or not to send [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq). This allows clients that are not interested in PrivateSend mixing (e.g. mobile wallet) to minimize data usage.
+The [`senddsq` message](core-ref-p2p-network-control-messages#section-senddsq) is used to notify a <<glossary:peer>> whether or not to send [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq). This allows clients that are not interested in PrivateSend mixing (e.g. mobile <<glossary:wallet>>) to minimize data usage.
 
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
@@ -372,7 +371,7 @@ The following annotated hexdump shows a [`senddsq` message](core-ref-p2p-network
 
 # SendHeaders
 
-The [`sendheaders` message](core-ref-p2p-network-control-messages#section-sendheaders) tells the receiving peer to send new block announcements using a [`headers` message](core-ref-p2p-network-data-messages#section-headers) rather than an [`inv` message](core-ref-p2p-network-data-messages#section-inv).
+The [`sendheaders` message](core-ref-p2p-network-control-messages#section-sendheaders) tells the receiving <<glossary:peer>> to send new <<glossary:block>> announcements using a [`headers` message](core-ref-p2p-network-data-messages#section-headers) rather than an [`inv` message](core-ref-p2p-network-data-messages#section-inv).
 
 There is no payload in a [`sendheaders` message](core-ref-p2p-network-control-messages#section-sendheaders).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
@@ -382,7 +381,7 @@ Sporks are a mechanism by which updated code is released to the network, but not
 
 A [`spork` message](core-ref-p2p-network-control-messages#section-spork) may be sent in response to a [`getsporks` message](core-ref-p2p-network-control-messages#section-getsporks).
 
-The [`spork` message](core-ref-p2p-network-control-messages#section-spork) tells the receiving peer the status of the spork defined by the SporkID field. Upon receiving a spork message, the client must verify the signature before accepting the spork message as valid.
+The [`spork` message](core-ref-p2p-network-control-messages#section-spork) tells the receiving peer the status of the spork defined by the SporkID field. Upon receiving a <<glossary:spork>> message, the client must verify the <<glossary:signature>> before accepting the spork message as valid.
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
@@ -393,26 +392,26 @@ The [`spork` message](core-ref-p2p-network-control-messages#section-spork) tells
 
 Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/a4f5ba38b65384fb9243ce78c111feceb377e1a9/src/spork.h#L20))
 
-| Spork ID | Number | Name | Description |
-| ---------- | ---------- | ----------- | ----------- |
+| Spork ID | Num. | Name | Description |
+| :----------: | :----------: | ----------- | ----------- |
 | 10001 | 2 | `INSTANTSEND_ENABLED` | Turns on and off InstantSend network wide
-| 10002 | 3 | `INSTANTSEND_BLOCK_FILTERING` | Turns on and off InstantSend block filtering
+| 10002 | 3 | `INSTANTSEND_BLOCK_`<br>`FILTERING` | Turns on and off InstantSend block filtering
 | 10005 | 6 | `NEW_SIGS` | Turns on and off new signature format for Dash-specific messages
 | 10008 | 9 | `SUPERBLOCKS_ENABLED` | Superblocks are enabled (10% of the block reward allocated to fund the dash treasury for funding approved proposals)
-| 10014 | 15 | `DETERMINISTIC_MNS_ENABLED` | Deterministic masternode lists are enabled
+| 10014 | 15 | `DETERMINISTIC_MNS_`<br>`ENABLED` | Deterministic masternode lists are enabled
 | 10015 | 16 | `INSTANTSEND_AUTOLOCKS` | Automatic InstantSend for transactions with <=4 inputs (also eliminates the special InstantSend fee requirement for these transactions)
-| 10016 | 17 | `SPORK_17_QUORUM_DKG_ENABLED` | Enable long-living masternode quorum (LLMQ) distributed key generation (DKG). When enabled, simple PoSe  scoring and banning is active as well.
-| 10018 | 19 | `SPORK_19_CHAINLOCKS_ENABLED` | Enable LLMQ-based ChainLocks.
-| 10019 | 20 | `SPORK_20_INSTANTSEND_LLMQ_BASED` | Enable LLMQ-based InstantSend.
+| 10016 | 17 | `SPORK_17_QUORUM_DKG_`<br>`ENABLED` | Enable long-living masternode quorum (LLMQ) distributed key generation (DKG). When enabled, simple PoSe  scoring and banning is active as well.
+| 10018 | 19 | `SPORK_19_CHAINLOCKS_`<br>`ENABLED` | Enable LLMQ-based ChainLocks.
+| 10019 | 20 | `SPORK_20_INSTANTSEND_`<br>`LLMQ_BASED` | Enable LLMQ-based InstantSend.
 | | | |
 | | | **Removed Sporks** |
-| _10004_ | _5_ | _`INSTANTSEND_MAX_VALUE`_ | _Removed in Dash Core 0.14.1.<br>Controls the max value for an InstantSend transaction (currently 2000 dash)_
-| _10007_ | _8_ | _`MASTERNODE_PAYMENT_ENFORCEMENT`_ | _Removed in Dash Core 0.14.0.<br>Requires masternodes to be paid by miners when blocks are processed_
-| _10009_ | _10_ | _`MASTERNODE_PAY_UPDATED_NODES`_ | _Removed in Dash Core 0.14.0.<br>Only current protocol version masternode's will be paid (not older nodes)_
-| _10011_ | _12_ | _`RECONSIDER_BLOCKS`_ | _Removed in Dash Core 0.14.1.<br>Forces reindex of a specified number of blocks to recover from unintentional network forks_
-| _10012_ | _13_ | _`OLD_SUPERBLOCK_FLAG`_ | _Removed in Dash Core 0.12.3.<br>No network function since block 614820_
-| _10013_ | _14_ | _`REQUIRE_SENTINEL_FLAG`_ | _Removed in Dash Core 0.14.0.<br>Only masternode's running sentinel will be paid_
-| _10017_ | _18_ | _`QUORUM_DEBUG_ENABLED`_ | _Removed in Dash Core 0.14.0.<br><br>Temporarily used on Testnet only quorum debugging._
+| _10004_ | _5_ | `INSTANTSEND_MAX_VALUE` | _Removed in Dash Core 0.14.1.<br>Controls the max value for an InstantSend transaction (currently 2000 dash)_
+| _10007_ | _8_ | `MASTERNODE_PAYMENT_`<br>`ENFORCEMENT` | _Removed in Dash Core 0.14.0.<br>Requires masternodes to be paid by miners when blocks are processed_
+| _10009_ | _10_ | `MASTERNODE_PAY_`<br>`UPDATED_NODES` | _Removed in Dash Core 0.14.0.<br>Only current protocol version masternode's will be paid (not older nodes)_
+| _10011_ | _12_ | `RECONSIDER_BLOCKS` | _Removed in Dash Core 0.14.1.<br>Forces reindex of a specified number of blocks to recover from unintentional network forks_
+| _10012_ | _13_ | `OLD_SUPERBLOCK_FLAG` | _Removed in Dash Core 0.12.3.<br>No network function since block 614820_
+| _10013_ | _14_ | `REQUIRE_SENTINEL_FLAG` | _Removed in Dash Core 0.14.0.<br>Only masternode's running sentinel will be paid_
+| _10017_ | _18_ | `QUORUM_DEBUG_ENABLED` | _Removed in Dash Core 0.14.0.<br><br>Temporarily used on Testnet only quorum debugging._
 
 To verify `vchSig`, compare the hard-coded spork public key (`strSporkPubKey` from [`src/chainparams.cpp`](https://github.com/dashpay/dash/blob/eaf90b77177efbaf9cbed46e822f0d794f1a0ee5/src/chainparams.cpp#L158)) with the public key recovered from the [`spork` message](core-ref-p2p-network-control-messages#section-spork)'s hash and `vchSig` value (implementation details for Dash Core can be found in `CPubKey::RecoverCompact`). The hash is a double SHA-256 hash of:
 
@@ -444,17 +443,17 @@ d32020c827a89f8128a00acd210f4ea4
 
 # VerAck
 
-The [`verack` message](core-ref-p2p-network-control-messages#section-verack) acknowledges a previously-received [`version` message](core-ref-p2p-network-control-messages#section-version), informing the connecting node that it can begin to send other messages. The [`verack` message](core-ref-p2p-network-control-messages#section-verack) has no payload; for an example of a message with no payload, see the [message headers section](core-ref-p2p-network-message-headers).
+The [`verack` message](core-ref-p2p-network-control-messages#section-verack) acknowledges a previously-received [`version` message](core-ref-p2p-network-control-messages#section-version), informing the connecting <<glossary:node>> that it can begin to send other messages. The [`verack` message](core-ref-p2p-network-control-messages#section-verack) has no payload; for an example of a message with no payload, see the [message headers section](core-ref-p2p-network-message-headers).
 
 # Version
 
-The [`version` message](core-ref-p2p-network-control-messages#section-version) provides information about the transmitting node to the receiving node at the beginning of a connection. Until both peers have exchanged [`version` messages](core-ref-p2p-network-control-messages#section-version), no other messages will be accepted.
+The [`version` message](core-ref-p2p-network-control-messages#section-version) provides information about the transmitting <<glossary:node>> to the receiving node at the beginning of a connection. Until both <<glossary:peers>> have exchanged [`version` messages](core-ref-p2p-network-control-messages#section-version), no other messages will be accepted.
 
 If a [`version` message](core-ref-p2p-network-control-messages#section-version) is accepted, the receiving node should send a [`verack` message](core-ref-p2p-network-control-messages#section-verack)---but no node should send a [`verack` message](core-ref-p2p-network-control-messages#section-verack) before initializing its half of the connection by first sending a [`version` message](core-ref-p2p-network-control-messages#section-version).
 
-Protocol version 70214 added a masternode authentication (challenge/response) system. Following the [`verack` message](core-ref-p2p-network-control-messages#section-verack), masternodes should send a [`mnauth` message](core-ref-p2p-network-masternode-messages#section-mnauth) that signs the `mnauth_challenge` with their BLS operator key.
+Protocol version 70214 added a <<glossary:masternode>> authentication (challenge/response) system. Following the [`verack` message](core-ref-p2p-network-control-messages#section-verack), masternodes should send a [`mnauth` message](core-ref-p2p-network-masternode-messages#section-mnauth) that signs the `mnauth_challenge` with their BLS operator key.
 
-| Bytes    | Name                  | Data Type        | Required/<br>Optional                        | Description
+| Bytes    | Name                  | Data<br>Type        | Required/<br>Optional                        | Description
 |----------|-----------------------|------------------|------------------------------------------|-------------
 | 4        | version               | int32_t          | Required                                 | The highest protocol version understood by the transmitting node.  See the [protocol version section](core-ref-p2p-network-protocol-versions).
 | 8        | services              | uint64_t         | Required                                 | The services supported by the transmitting node encoded as a bitfield.  See the list of service codes below.
@@ -477,9 +476,9 @@ The following service identifiers have been assigned.
 | Value | Name         | Description
 |-------|--------------|---------------
 | 0x00  | *Unnamed*    | This node is not a full node.  It may not be able to provide any data except for the transactions it originates.
-| 0x01  | NODE_NETWORK | This is a full node and can be asked for full blocks.  It should implement all protocol features available in its self-reported protocol version.
-| 0x02  | NODE_GETUTXO | This node is capable of responding to the getutxo protocol request. *Dash Core does not support this service.*
-| 0x04  | NODE_BLOOM | This node is capable and willing to handle bloom-filtered connections.  Dash Core nodes used to support this by default, without advertising this bit, but no longer do as of protocol version 70201 (= NO_BLOOM_VERSION)
+| 0x01  | `NODE_NETWORK` | This is a full node and can be asked for full blocks.  It should implement all protocol features available in its self-reported protocol version.
+| 0x02  | `NODE_GETUTXO` | This node is capable of responding to the getutxo protocol request. *Dash Core does not support this service.*
+| 0x04  | `NODE_BLOOM` | This node is capable and willing to handle bloom-filtered connections.  Dash Core nodes used to support this by default, without advertising this bit, but no longer do as of protocol version 70201 (= NO_BLOOM_VERSION)
 
 The following annotated hexdump shows a [`version` message](core-ref-p2p-network-control-messages#section-version). (The message header has been omitted and the actual IP addresses have been replaced with [RFC5737](http://tools.ietf.org/html/rfc5737) reserved IP addresses.)
 

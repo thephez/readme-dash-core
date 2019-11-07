@@ -2,7 +2,7 @@
 title: "Masternode Messages"
 excerpt: ""
 ---
-The following network messages enable the masternode features built in to Dash.
+The following network messages enable the <<glossary:masternode>> features built in to Dash.
 
 ![Overview Of P2P Protocol Masternode Request And Reply Messages](https://dash-docs.github.io/img/dev/en-p2p-masternode-messages.svg)
 
@@ -10,7 +10,7 @@ For additional details, refer to the Developer Guide [Masternode Sync](core-guid
 
 # ssc
 
-The [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) is used to track the sync status of masternode objects. This message is sent in response to sync requests for the list of masternodes (`dseg` message), masternode payments (`mnget` message), governance objects (`govsync` message), and governance object votes (`govsync` message).
+The [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) is used to track the sync status of masternode objects. This message is sent in response to sync requests for the list of governance objects (`govsync` message), and governance object votes (`govsync` message).
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
@@ -21,8 +21,8 @@ Sync Item IDs
 
 | ID | Description | Response To
 |------|--------------|---------------
-| 2 | MASTERNODE_SYNC_LIST | _Deprecated following activation of DIP3 in Dash Core 0.13.0_<br><br>`dseg` message
-| 3 | MASTERNODE_SYNC_MNW | _Deprecated following activation of DIP3 in Dash Core 0.13.0_<br><br>`mnget` message
+| 2 | MASTERNODE_SYNC_LIST | _Deprecated following activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) in Dash Core 0.13.0_<br><br>`dseg` message
+| 3 | MASTERNODE_SYNC_MNW | _Deprecated following activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) in Dash Core 0.13.0_<br><br>`mnget` message
 | 10 | MASTERNODE_SYNC_GOVOBJ | [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync)
 | 11 | MASTERNODE_SYNC_GOVOBJ_VOTE | [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync) with non-zero hash
 
@@ -37,7 +37,7 @@ bf110000 ................................... Count: 4543
 
 *Added in protocol version 70214 of Dash Core*
 
-The [`mnauth` message](core-ref-p2p-network-masternode-messages#section-mnauth) is sent by a masternode immediately after sending a [`verack` message](core-ref-p2p-network-control-messages#section-verack) to authenticate that the sender is a masternode. It is only sent when the sender is actually a masternode.
+The [`mnauth` message](core-ref-p2p-network-masternode-messages#section-mnauth) is sent by a <<glossary:masternode>> immediately after sending a [`verack` message](core-ref-p2p-network-control-messages#section-verack) to authenticate that the sender is a masternode. It is only sent when the sender is actually a masternode.
 
 The [`mnauth` message](core-ref-p2p-network-masternode-messages#section-mnauth) signs a challenge that was previously sent via a [`version` message](core-ref-p2p-network-control-messages#section-version). The challenge is signed differently depending on if the connection is inbound or outbound.
 
