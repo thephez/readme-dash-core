@@ -10,7 +10,7 @@ The [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync
 
 There are two distinct stages of governance sync:
 
-1. Initial request (object sync) - requests the governance objects only via a [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync) sent with a hash of all zeros.  
+1. Initial request (object sync) - requests the governance objects only via a `govsync` message sent with a hash of all zeros.  
 
 2. Follow up request(s) (vote sync) - request governance object votes for a specific object via a [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync) containing the hash of the object. One message is required for each object. Dash Core periodically (~ every 6 seconds) sends messages to connected nodes until all the governance objects have been synchronized.
 

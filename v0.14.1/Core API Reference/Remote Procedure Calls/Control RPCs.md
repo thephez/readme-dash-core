@@ -32,8 +32,7 @@ Debug mode: net+mempool
 
 The [`getinfo` RPC](core-api-ref-remote-procedure-calls-control#section-getinfo) prints various information about the node and the network.
 
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `getinfo` will be removed in a later version of Dash
-Core.  Use the RPCs listed in the See Also subsection below instead.
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `getinfo` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameters: none*
 
