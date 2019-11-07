@@ -96,7 +96,7 @@ Name | Type | Presence | Description
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →<br>`size` | number (int) | Required<br>(exactly 1) | The size of this block in serialized block format, counted in bytes
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers][section block versions]
+→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
 →<br>`versionHex` | string (hex) | Required<br>(exactly 1) | _Added in Bitcoin Core 0.13.0_<br><br>The block version formatted in hexadecimal
 →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →<br>`tx` | array | Required<br>(exactly 1) | An array containing the TXIDs of all transactions in this block.  The transactions appear in the array in the same order they appear in the serialized block
@@ -124,7 +124,7 @@ Name | Type | Presence | Description
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →<br>`size` | number (int) | Required<br>(exactly 1) | The size of this block in serialized block format, counted in bytes
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers][section block versions]
+→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
 →<br>`versionHex` | string (hex) | Required<br>(exactly 1) | _Added in Bitcoin Core 0.13.0_<br><br>The block version formatted in hexadecimal
 →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →<br>`tx` | array | Required<br>(exactly 1) | An array containing the TXIDs of all transactions in this block.  The transactions appear in the array in the same order they appear in the serialized block
@@ -132,7 +132,7 @@ Name | Type | Presence | Description
 → →<br>`size` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The serialized transaction size
 → →<br>`version` | number (int) | Required<br>(exactly 1) | The transaction format version number
 → →<br>`type` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.13.0.0*<br><br>The transaction format type
-→ →<br>`locktime` | number (int) | Required<br>(exactly 1) | The transaction's locktime: either a Unix epoch date or block height; see the [Locktime parsing rules][]
+→ →<br>`locktime` | number (int) | Required<br>(exactly 1) | The transaction's locktime: either a Unix epoch date or block height; see the [locktime parsing rules](core-guide-transactions-locktime-and-sequence-number#locktime_parsing_rules)
 → →<br>`vin` | array | Required<br>(exactly 1) | An array of objects with each object being an input vector (vin) for this transaction.  Input objects will have the same order within the array as they have in the transaction, so the first input listed will be input 0
 → → →<br>Input | object | Required<br>(1 or more) | An object describing one of this transaction's inputs.  May be a regular input or a coinbase
 → → → →<br>`txid` | string | Optional<br>(0 or 1) | The TXID of the outpoint being spent, encoded as hex in RPC byte order.  Not present if this is a coinbase transaction
@@ -613,7 +613,7 @@ Name | Type | Presence | Description
 →<br>`hash` | string (hex) | Required<br>(exactly 1) | The hash of this block's block header encoded as hex in RPC byte order.  This is the same as the hash provided in parameter #1
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers][section block versions]
+→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
 →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →<br>`time` | number (int) | Required<br>(exactly 1) | The time of the block  
 →<br>`mediantime` | number (int) | Required<br>(exactly 1) | The computed median time of the previous 11 blocks.  Used for validating transaction locktime under BIP113
@@ -628,7 +628,7 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-→<br>`versionHex` | number (hex) | Required<br>(exactly 1) | This block's hex version number.  See [block version numbers][section block versions]
+→<br>`versionHex` | number (hex) | Required<br>(exactly 1) | This block's hex version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
 
 *Example from Dash Core 0.12.2*
 
@@ -726,7 +726,7 @@ Name | Type | Presence | Description
 → →<br>`hash` | string (hex) | Required<br>(exactly 1) | The hash of this block's block header encoded as hex in RPC byte order.  This is the same as the hash provided in parameter #1
 → →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 → →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→ →<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers][section block versions]
+→ →<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
 → →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 → →<br>`time` | number (int) | Required<br>(exactly 1) | The time of the block
 → →<br>`mediantime` | number (int) | Required<br>(exactly 1) | The computed median time of the previous 11 blocks.  Used for validating transaction locktime under BIP113
@@ -1795,7 +1795,7 @@ f0476ba0e00105
 *See also*
 
 * [VerifyTxOutProof](/docs/core-api-ref-remote-procedure-calls-blockchain#section-verifytxoutproof): verifies that a proof points to one or more transactions in a block, returning the transactions the proof commits to and throwing an RPC error if the block is not in our best block chain.
-* [`merkleblock` message][merkleblock message]: A description of the
+* [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock): A description of the
   format used for the proof.
 
 # GetTxOutSetInfo
@@ -1986,4 +1986,4 @@ Result:
 *See also*
 
 * [GetTxOutProof](/docs/core-api-ref-remote-procedure-calls-blockchain#section-gettxoutproof): returns a hex-encoded proof that one or more specified transactions were included in a block.
-* [`merkleblock` message][merkleblock message]: A description of the format used for the proof.
+* [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock): A description of the format used for the proof.

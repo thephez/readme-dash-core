@@ -122,7 +122,6 @@ Result:
 
 * [CreateMultiSig](/docs/core-api-ref-remote-procedure-calls-utility#section-createmultisig): creates a P2SH multi-signature address.
 * [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decodescript): decodes a hex-encoded P2SH redeem script.
-* [Pay-To-Script-Hash (P2SH)][/en/glossary/p2sh-address]
 
 # BackupWallet
 
@@ -296,7 +295,7 @@ cTGSKYaQTQabnjNSwCqpjYXiucVujTXiwp9dzmJV9cNAiayAJusi 2017-11-28T18:21:37Z reserv
 
 The [`encryptwallet` RPC](core-api-ref-remote-procedure-calls-wallet#section-encryptwallet) encrypts the wallet with a passphrase.  This is only to enable encryption for the first time. After encryption is enabled, you will need to enter the passphrase to use private keys.
 
-{{WARNING}} if using this RPC on the command line, remember
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** if using this RPC on the command line, remember
 that your shell probably saves your command lines (including the value
 of the passphrase parameter). In addition, there is no RPC to completely
 disable encryption. If you want to return to an unencrypted wallet, you
@@ -342,7 +341,7 @@ HD). You need to make a new backup.
 
 The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet#section-getaccount) returns the name of the account associated with the given address.
 
-{{WARNING}} `setaccount` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `setaccount` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameter #1---a Dash address*
@@ -379,7 +378,7 @@ doc test
 
 The [`getaccountaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-getaccountaddress) returns the current Dash address for receiving payments to this account. If the account doesn't exist, it creates both the account and a new address for receiving payment.  Once a payment has been received to an address, future calls to this RPC for the same account will return a different address.
 
-{{WARNING}} `getaccountaddress` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `getaccountaddress` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameter #1---an account name*
@@ -420,7 +419,7 @@ yNUQ6RzTpNj5GP5ebdRcusJ7K9JJKx6VvV
 
 The [`getaddressesbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet#section-getaddressesbyaccount) returns a list of every address assigned to a particular account.
 
-{{WARNING}} `getaddressesbyaccount` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `getaddressesbyaccount` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameter #1---the account name*
@@ -605,7 +604,7 @@ yXBr9BiJmugTzHPgByDmvjJMAkvhTmXVJ8
 
 The [`getreceivedbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet#section-getreceivedbyaccount) returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 
-{{WARNING}} `getreceivedbyaccount` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `getreceivedbyaccount` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameter #1---the account name*
@@ -657,7 +656,7 @@ Result:
 
 *Requires wallet support.*
 
-{{WARNING_ICON}} Note: This RPC only returns a balance for addresses contained in the local wallet.
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) Note: This RPC only returns a balance for addresses contained in the local wallet.
 
 The [`getreceivedbyaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-getreceivedbyaddress) returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
 
@@ -1397,7 +1396,7 @@ dash-cli -testnet keypoolrefill 1001
 
 The [`listaccounts` RPC](core-api-ref-remote-procedure-calls-wallet#section-listaccounts) lists accounts and their balances.
 
-{{WARNING}} `listaccounts` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `listaccounts` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameter #1---the minimum number of confirmations a transaction must have*
@@ -1591,7 +1590,7 @@ Result:
 
 The [`listreceivedbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet#section-listreceivedbyaccount) lists the total number of dash received by each account.
 
-{{WARNING}} `listreceivedbyaccount` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `listreceivedbyaccount` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameter #1---the minimum number of confirmations a transaction must have to be counted*
@@ -2269,10 +2268,10 @@ Result:
 
 The [`move` RPC](core-api-ref-remote-procedure-calls-wallet#section-move) moves a specified amount from one account in your wallet to another using an off-block-chain transaction.
 
-{{WARNING}} `move` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `move` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
-{{WARNING}} it's allowed to move more funds than are in an account,
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** it's allowed to move more funds than are in an account,
 giving the sending account a negative balance and giving the receiving
 account a balance that may exceed the number of dash in the wallet
 (or the number of dash in existence).
@@ -2375,7 +2374,7 @@ unencrypted wallet.*
 
 The [`sendfrom` RPC](core-api-ref-remote-procedure-calls-wallet#section-sendfrom) spends an amount from a local account to a dash address.
 
-{{WARNING}} `sendfrom` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `sendfrom` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameter #1---from account*
@@ -2768,7 +2767,7 @@ ba4bbe29fa06b67d6f3f3a73e381627e66abe22e217ce329aefad41ea72c3922
 
 The [`setaccount` RPC](core-api-ref-remote-procedure-calls-wallet#section-setaccount) puts the specified address in the given account.
 
-{{WARNING}} `setaccount` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `setaccount` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameter #1---a dash address*
@@ -2968,7 +2967,7 @@ dash-cli -testnet walletlock
 
 The [`walletpassphrase` RPC](core-api-ref-remote-procedure-calls-wallet#section-walletpassphrase) stores the wallet decryption key in memory for the indicated number of seconds. Issuing the `walletpassphrase` command while the wallet is already unlocked will set a new unlock time that overrides the old one.
 
-{{WARNING}} if using this RPC on the command line, remember
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** if using this RPC on the command line, remember
 that your shell probably saves your command lines (including the
 value of the passphrase parameter).
 
@@ -3026,7 +3025,7 @@ dash-cli -testnet walletpassphrase test 600 true
 
 The [`walletpassphrasechange` RPC](core-api-ref-remote-procedure-calls-wallet#section-walletpassphrasechange) changes the wallet passphrase from 'old passphrase' to 'new passphrase'.
 
-{{WARNING}} if using this RPC on the command line, remember
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** if using this RPC on the command line, remember
 that your shell probably saves your command lines (including the
 value of the passphrase parameter).
 

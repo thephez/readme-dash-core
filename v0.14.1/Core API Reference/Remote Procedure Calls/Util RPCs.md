@@ -55,7 +55,6 @@ Result:
 
 * [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-addmultisigaddress): adds a P2SH multisig address to the wallet.
 * [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decodescript): decodes a hex-encoded P2SH redeem script.
-* [Pay-To-Script-Hash (P2SH)][/en/glossary/p2sh-address]
 
 # EstimateFee
 

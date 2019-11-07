@@ -32,7 +32,7 @@ Debug mode: net+mempool
 
 The [`getinfo` RPC](core-api-ref-remote-procedure-calls-control#section-getinfo) prints various information about the node and the network.
 
-{{WARNING}} `getinfo` will be removed in a later version of Dash
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `getinfo` will be removed in a later version of Dash
 Core.  Use the RPCs listed in the See Also subsection below instead.
 
 *Parameters: none*
@@ -44,7 +44,7 @@ Name | Type | Presence | Description
 `result` | object | Required<br>(exactly 1) | Information about this node and the network
 →<br>`deprecation-warning` | string | Required<br>(exactly 1) | Warning that the getinfo command is deprecated and will be removed in a future version
 →<br>`version` | number (int) | Required<br>(exactly 1) | This node's version of Bitcoin Core in its internal integer format.  For example, Dash Core 0.12.2 has the integer version number 120200
-→<br>`protocolversion` | number (int) | Required<br>(exactly 1) | The protocol version number used by this node.  See the [protocol versions section][section protocol versions] for more information
+→<br>`protocolversion` | number (int) | Required<br>(exactly 1) | The protocol version number used by this node.  See the [protocol versions section](core-ref-p2p-network-protocol-versions) for more information
 →<br>`walletversion` | number (int) | Optional<br>(0 or 1) | The version number of the wallet.  Only returned if wallet support is enabled
 →<br>`balance` | number (duffs) | Optional<br>(0 or 1) | The total balance of the wallet in duffs.  Only returned if wallet support is enabled
 →<br>`privatesend_balance` | number (duffs) | Optional<br>(0 or 1) | The PrivateSend balance of the wallet in duffs.  Only returned if wallet support is enabled  (Added in Dash Core 0.11.0)
@@ -191,7 +191,7 @@ Result:
 
 *See also*
 
-* The [RPC Quick Reference][section RPC quick reference]
+* The [RPC Quick Reference](core-api-ref-remote-procedure-call-quick-reference)
 
 # Logging
 

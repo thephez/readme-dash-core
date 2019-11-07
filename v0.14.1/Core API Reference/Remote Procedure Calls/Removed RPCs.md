@@ -4,7 +4,7 @@ excerpt: ""
 ---
 # EstimatePriority
 
-{{WARNING}} **_Removed in Dash Core 0.14.0._**
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
 
 The [`estimatepriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimatepriority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) which will remain supported for adding fee deltas to transactions.
 
@@ -50,7 +50,7 @@ Result:
 
 # EstimateSmartPriority
 
-{{WARNING}} **_Removed in Dash Core 0.14.0._**
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
 
 The [`estimatesmartpriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimatesmartpriority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) which will remain supported for adding fee deltas to transactions.
 
@@ -106,7 +106,7 @@ Result:
 
 *Requires wallet support.*
 
-{{WARNING_ICON}} The [`gethashespersec` RPC](core-api-ref-remote-procedure-calls-removed#section-gethashespersec) was removed in Bitcoin Core 0.11.0 and is not part of Dash.
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) The [`gethashespersec` RPC](core-api-ref-remote-procedure-calls-removed#section-gethashespersec) was removed in Bitcoin Core 0.11.0 and is not part of Dash.
 
 *See also*
 
@@ -115,7 +115,7 @@ Result:
 
 # GetWork
 
-{{WARNING_ICON}} The [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-getwork) was removed in Bitcoin Core 0.10.0. and is not part of Dash.
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) The [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-getwork) was removed in Bitcoin Core 0.10.0. and is not part of Dash.
 
 *See also*
 
@@ -159,7 +159,7 @@ false
 
 # MasternodeBroadcast
 
-{{WARNING}} **_Removed in Dash Core 0.14.0._**
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
 
 The [`masternodebroadcast` RPC](core-api-ref-remote-procedure-calls-removed#section-masternodebroadcast) was removed in Dash Core 0.14.0.
 
@@ -363,7 +363,7 @@ Result:
 
 # SentinelPing
 
-{{WARNING}} **_Removed in Dash Core 0.14.0._**
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
 
 The [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed#section-sentinelping) was removed in Dash Core 0.14.0.
 

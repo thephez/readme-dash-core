@@ -678,7 +678,7 @@ Result (wrapped):
 
 ## GObject Getvotes
 
-{{WARNING}} **_Removed in Dash Core 0.14.0._**
+![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
 
 ## GObject Getcurrentvotes
 
