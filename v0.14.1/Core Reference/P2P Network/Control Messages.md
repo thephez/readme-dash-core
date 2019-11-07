@@ -456,7 +456,7 @@ Protocol version 70214 added a masternode authentication (challenge/response) sy
 
 | Bytes    | Name                  | Data Type        | Required/<br>Optional                        | Description
 |----------|-----------------------|------------------|------------------------------------------|-------------
-| 4        | version               | int32_t          | Required                                 | The highest protocol version understood by the transmitting node.  See the [protocol version section](core-ref-p2p-protocol-versions.
+| 4        | version               | int32_t          | Required                                 | The highest protocol version understood by the transmitting node.  See the [protocol version section](core-ref-p2p-network-protocol-versions).
 | 8        | services              | uint64_t         | Required                                 | The services supported by the transmitting node encoded as a bitfield.  See the list of service codes below.
 | 8        | timestamp             | int64_t          | Required                                 | The current Unix epoch time according to the transmitting node's clock.  Because nodes will reject blocks with timestamps more than two hours in the future, this field can help other nodes to determine that their clock is wrong.
 | 8        | addr_recv services    | uint64_t         | Required                                 | *Added in protocol version 106.* <br><br>The services supported by the receiving node as perceived by the transmitting node.  Same format as the 'services' field above. Dash Core will attempt to provide accurate information.

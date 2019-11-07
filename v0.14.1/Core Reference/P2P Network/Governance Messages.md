@@ -160,7 +160,7 @@ This message responds in one of two ways depending on the request:
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
 | 32 | nHash | uint256 | Required | Hash of governance object to request<br>Set to all zeros to request all objects (excludes votes)
-| # | filter | CBloomFilter | Required | Can be set to all zeros.<br>Only supported since [protocol version 70206](core-ref-p2p-protocol-versions)
+| # | filter | CBloomFilter | Required | Can be set to all zeros.<br>Only supported since [protocol version 70206](core-ref-p2p-network-protocol-versions)
 
 ``` text
 Dash Core limits how frequently the first type of sync (object sync) can be
