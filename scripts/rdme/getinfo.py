@@ -27,6 +27,28 @@ def get_project_metadata():
     url = "https://dash.readme.io/api/v1/"
     return api_get(url)
 
+def get_project_versions():
+    url = "https://dash.readme.io/api/v1/version"
+    return api_get(url)
+
+def get_project_version_dump(version_id):
+    url = '{}:{}'.format("https://dash.readme.io/api/v1/version", "versionId")
+    print(url)
+    return api_get(url)
+
+def get_errors():
+    url = "https://dash.readme.io/api/v1/errors"
+    print(url)
+    return api_get(url)
+
+
+print(json.dumps(get_project_metadata(), indent=2))
+print(json.dumps(get_project_versions(), indent=2))
+
+# Not working
+#print(json.dumps(get_project_version_dump('5daf2e65f4109c0040fd51e5'), indent=2))
+
+print(json.dumps(get_errors(), indent=2))
 
 # Known categories: core-reference, core-api-reference, core-examples, test
 # Unknown: core guides category name
