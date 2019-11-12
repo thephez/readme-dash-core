@@ -5,7 +5,7 @@ import os
 
 API_KEY = os.environ.get("DASH_CORE_README_API_KEY")
 VERSION = 'v0.14.1'
-CATEGORIES = ['core-reference', 'core-api-reference', 'core-examples', 'additional-resources']
+CATEGORIES = ['core-reference', 'core-api-reference', 'core-guides', 'core-examples', 'additional-resources']
 
 def api_get(url, headers=None):
     response = requests.get(url, headers=headers, auth=HTTPBasicAuth(API_KEY,''))
