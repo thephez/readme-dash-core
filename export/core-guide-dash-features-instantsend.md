@@ -1,27 +1,27 @@
-Dash Core's InstantSend feature provides a way to lock transaction inputs and enable secure, instantaneous transactions. The network automatically attempts to upgrade any qualifying transaction to InstantSend without a need for the sending wallet to explicitly request it.
+Dash Core's <<glossary:InstantSend>> feature provides a way to lock transaction <<glossary:inputs>> and enable secure, instantaneous <<glossary:transactions>>. The <<glossary:network>> automatically attempts to upgrade any qualifying transaction to InstantSend without a need for the sending <<glossary:wallet>> to explicitly request it.
 
 * To qualify for InstantSend, transaction inputs must either:
   * Be locked by InstantSend
-  * Be in a block that has a ChainLock
-  * Have at least the number confirmations (block depth) indicated by the table below
+  * Be in a block that has a <<glossary:ChainLock>>
+  * Have at least the number <<glossary:confirmations>> (block depth) indicated by the table below
 
 | **Network** | **Confirmations Required** |
 | --- | --- |
 | Mainnet | 6 Blocks |
 | Testnet / Regtest / Devnet | 2 Blocks |
 
-The introduction of Long-Living Masternode Quorums in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.
+The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.
 
-Sporks 2 (`SPORK_2_INSTANTSEND_ENABLED`) and 20 (`SPORK_20_INSTANTSEND_LLMQ_BASED`) are used to manage InstantSend. Spork 2 enables or disables the entire InstantSend feature. Spork 20 was used to support the transition to LLMQ-based InstantSend and is currently retained for backward compatibility. It will be deprecated in a future release.
+Sporks 2 (`SPORK_2_INSTANTSEND_ENABLED`) and 20 (`SPORK_20_INSTANTSEND_LLMQ_BASED`) are used to manage InstantSend. <<glossary:Spork>> 2 enables or disables the entire InstantSend feature. Spork 20 was used to support the transition to LLMQ-based InstantSend and is currently retained for backward compatibility. It will be deprecated in a future release.
 
-Note: A transaction will __not__ be included in the block template (from `getblocktemplate`) unless it:
+Note: A transaction will __not__ be included in the block template (from the [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-getblocktemplate)) unless it:
 
  1. Has been locked, or 
  2. Has been in the mempool for >=10 minutes (`WAIT_FOR_ISLOCK_TIMEOUT`)
 
-A miner may still include any transaction, but blocks containing only locked transactions (or ones older than the timeout) should achieve a ChainLock faster. This is desirable to miners since it prevents any reorgs that might orphan their block.
+A <<glossary:miner>> may still include any transaction, but <<glossary:blocks>> containing only locked transactions (or ones older than the timeout) should achieve a ChainLock faster. This is desirable to miners since it prevents any reorgs that might orphan their block.
 
-*InstantSend Data Flow*
+## *InstantSend Data Flow*
 
 | **InstantSend Client** | **Direction**  | **Peers**   | **Description** |
 | --- | :---: | --- | --- |

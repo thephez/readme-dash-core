@@ -93,7 +93,7 @@ Using two arguments to the [`createrawtransaction` RPC](core-api-ref-remote-proc
   "title": "Transaction fee warning"
 }
 [/block]
-In this example, our input had 500.0000 DASH and our output (`$NEW_ADDRESS`) is being paid 499.9999 DASH, so the transaction will include a fee of 0.0001 DASH. If we had paid `$NEW_ADDRESS` only 100 DASH with no other changes to this transaction, the <<glossary:transaction fee>> would be a whopping 400 DASH. See the [Complex Raw Transaction subsection](https://dash-core.readme.io/docs/core-examples-transaction-tutorial-complex-raw-transaction) below for how to create a transaction with multiple outputs so you can send the change back to yourself.
+In this example, our input had 500.0000 DASH and our output (`$NEW_ADDRESS`) is being paid 499.9999 DASH, so the transaction will include a fee of 0.0001 DASH. If we had paid `$NEW_ADDRESS` only 100 DASH with no other changes to this transaction, the <<glossary:transaction fee>> would be a whopping 400 DASH. See the [Complex Raw Transaction subsection](/docs/core-examples-transaction-tutorial-complex-raw-transaction) below for how to create a transaction with multiple outputs so you can send the change back to yourself.
 [block:code]
 {
   "codes": [

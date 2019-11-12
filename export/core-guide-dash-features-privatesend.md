@@ -1,4 +1,4 @@
-Dash Core's PrivateSend feature provides a way to improve privacy by performing coin-mixing without relinquishing custodial access. For additional details, reference this [Official Documentation PrivateSend page](https://docs.dash.org/en/stable/introduction/features.html#privatesend).
+Dash Core's <<glossary:PrivateSend>> feature provides a way to improve privacy by performing coin-mixing without relinquishing custodial access. For additional details, reference this [Official Documentation PrivateSend page](https://docs.dash.org/en/stable/introduction/features.html#privatesend).
 
 The following video provides an overview with a good introduction to the details:
 
@@ -16,13 +16,13 @@ The following video provides an overview with a good introduction to the details
 [/block]
 # PrivateSend Wallet Preparation
 
-The wallet completes two operations in this phase:
+The <<glossary:wallet>> completes two operations in this phase:
 
-1. Split value into inputs matching the PrivateSend denominations by sending transactions to itself
+1. Split value into inputs matching the PrivateSend <<glossary:denominations>> by sending <<glossary:transactions>> to itself
 
-2. Split value into inputs to use for collateral by sending transactions to itself
+2. Split value into <<glossary:inputs>> to use for collateral by sending transactions to itself
 
-**Note**: Both these operations incur standard transaction fees like any other transaction
+**Note**: Both these operations incur the standard <<glossary:transaction fee>> like any other transaction
 
 **Creating Denominations**
 
@@ -44,7 +44,7 @@ Protocol version 70213 added a 5th denomination (0.001 DASH).
 
 PrivateSend collaterals are used to pay mixing fees, but are kept separate from the denominations to maximize privacy. Since protocol version 70213, the minimum collateral fee is 1/10 of the smallest denomination for all mixing sessions regardless of denomination. In Dash Core, collaterals are created with enough value to pay 4 collateral fees (4 x 0.001 DASH). ([Dash Core Reference](https://github.com/dashpay/dash/blob/262454791c4b4f783b2533d1b16b757a71eb5f7d/src/privatesend.h#L413))
 
-In protocol version 70208, collateral inputs can be anything from 2x the minimum collateral amount to the maximum collateral amount (currently defined as 4x the minimum collateral). In protocol versions > 70208, Dash Core can use any input from 1x the minimum collateral amount to the maximum collateral amount.
+In protocol version 70208, collateral inputs can be anything from 2x the minimum collateral amount to the maximum collateral amount (currently defined as 4x the minimum collateral). In protocol versions > 70208, Dash Core can use any <<glossary:input>> from 1x the minimum collateral amount to the maximum collateral amount.
 
 [Example Testnet collateral creation transaction](https://testnet-insight.dashevo.org/insight/tx/8f9b15973983876f7ce4eb2c32b09690dfb0432d2caf6c6df516196a8d17689f)
 
@@ -52,11 +52,11 @@ In protocol version 70208, collateral inputs can be anything from 2x the minimum
 
 # PrivateSend Mixing
 
-The mixing phase involves exchanging a sequence of messages with a masternode so it can construct a mixing transaction with inputs from the clients in its mixing pool.
+The mixing phase involves exchanging a sequence of messages with a <<glossary:masternode>> so it can construct a mixing transaction with inputs from the clients in its mixing pool.
 
 *PrivateSend Data Flow*
 
-|   | **PrivateSend Clients** | **Direction**  | **Masternode**   | **Description** |
+|   | **Clients** | **Direction**  | **Masternode**   | **Description** |
 | --- | --- | :---: | --- | --- |
 | 0 | | | | Client determines whether to join an existing mixing pool or create a new one |
 | 1 | [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa)                            | → |                            | Client asks to join mixing pool or have the masternode create a new one
@@ -80,12 +80,12 @@ _**Step 0 - Pool Selection**_
 _**Step 1 - Pool Request**_
 
   * The [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) contains a collateral transaction
-    * This transaction uses a collateral input created in the [Wallet Preparation](#privatesend-wallet-preparation) phase
-    * The collateral is a signed transaction that pays the collateral back to a client address minus a fee of 0.001 DASH
+    * This transaction uses a collateral <<glossary:input>> created in the [Wallet Preparation](#privatesend-wallet-preparation) phase
+    * The collateral is a signed <<glossary:transaction>> that pays the collateral back to a client <<glossary:address>> minus a fee of 0.001 DASH
 
 _**Step 3 - Queue**_
 
-  * A masternode broadcasts [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) when it starts a new queue. These message are relayed by all peers.
+  * A masternode broadcasts [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) when it starts a new queue. These message are relayed by all <<glossary:peers>>.
   * As of protocol version 70214, mixing sessions have a variable number of participants defined by the range `nPoolMinParticipants` (3) to `nPoolMaxParticipants` (5). Prior protocol version mixing sessions always contained exactly 3 participants
   * Once the masternode has received valid [`dsa` messages](core-ref-p2p-network-privatesend-messages#section-dsa) from the appropriate number of clients (`nSessionMaxParticipants`), it sends a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) with the ready bit set
     * Clients must respond to the Queue ready within 30 seconds or risk forfeiting the collateral they provided in the [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) (Step 1) ([Dash Core Reference](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L23))
@@ -120,7 +120,7 @@ _**General**_
 
 **Sending Fees**
 
-To maintain privacy when using PrivateSend, PrivateSend transactions must fully spend all inputs to a single output (with the remainder becoming the fee - i.e. no change outputs). This can result in large fees depending on the value being sent.
+To maintain privacy when using PrivateSend, PrivateSend transactions must fully spend all inputs to a single output (with the remainder becoming the fee - i.e. no <<glossary:change output>>). This can result in large fees depending on the value being sent.
 
 For example, an extreme case is sending the minimum non-dust value (546 duffs) via PrivateSend. This results in an extremely large transaction fee because the minimum PrivateSend denomination (0.0100001 DASH or 1,000,010 duffs) must be fully spent with no change. This results in a fee of 0.00999464 DASH and a sent value of only 0.00000546 DASH as shown by the calculation below.
 

@@ -53,7 +53,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 * [GetGovernanceInfo](/docs/core-api-ref-remote-procedure-calls-dash#section-getgovernanceinfo): returns an object containing governance parameters. **Updated in Dash Core 0.14.0**
 * [GetPoolInfo](/docs/core-api-ref-remote-procedure-calls-dash#section-getpoolinfo): returns an object containing mixing pool related information. **_Deprecated in 0.14.1_**
-* [GetPrivateSendInfo](https://dash-core.readme.io/docs/core-api-ref-remote-procedure-calls-dash#section-getprivatesendinfo): returns an object containing an information about PrivateSend settings and state. **New in Dash Core 0.14.1**
+* [GetPrivateSendInfo](/docs/core-api-ref-remote-procedure-calls-dash#section-getprivatesendinfo): returns an object containing an information about PrivateSend settings and state. **New in Dash Core 0.14.1**
 * [GetSuperblockBudget](/docs/core-api-ref-remote-procedure-calls-dash#section-getsuperblockbudget): returns the absolute maximum sum of superblock payments allowed.
 * [GObject](/docs/core-api-ref-remote-procedure-calls-dash#section-gobject): provides a set of commands for managing governance objects and displaying information about them. **Updated in Dash Core 0.14.1**
 * [Masternode](/docs/core-api-ref-remote-procedure-calls-dash#section-masternode): provides a set of commands for managing masternodes and displaying information about them. **Updated in Dash Core 0.14.0**

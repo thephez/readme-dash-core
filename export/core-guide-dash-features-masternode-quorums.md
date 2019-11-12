@@ -1,15 +1,19 @@
-Dash's masternode quorums are used to facilitate the operation of masternode provided features in a decentralized, deterministic way. The original quorums (used largely for InstantSend and masternode payments) were ephemeral and used for a single purpose (e.g. voting on one specific InstantSend transaction).
+Dash's <<glossary:masternode>> quorums are used to facilitate the operation of masternode provided features in a decentralized, deterministic way. The original quorums (used largely for <<glossary:InstantSend>> and masternode payments) were ephemeral and used for a single purpose (e.g. voting on one specific InstantSend transaction).
 
-Dash Core 0.14 (protocol version 70214) introduced the Long Living Masternode Quorums (LLMQ) that are described in detail by [DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md). These LLMQs are deterministic subsets of the global deterministic masternode list that are formed via a distributed key generation (DKG) protocol and remain active for a long periods of time (e.g. hours to days).
+Dash Core 0.14 (protocol version 70214) introduced the <<glossary:Long-Living Masternode Quorum>>  (LLMQ) system described in detail by [DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md). These LLMQs are deterministic subsets of the global deterministic masternode list that are formed via a distributed key generation (DKG) protocol and remain active for a long periods of time (e.g. hours to days).
 
-The main task of LLMQs is to perform threshold signing of consensus-related messages (e.g. ChainLocks).
+The main task of LLMQs is to perform threshold signing of consensus-related messages (e.g. <<glossary:ChainLocks>>).
 
 # LLMQ Creation (DKG)
 
 The following table details the data flow of P2P messages exchanged during the distributed key generation (DKG) protocol used to establish an LLMQ.
-
-NOTE: With the exception of the final step (`qfcommit` message broadcast), the message exchanges happen only between masternodes participating in the DKG process via the Intra-Quorum communication process described in the DIP.
-
+[block:callout]
+{
+  "type": "info",
+  "body": "Note: With the exception of the final step (`qfcommit` message broadcast), the message exchanges happen only between masternodes participating in the DKG process via the [Intra-Quorum communication process](https://github.com/dashpay/dips/blob/master/dip-0006.md#intra-quorum-communication) described in the DIP.",
+  "title": "Intra-Quorum Communication"
+}
+[/block]
 *Quorum DKG Data Flow*
 
 | **Masternode** | **Direction**  | **Peers**   | **Description** |
@@ -39,7 +43,7 @@ NOTE: With the exception of the final step (`qfcommit` message broadcast), the m
 
 # LLMQ Signing Session
 
-The following table details the data flow of P2P messages exchanged during an LLMQ signing session. These sessions take advantage of BLS threshold signatures to enable quorums to sign arbitrary messages. For example, Dash Core 0.14 uses this capability to create the quorum signature found in the [`clsig` message](core-ref-p2p-network-instantsend-messages#section-clsig) that enables ChainLocks.
+The following table details the data flow of P2P messages exchanged during an LLMQ signing session. These sessions take advantage of BLS threshold signatures to enable quorums to sign arbitrary messages. For example, Dash Core 0.14 uses this capability to create the quorum signature found in the [`clsig` message](core-ref-p2p-network-instantsend-messages#section-clsig) that enables <<glossary:ChainLocks>>.
 
 Please read [DIP7 LLMQ Signing Requests / Sessions](https://github.com/dashpay/dips/blob/master/dip-0007.md) for additional details.
 

@@ -214,7 +214,7 @@ cUbYymPeHhRszTn64Xg7dzYKez8YC83M39ZTPJDiBDu8dRD3EjzF
 > NEW_ADDRESS3_PRIVATE_KEY=cUbYymPeHhRszTn64Xg7dzYKez8YC83M39ZTP[...]
 ```
 
-We get the <<glossary:private keys>> for two of the <<glossary:public keys>> we used to create the transaction, the same way we got private keys in the [Complex Raw Transaction subsection](https://dash-core.readme.io/docs/core-examples-transaction-tutorial-complex-raw-transaction). Recall that we created a 2-of-3 multisig pubkey script, so signatures from two private keys are needed.
+We get the <<glossary:private keys>> for two of the <<glossary:public keys>> we used to create the transaction, the same way we got private keys in the [Complex Raw Transaction subsection](/docs/core-examples-transaction-tutorial-complex-raw-transaction). Recall that we created a 2-of-3 multisig pubkey script, so signatures from two private keys are needed.
 [block:callout]
 {
   "type": "danger",

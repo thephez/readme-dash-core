@@ -1,9 +1,17 @@
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **The following information is deprecated and for historical reference only. It describes features that have been redesigned and no longer operate as described below.**
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "**The following information is deprecated and for historical reference only. It describes features that have been redesigned and no longer operate as described below.**",
+  "title": "Deprecated Content"
+}
+[/block]
 # InstantSend (original)
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Please see [here for details of the current InstantSend design](core-guide-dash-features-instantsend).**
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "**Please see [here for details of the current InstantSend design](core-guide-dash-features-instantsend).**"
+}
+[/block]
 Dash Core's InstantSend feature provides a way to lock transaction inputs and enable secure, instantaneous transactions. Since Dash Core 0.13.0, any qualifying transaction is automatically upgraded to InstantSend by the network without a need for the sending wallet to explicitly request it. For these simple transactions (those containing 4 or fewer inputs), the previous requirement for a special InstantSend transaction fee was also removed. The criteria for determining eligibility can be found in the lists of limitations below.
 
 The following video provides an overview with a good introduction to the details including the InstantSend vulnerability that was fixed in Dash Core 0.12.2. Some specific points in the video are listed here for quick reference:
@@ -70,10 +78,12 @@ Once a sufficient number of votes approved the transaction lock, the InstantSend
 NOTE: The 5 "pseudo-confirmations" were shown to convey confidence that the transaction was secure from double-spending and DID NOT indicate the transaction had already been confirmed to a block depth of 5 in the blockchain.
 
 # Masternode Payment (original)
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **The following information is for historical reference only. It describes the masternode payment process that was used prior to the deterministic masternode list update in Dash Core v0.13 that implemented DIP3.**
-
-Please see [here for details of the current system](core-guide-dash-features-masternode-payment)
+[block:callout]
+{
+  "type": "warning",
+  "body": "**The following information is for historical reference only. It describes the masternode payment process that was used prior to the deterministic masternode list update in Dash Core v0.13 that implemented DIP3.**\n\nPlease see [here for details of the current system](core-guide-dash-features-masternode-payment)"
+}
+[/block]
 
 Prior to DIP3, the masternode payment process operated as described below.
 
@@ -84,11 +94,12 @@ Each member of the quorum issues a 'mnw' message that is relayed to the network.
 Nodes receiving a `mnw` message verify the validity of the message before relaying it to their peers. If the message is invalid, the sending node may be treated as misbehaving and have its ban score increased.
 
 # Masternode Sync (original)
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **The following information is for historical reference only. It describes the masternode sync process that was used prior to the deterministic masternode list update in Dash Core v0.13 that implemented DIP3.**
-
-Please see [here for details of the current system](core-guide-dash-features-masternode-sync)
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "**The following information is for historical reference only. It describes the masternode sync process that was used prior to the deterministic masternode list update in Dash Core v0.13 that implemented DIP3.**\n\nPlease see [here for details of the current system](core-guide-dash-features-masternode-sync)"
+}
+[/block]
 ## Initial Sync
 
 This diagram shows the order in which P2P messages are sent to perform masternode synchronization initially after startup.
@@ -126,15 +137,21 @@ Once a masternode completes an initial full sync, continuing synchronization is 
 ![Masternode Sync (Ongoing)](https://dash-docs.github.io/img/dev/en-masternode-sync-ongoing.svg)
 
 **Recurring Ping**
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) NOTE: Deprecated following activation of DIP3.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "Note: Deprecated following activation of DIP3."
+}
+[/block]
 Each masternode issues a ping (`mnp` message) periodically to notify the network that it is still online. Masternodes that do not issue a ping for 3 hours will be put into the `MASTERNODE_NEW_START_REQUIRED` state and will need to issue a masternode announce (`mnb` message).
 
 **Masternode List**
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) NOTE: Deprecated following activation of DIP3.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "Note: Deprecated following activation of DIP3."
+}
+[/block]
 After the initial masternode list has been received, it is kept current by a combination of the periodic `mnp` messages received from other masternodes, the `mnb` messages sent by masternodes as they come online, and `mnv` messages to verify that other masternodes are valid.
 
 Also, `dseg` messages can be sent to request masternode info when messages are received that have been signed by an unrecognized masternode (most masternode/governance messages include a `vin` value that can be used to verify the masternode's unspent 1000 Dash).
@@ -142,9 +159,12 @@ Also, `dseg` messages can be sent to request masternode info when messages are r
 Unsynchronized peers may send a `dseg` message to request the entire masternode list.
 
 **Masternode Payment**
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) NOTE: Deprecated following activation of DIP3.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "Note: Deprecated following activation of DIP3."
+}
+[/block]
 After the initial masternode payment synchronization, payment information is kept current via the `mnw` messages relayed on the network. Unsynchronized peers may send a `mnget` message to request masternode payment sync.
 
 ## Sync Schedule

@@ -1,14 +1,14 @@
 ![Block Chain Overview](https://dash-docs.github.io/img/dev/en-blockchain-overview.svg)
 
-The illustration above shows a simplified version of a block chain. A <<glossary:block>> of one or more new transactions is collected into the transaction data part of a block. Copies of each transaction are hashed, and the hashes are then paired, hashed, paired again, and hashed again until a single hash remains, the <<glossary:merkle root>> of a merkle tree.
+The illustration above shows a simplified version of a <<glossary:block chain>>. A <<glossary:block>> of one or more new transactions is collected into the <<glossary:transaction>> data part of a block. Copies of each transaction are hashed, and the hashes are then paired, hashed, paired again, and hashed again until a single hash remains, the <<glossary:merkle root>> of a <<glossary:merkle tree>>.
 
-The merkle root is stored in the block header. Each block also stores the hash of the previous block's header, chaining the blocks together. This ensures a transaction cannot be modified without modifying the block that records it and all following blocks.
+The merkle root is stored in the <<glossary:block header>>. Each block also stores the hash of the previous block's header, chaining the blocks together. This ensures a transaction cannot be modified without modifying the block that records it and all following blocks.
 
-Transactions are also chained together. Dash wallet software gives the impression that duffs are sent from and to wallets, but Dash value really moves from transaction to transaction. Each transaction spends the duffs previously received in one or more earlier transactions, so the input of one transaction is the output of a previous transaction.
+Transactions are also chained together. Dash <<glossary:wallet>> software gives the impression that <<glossary:duffs>> are sent from and to wallets, but Dash value really moves from transaction to transaction. Each transaction spends the duffs previously received in one or more earlier transactions, so the input of one transaction is the output of a previous transaction.
 
 ![Transaction Propagation](https://dash-docs.github.io/img/dev/en-transaction-propagation.svg)
 
-A single transaction can create multiple outputs, as would be the case when sending to multiple addresses, but each output of a particular transaction can only be used as an input once in the block chain. Any subsequent reference is a forbidden double spend---an attempt to spend the same duffs twice.
+A single transaction can create multiple <<glossary:outputs>>, as would be the case when sending to multiple <<glossary:addresses>>, but each output of a particular transaction can only be used as an <<glossary:input>> once in the block chain. Any subsequent reference is a forbidden double spend---an attempt to spend the same duffs twice.
 
 Outputs are tied to <<glossary:transaction identifiers>> ( TXIDs), which are the hashes of signed transactions.
 
