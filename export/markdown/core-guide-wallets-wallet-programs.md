@@ -1,14 +1,17 @@
-Permitting receiving and spending of duffs is the only essential feature of wallet software---but a particular wallet program doesn't need to do both things.  Two wallet programs can work together, one program distributing public keys in order to receive duffs and another program signing transactions spending those duffs.
+Permitting receiving and spending of <<glossary:duffs>> is the only essential feature of <<glossary:wallet>> software---but a particular wallet program doesn't need to do both things.  Two wallet programs can work together, one program distributing <<glossary:public keys>> in order to receive duffs and another program signing <<glossary:transactions>> spending those duffs.
 
-Wallet programs also need to interact with the peer-to-peer network to get information from the block chain and to broadcast new transactions. However, the programs which distribute public keys or sign transactions don't need to interact with the peer-to-peer network themselves.
+Wallet programs also need to interact with the peer-to-peer <<glossary:network>> to get information from the <<glossary:block chain>> and to broadcast new transactions. However, the programs which distribute public keys or sign transactions don't need to interact with the peer-to-peer network themselves.
 
 This leaves us with three necessary, but separable, parts of a wallet system: a public key distribution program, a signing program, and a networked program.  In the subsections below, we will describe common combinations of these parts.
-
-Note: we speak about distributing public keys generically. In many cases, P2PKH or P2SH hashes will be distributed instead of public keys, with the actual public keys only being distributed when the outputs they control are spent.
-
+[block:callout]
+{
+  "type": "info",
+  "body": "Note: we speak about distributing public keys generically. In many cases, P2PKH or P2SH hashes will be distributed instead of public keys, with the actual public keys only being distributed when the outputs they control are spent."
+}
+[/block]
 # Full-Service Wallets
 
-The simplest wallet is a program which performs all three functions: it generates private keys, derives the corresponding public keys, helps distribute those public keys as necessary, monitors for outputs spent to those public keys, creates and signs transactions spending those outputs, and broadcasts the signed transactions.
+The simplest wallet is a program which performs all three functions: it generates <<glossary:private keys>>, derives the corresponding <<glossary:public keys>>, helps distribute those public keys as necessary, monitors for outputs spent to those public keys, creates and signs transactions spending those outputs, and broadcasts the signed transactions.
 
 ![Full-Service Wallets](https://dash-docs.github.io/img/dev/en-wallets-full-service.svg)
 
@@ -24,26 +27,25 @@ To help protect against theft, many wallet programs offer users the option of en
 
 To increase security, private keys can be generated and stored by a separate wallet program operating in a more secure environment. These signing-only wallets work in conjunction with a networked wallet which interacts with the peer-to-peer network.
 
-Signing-only wallets programs typically use deterministic key creation (described in a later subsection) to create parent private and public keys which can create child private and public keys.
+Signing-only wallets programs typically use deterministic key creation (described in a [later subsection](core-guide-wallets-wallet-files#section-hierarchical-deterministic-key-creation)) to create parent private and public keys which can create child private and public keys.
 
 ![Signing-Only Wallets](https://dash-docs.github.io/img/dev/en-wallets-signing-only.svg)
 
-When first run, the signing-only wallet creates a parent private key and transfers the corresponding parent public key to the networked wallet.
+When first run, the signing-only wallet creates a <<glossary:parent private key>> and transfers the corresponding <<glossary:parent public key>> to the networked wallet.
 
-The networked wallet uses the parent public key to derive child public keys, optionally helps distribute them, monitors for outputs spent to those public keys, creates unsigned transactions spending those outputs, and transfers the unsigned transactions to the signing-only wallet.
+The networked wallet uses the parent public key to derive each <<glossary:child public key>>, optionally helps distribute them, monitors for outputs spent to those public keys, creates unsigned transactions spending those outputs, and transfers the unsigned transactions to the signing-only wallet.
 
 Often, users are given a chance to review the unsigned transactions' details (particularly the output details) using the signing-only wallet.
 
-After the optional review step, the signing-only wallet uses the parent private key to derive the appropriate child private keys and signs the transactions, giving the signed transactions back to the networked wallet.
+After the optional review step, the signing-only wallet uses the parent private key to derive each appropriate <<glossary:child private key>> and signs the transactions, giving the signed transactions back to the networked wallet.
 
-The networked wallet then broadcasts the signed transactions to the peer-to-peer network.
+The networked wallet then broadcasts the signed transactions to the peer-to-peer <<glossary:network>>.
 
 The following subsections describe the two most common variants of signing-only wallets: offline wallets and hardware wallets.
 
 ## Offline Wallets
 
-Several full-service wallets programs will also operate as two separate wallets: one program instance acting as a signing-only wallet (often called an
-"offline wallet") and the other program instance acting as the networked wallet (often called an "online wallet" or "watching-only wallet").
+Several full-service wallets programs will also operate as two separate wallets: one program instance acting as a signing-only wallet (often called an "offline wallet") and the other program instance acting as the networked wallet (often called an "online wallet" or "watching-only wallet").
 
 The offline wallet is so named because it is intended to be run on a device which does not connect to any network, greatly reducing the number of attack vectors. If this is the case, it is usually up to the user to handle all data transfer using removable media such as USB drives.  The user's workflow is something like:
 
@@ -73,9 +75,7 @@ Hardware wallets are devices dedicated to running a signing-only wallet. Their d
 
 The primary advantage of hardware wallets is their possibility for greatly improved security over full-service wallets with much less hassle than offline wallets.
 
-The primary disadvantage of hardware wallets is their hassle. Even though the hassle is less than that of offline wallets, the user must still purchase a hardware wallet device and carry it with them whenever they need to make a transaction using the signing-only wallet.
-
-An additional (hopefully temporary) disadvantage is that, as of this writing, very few popular wallet programs support hardware wallets---although almost all popular wallet programs have announced their intention to support at least one model of hardware wallet.
+The primary disadvantage of hardware wallets is their hassle. Even though the hassle is less than that of offline wallets, the user must still purchase a hardware wallet device and carry it with them whenever they need to make a transaction using the signing-only wallet. An additional disadvantage is that not all wallet programs support hardware wallets.
 
 # Distributing-Only Wallets
 

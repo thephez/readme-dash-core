@@ -1,4 +1,4 @@
-The validation procedure requires evaluation of the signature script and pubkey script. In a P2PKH output, the pubkey script is:
+The validation procedure requires evaluation of the <<glossary:signature script>> and <<glossary:pubkey script>>. In a <<glossary:P2PKH>> <<glossary:output>>, the pubkey script is:
 
 ```
 OP_DUP OP_HASH160 <PubkeyHash> OP_EQUALVERIFY OP_CHECKSIG
@@ -10,13 +10,13 @@ The spender's signature script is evaluated and prefixed to the beginning of the
 <Sig> <PubKey> OP_DUP OP_HASH160 <PubkeyHash> OP_EQUALVERIFY OP_CHECKSIG
 ```
 
-The script language is a [Forth-like](https://en.wikipedia.org/wiki/Forth_%28programming_language%29) stack-based language deliberately designed to be stateless and not Turing complete. Statelessness ensures that once a transaction is added to the block chain, there is no condition which renders it permanently unspendable. Turing-incompleteness (specifically, a lack of loops or gotos) makes the script language less flexible and more predictable, greatly simplifying the security model.
+The script language is a [Forth-like](https://en.wikipedia.org/wiki/Forth_%28programming_language%29) stack-based language deliberately designed to be stateless and not Turing complete. Statelessness ensures that once a <<glossary:transaction>> is added to the <<glossary:block chain>>, there is no condition which renders it permanently unspendable. Turing-incompleteness (specifically, a lack of loops or gotos) makes the script language less flexible and more predictable, greatly simplifying the security model.
 
 To test whether the transaction is valid, signature script and pubkey script operations are executed one item at a time, starting with Bob's signature script and continuing to the end of Alice's pubkey script. The figure below shows the evaluation of a standard P2PKH pubkey script; below the figure is a description of the process.
 
 ![P2PKH Stack Evaluation](https://dash-docs.github.io/img/dev/en-p2pkh-stack.svg)
 
-* The signature (from Bob's signature script) is added (pushed) to an empty stack. Because it's just data, nothing is done except adding it to the stack. The public key (also from the signature script) is pushed on top of the signature.
+* The <<glossary:signature>> (from Bob's signature script) is added (pushed) to an empty stack. Because it's just data, nothing is done except adding it to the stack. The <<glossary:public key>> (also from the signature script) is pushed on top of the signature.
 
 * From Alice's pubkey script, the `OP_DUP` operation is executed. `OP_DUP` pushes onto the stack a copy of the data currently at the top of it---in this case creating a copy of the public key Bob provided.
 
@@ -26,8 +26,7 @@ To test whether the transaction is valid, signature script and pubkey script ope
 
 * Now it gets interesting: Alice's pubkey script executes `OP_EQUALVERIFY`. `OP_EQUALVERIFY` is equivalent to executing `OP_EQUAL` followed by `OP_VERIFY` (not shown).
 
-    `OP_EQUAL` (not shown) checks the two values at the top of the stack; in this case, it checks whether the pubkey hash generated from the full public key Bob provided equals the pubkey hash Alice provided when she created transaction #1. `OP_EQUAL` pops (removes from the top of the stack) the two values it compared, and replaces them with the result of that comparison:
-    zero (*false*) or one (*true*).
+    `OP_EQUAL` (not shown) checks the two values at the top of the stack; in this case, it checks whether the pubkey hash generated from the full public key Bob provided equals the pubkey hash Alice provided when she created transaction #1. `OP_EQUAL` pops (removes from the top of the stack) the two values it compared, and replaces them with the result of that comparison: zero (*false*) or one (*true*).
 
     `OP_VERIFY` (not shown) checks the value at the top of the stack. If the value is *false* it immediately terminates evaluation and the transaction validation fails. Otherwise it pops the *true* value off the stack.
 

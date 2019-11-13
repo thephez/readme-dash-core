@@ -1,22 +1,22 @@
-Dash wallets at their core are a collection of private keys. These collections are stored digitally in a file, or can even be physically stored on pieces of paper.
+Dash wallets at their core are a collection of <<glossary:private keys>>. These collections are stored digitally in a file, or can even be physically stored on pieces of paper.
 
 # Private Key Formats
 
-Private keys are what are used to unlock duffs from a particular address. In Dash, a private key in standard format is simply a 256-bit number, between the values:
+Private keys are what are used to unlock <<glossary:duffs>> from a particular <<glossary:address>>. In Dash, a private key in standard format is simply a 256-bit number, between the values:
 
-0x01 and 0xFFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFE BAAE DCE6 AF48 A03B BFD2 5E8C D036 4140, representing nearly the entire range of 2<sup>256</sup>-1 values. The range is governed by the secp256k1 ECDSA encryption standard used by Dash.
+`0x01` and `0xFFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFE BAAE DCE6 AF48 A03B BFD2 5E8C D036 4140`, representing nearly the entire range of 2<sup>256</sup>-1 values. The range is governed by the secp256k1 ECDSA encryption standard used by Dash.
 
 ## Wallet Import Format (WIF)
 
-In order to make copying of private keys less prone to error, <<glossary:Wallet Import Format>> may be utilized. WIF uses base58Check encoding on an private key, greatly decreasing the chance of copying error, much like standard Dash addresses.
+In order to make copying of private keys less prone to error, <<glossary:Wallet Import Format>> may be utilized. WIF uses <<glossary:base58check>> encoding on a private key, greatly decreasing the chance of copying error, much like standard Dash <<glossary:addresses>>.
 
 1. Take a private key.
 
-2. Add a 0xCC byte in front of it for mainnet addresses or 0xEF for testnet addresses.
+2. Add a `0xCC` byte in front of it for <<glossary:mainnet>> addresses or `0xEF` for <<glossary:testnet>> addresses.
 
-3. Append a 0x01 byte after it if it should be used with compressed public keys (described in a later subsection). Nothing is appended if it is used with uncompressed public keys.
+3. Append a `0x01` byte after it if it should be used with compressed public keys (described in a later subsection). Nothing is appended if it is used with uncompressed public keys.
 
-4. Perform a SHA-256 hash on the extended key.
+4. Perform a SHA-256 hash on the <<glossary:extended key>>.
 
 5. Perform a SHA-256 hash on result of SHA-256 hash.
 
@@ -32,7 +32,7 @@ The process is easily reversible, using the Base58 decoding function, and removi
 
 Mini private key format is a method for encoding a private key in under 30 characters, enabling keys to be embedded in a small physical space and more damage-resistant QR codes.
 
-1. The first character of mini keys is 'S'.
+1. The first character of mini keys is '`S`'.
 
 2. In order to determine if a mini private key is well-formatted, a question mark is added to the private key.
 
@@ -42,7 +42,7 @@ Mini private key format is a method for encoding a private key in under 30 chara
 
 Many implementations disallow the character '1' in the mini private key due to its visual similarity to 'l'.
 
-**Resource:** A common tool to create and redeem these keys is the [Casascius Bitcoin Address Utility](https://github.com/casascius/Bitcoin-Address-Utility).
+**Resource:** A common tool to create and redeem these keys is the [Casascius Bitcoin Address Utility](https://github.com/casascius/Bitcoin-Address-Utility). Note: this tool is no longer actively developed.
 
 # Public Key Formats
 
@@ -52,13 +52,13 @@ Dash ECDSA public keys represent a point on a particular Elliptic Curve (EC) def
 
 (Secp256k1 actually modulos coordinates by a large prime, which produces a field of non-contiguous integers and a significantly less clear plot, although the principles are the same.)
 
-An almost 50% reduction in public key size can be realized without changing any fundamentals by dropping the Y coordinate. This is possible because only two points along the curve share any particular X coordinate, so the 32-byte Y coordinate can be replaced with a single bit indicating whether the point is on what appears in the illustration as the "top" side or the "bottom" side.
+An almost 50% reduction in <<glossary:public key>> size can be realized without changing any fundamentals by dropping the Y coordinate. This is possible because only two points along the curve share any particular X coordinate, so the 32-byte Y coordinate can be replaced with a single bit indicating whether the point is on what appears in the illustration as the "top" side or the "bottom" side.
 
-No data is lost by creating these compressed public keys---only a small amount of CPU is necessary to reconstruct the Y coordinate and access the uncompressed public key. Both uncompressed and compressed public keys are described in official secp256k1 documentation and supported by default in the widely-used OpenSSL library.
+No data is lost by creating a <<glossary:compressed public key>>---only a small amount of CPU is necessary to reconstruct the Y coordinate and access the uncompressed public key. Both uncompressed and compressed public keys are described in official secp256k1 documentation and supported by default in the widely-used OpenSSL library.
 
-Because they're easy to use, and because they reduce almost by half the block chain space used to store public keys for every spent output, compressed public keys are the default in Dash Core and are the recommended default for all Dash software.
+Because they're easy to use, and because they reduce almost by half the <<glossary:block chain>> space used to store public keys for every spent <<glossary:output>>, compressed public keys are the default in Dash Core and are the recommended default for all Dash software.
 
-However, Bitcoin Core prior to 0.6 used uncompressed keys.  This creates a few complications, as the hashed form of an uncompressed key is different than the hashed form of a compressed key, so the same key works with two different P2PKH addresses.   This also means that the key must be submitted in the correct format in the signature script so it matches the hash in the previous output's pubkey script.
+However, Bitcoin Core prior to 0.6 used uncompressed keys.  This creates a few complications, as the hashed form of an uncompressed key is different than the hashed form of a compressed key, so the same key works with two different <<glossary:P2PKH>> addresses.   This also means that the key must be submitted in the correct format in the <<glossary:signature script>> so it matches the hash in the previous output's pubkey script.
 
 For this reason, Bitcoin Core (and Dash Core) uses several different identifier bytes to help programs identify how keys should be used:
 
@@ -86,22 +86,25 @@ Child public keys can also create their own child public keys (grandchild public
 
 Whether creating child public keys or further-descended public keys, a predictable sequence of integer values would be no better than using a single public key for all transactions, as anyone who knew one child public key could find all of the other child public keys created from the same parent public key. Instead, a random seed can be used to deterministically generate the sequence of integer values so that the relationship between the child public keys is invisible to anyone without that seed.
 
-The HD protocol uses a single root seed to create a hierarchy of child, grandchild, and other descended keys with unlinkable deterministically-generated integer values. Each child key also gets a deterministically-generated seed from its parent, called a <<glossary:chain code>>, so the compromising of one chain code doesn't necessarily compromise the integer sequence for the whole hierarchy, allowing the <<glossary:master chain code>> to continue being useful even if, for example, a web-based public key distribution program gets hacked.
+The HD protocol uses a single <<glossary:root seed>> to create a hierarchy of child, grandchild, and other descended keys with unlinkable deterministically-generated integer values. Each child key also gets a deterministically-generated seed from its parent, called a <<glossary:chain code>>, so the compromising of one chain code doesn't necessarily compromise the integer sequence for the whole hierarchy, allowing the <<glossary:master chain code>> to continue being useful even if, for example, a web-based public key distribution program gets hacked.
 
 ![Overview Of Hierarchical Deterministic Key Derivation](https://dash-docs.github.io/img/dev/en-hd-overview.svg)
 
 As illustrated above, HD key derivation takes four inputs:
 
-* The *<<glossary:parent private key>>* and
-  *parent public key* are regular uncompressed 256-bit ECDSA keys.
+* The *<<glossary:parent private key>>* and *<<glossary:parent public key>>* are regular uncompressed 256-bit ECDSA keys.
 
 * The <<glossary:parent chain code>> is 256 bits of seemingly-random data.
 
 * The <<glossary:index>> number is a 32-bit integer specified by the program.
 
-In the normal form shown in the above illustration, the parent chain code, the parent public key, and the index number are fed into a one-way cryptographic hash ([HMAC-SHA512](https://en.wikipedia.org/wiki/HMAC)) to produce 512 bits of deterministically-generated-but-seemingly-random data. The seemingly-random 256 bits on the righthand side of the hash output are used as a new child chain code. The seemingly-random 256 bits on the lefthand side of the hash output are used as the integer value to be combined with either the parent private key or parent public key to, respectively, create either a child private key or child public key:
+In the normal form shown in the above illustration, the <<glossary:parent chain code>>, the parent public key, and the index number are fed into a one-way cryptographic hash ([HMAC-SHA512](https://en.wikipedia.org/wiki/HMAC)) to produce 512 bits of deterministically-generated-but-seemingly-random data. The seemingly-random 256 bits on the right-hand side of the hash output are used as a new child chain code. The seemingly-random 256 bits on the left-hand side of the hash output are used as the integer value to be combined with either the parent private key or parent public key to, respectively, create either a child private key or child public key:
 
-    child_private_key == (parent_private_key + lefthand_hash_output) % G child_public_key == point( (parent_private_key + lefthand_hash_output) % G ) child_public_key == point(child_private_key) == parent_public_key + point(lefthand_hash_output)
+```
+child_private_key == (parent_private_key + lefthand_hash_output) % G 
+child_public_key == point( (parent_private_key + lefthand_hash_output) % G ) 
+child_public_key == point(child_private_key) == parent_public_key + point(lefthand_hash_output)
+```
 
 Specifying different index numbers will create different unlinkable child keys from the same parent keys.  Repeating the procedure for the child keys using the child chain code will create unlinkable grandchild keys.
 
@@ -110,9 +113,13 @@ Because creating child keys requires both a key and a chain code, the key and ch
 ![Creating A Root Extended Key Pair](https://dash-docs.github.io/img/dev/en-hd-root-keys.svg)
 
 A <<glossary:root seed>> is created from either 128 bits, 256 bits, or 512 bits of random data. This root seed of as little as 128 bits is the the only data the user needs to backup in order to derive every key created by a particular wallet program using particular settings.
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg)  **Warning:** As of this writing, HD wallet programs are not expected to be fully compatible, so users must only use the same HD wallet program with the same HD-related settings for a particular root seed.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "**Warning:** HD wallet programs are not always fully compatible, so users must only use the same HD wallet program with the same HD-related settings for a particular root seed.",
+  "title": "HD Wallet Compatibility"
+}
+[/block]
 The root seed is hashed to create 512 bits of seemingly-random data, from which the master private key and master chain code are created (together, the master extended private key). The master public key is derived from the master private key using `point()`, which, together with the master chain code, is the master extended public key. The master extended keys are functionally equivalent to other extended keys; it is only their location at the top of the hierarchy which makes them special.
 
 ## Hardened Keys
@@ -121,9 +128,9 @@ Hardened extended keys fix a potential problem with normal extended keys. If an 
 
 ![Cross-Generational Key Compromise](https://dash-docs.github.io/img/dev/en-hd-cross-generational-key-compromise.svg)
 
-Perhaps worse, the attacker can reverse the normal child private key derivation formula and subtract a parent chain code from a child private key to recover the parent private key, as shown in the child and parent generations of the illustration above.  This means an attacker who acquires an extended public key and any private key descended from it can recover that public key's private key and all keys descended from it.
+Perhaps worse, the attacker can reverse the normal <<glossary:child private key>> derivation formula and subtract a <<glossary:parent chain code>> from a child private key to recover the <<glossary:parent private key>>, as shown in the child and parent generations of the illustration above.  This means an attacker who acquires an <<glossary:extended public key>> and any private key descended from it can recover that public key's private key and all keys descended from it.
 
-For this reason, the chain code part of an extended public key should be better secured than standard public keys and users should be advised against exporting even non-extended private keys to possibly-untrustworthy environments.
+For this reason, the <<glossary:chain code>> part of an extended public key should be better secured than standard public keys and users should be advised against exporting even non-extended private keys to possibly-untrustworthy environments.
 
 This can be fixed, with some tradeoffs, by replacing the the normal key derivation formula with a hardened key derivation formula.
 
@@ -135,22 +142,24 @@ The hardened formula, illustrated above, combines together the index number, the
 
 Because of that, a <<glossary:hardened extended private key>> is much less useful than a normal extended private key---however, hardened extended private keys create a firewall through which multi-level key derivation compromises cannot happen. Because hardened child extended public keys cannot generate grandchild chain codes on their own, the compromise of a parent extended public key cannot be combined with the compromise of a grandchild private key to create great-grandchild extended private keys.
 
-The HD protocol uses different index numbers to indicate whether a normal or hardened key should be generated. Index numbers from 0x00 to 0x7fffffff (0 to 2<sup>31</sup>-1) will generate a normal key; index numbers from 0x80000000 to 0xffffffff will generate a hardened key. To make descriptions easy, many developers use the [prime symbol](https://en.wikipedia.org/wiki/Prime_%28symbol%29) to indicate hardened keys, so the first normal key (0x00) is 0 and the first hardened key (0x80000000) is 0´.
-
-(Dash developers typically use the ASCII apostrophe rather than the unicode prime symbol, a convention we will henceforth follow.)
-
-This compact description is further combined with slashes prefixed by
-*m* or *M* to indicate hierarchy and key type, with *m* being a private key and *M* being a public key. For example, m/0'/0/122' refers to the 123rd hardened private child (by index number) of the first normal child (by index) of the first hardened child (by index) of the master private key. The following hierarchy illustrates prime notation and hardened key firewalls.
+The HD protocol uses different index numbers to indicate whether a normal or hardened key should be generated. Index numbers from `0x00` to `0x7fffffff` (0 to 2<sup>31</sup>-1) will generate a normal key; index numbers from `0x80000000` to `0xffffffff` will generate a hardened key. To make descriptions easy, many developers use the [prime symbol](https://en.wikipedia.org/wiki/Prime_%28symbol%29) to indicate hardened keys, so the first normal key (0x00) is 0 and the first hardened key (0x80000000) is 0´.
+[block:callout]
+{
+  "type": "info",
+  "body": "Dash developers typically use the ASCII apostrophe rather than the unicode prime symbol, a convention we will henceforth follow."
+}
+[/block]
+This compact description is further combined with slashes prefixed by *m* or *M* to indicate hierarchy and key type, with *m* being a private key and *M* being a public key. For example, m/0'/0/122' refers to the 123rd hardened private child (by index number) of the first normal child (by index) of the first hardened child (by index) of the master private key. The following hierarchy illustrates prime notation and hardened key firewalls.
 
 ![Example HD Wallet Tree Using Prime Notation](https://dash-docs.github.io/img/dev/en-hd-tree.svg)
 
-Wallets following the BIP32 HD protocol only create hardened children of the master private key (*m*) to prevent a compromised child key from compromising the master key. As there are no normal children for the master keys, the master public key is not used in HD wallets. All other keys can have normal children, so the corresponding extended public keys may be used instead.
+Wallets following the <<glossary:BIP32>> <<glossary:HD protocol>> only create hardened children of the master private key (*m*) to prevent a compromised child key from compromising the master key. As there are no normal children for the master keys, the master public key is not used in HD wallets. All other keys can have normal children, so the corresponding extended public keys may be used instead.
 
-The HD protocol also describes a serialization format for extended public keys and extended private keys.  For details, please see the [wallet section in the developer reference](core-ref-wallets) or BIP32 for the full HD protocol specification.
+The HD protocol also describes a serialization format for extended public keys and extended private keys.  For details, please see the [wallet section in the developer reference](core-ref-wallets) or [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) for the full HD protocol specification.
 
 ## Storing Root Seeds
 
-Root seeds in the HD protocol are 128, 256, or 512 bits of random data which must be backed up precisely. To make it more convenient to use non-digital backup methods, such as memorization or hand-copying, BIP39 defines a method for creating a 512-bit root seed from a pseudo-sentence (mnemonic) of common natural-language words which was itself created from 128 to 256 bits of entropy and optionally protected by a password.
+Root seeds in the HD protocol are 128, 256, or 512 bits of random data which must be backed up precisely. To make it more convenient to use non-digital backup methods, such as memorization or hand-copying, [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) defines a method for creating a 512-bit root seed from a pseudo-sentence (mnemonic) of common natural-language words which was itself created from 128 to 256 bits of entropy and optionally protected by a password.
 
 The number of words generated correlates to the amount of entropy used:
 
@@ -164,7 +173,7 @@ The number of words generated correlates to the amount of entropy used:
 
 The passphrase can be of any length.  It is simply appended to the mnemonic pseudo-sentence, and then both the mnemonic and password are hashed 2,048 times using HMAC-SHA512, resulting in a seemingly-random 512-bit seed.  Because any input to the hash function creates a seemingly-random 512-bit seed, there is no fundamental way to prove the user entered the correct password, possibly allowing the user to protect a seed even when under duress.
 
-For implementation details, please see BIP39.
+For implementation details, please see [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
 
 # Loose-Key Wallets
 

@@ -1,10 +1,10 @@
-`OP_CHECKSIG` extracts a non-stack argument from each signature it evaluates, allowing the signer to decide which parts of the transaction to sign. Since the signature protects those parts of the transaction from modification, this lets signers selectively choose to let other people modify their transactions.
+`OP_CHECKSIG` extracts a non-stack argument from each <<glossary:signature>> it evaluates, allowing the signer to decide which parts of the <<glossary:transaction>> to sign. Since the signature protects those parts of the transaction from modification, this lets signers selectively choose to let other people modify their transactions.
 
 The various options for what to sign are called <<glossary:signature hash>> types. There are three base SIGHASH types currently available:
 
-* <<glossary:SIGHASH_ALL>>, the default, signs all the inputs and outputs, protecting everything except the signature scripts against modification.
+* <<glossary:SIGHASH_ALL>>, the default, signs all the <<glossary:inputs>> and <<glossary:outputs>>, protecting everything except the signature scripts against modification.
 
-* <<glossary:SIGHASH_NONE>> signs all of the inputs but none of the outputs, allowing anyone to change where the duffs are going unless other signatures using other signature hash flags protect the outputs.
+* <<glossary:SIGHASH_NONE>> signs all of the inputs but none of the outputs, allowing anyone to change where the <<glossary:duffs>> are going unless other signatures using other signature hash flags protect the outputs.
 
 * <<glossary:SIGHASH_SINGLE>> the only output signed is the one corresponding to this input (the output with the same output index number as this input), ensuring nobody can change your part of the transaction but allowing other signers to change their part of the transaction. The corresponding output must exist or the value "1" will be signed, breaking the security scheme. This input, as well as other inputs, are included in the signature. The sequence numbers of other inputs are not included in the signature, and can be updated.
 

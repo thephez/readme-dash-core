@@ -2,23 +2,23 @@ In both solo and pool mining, the mining software needs to get the information n
 
 # getwork RPC
 
-The simplest and earliest method was the now-deprecated Dash Core [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-getwork), which constructs a header for the miner directly. Since a header only contains a single 4-byte nonce good for about 4 gigahashes, many modern miners need to make dozens or hundreds of `getwork` requests a second.
+The simplest and earliest method was the now-deprecated Dash Core [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-getwork), which constructed a <<glossary:header>> for the miner directly. Since a header only contains a single 4-byte nonce good for about 4 gigahashes, many modern miners need to make dozens or hundreds of `getwork` requests a second.
 
 # getblocktemplate RPC
 
 An improved method is the Dash Core [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-getblocktemplate). This provides the mining software with much more information:
 
-1. The information necessary to construct a coinbase transaction paying the pool or the solo miner's `dashd` wallet.
+1. The information necessary to construct a <<glossary:coinbase transaction>> paying the pool or the solo miner's `dashd` wallet.
 
-2. A complete dump of the transactions `dashd` or the mining pool suggests including in the block, allowing the mining software to inspect the transactions, optionally add additional transactions, and optionally remove non-required transactions.
+2. A complete dump of the <<glossary:transactions>> `dashd` or the mining pool suggests including in the block, allowing the mining software to inspect the transactions, optionally add additional transactions, and optionally remove non-required transactions.
 
-3. Other information necessary to construct a block header for the next block: the block version, previous block hash, and bits (target).
+3. Other information necessary to construct a <<glossary:block header>> for the next <<glossary:block>>: the block version, previous block hash, and bits (target).
 
-4. The mining pool's current target threshold for accepting shares. (For solo miners, this is the network target.)
+4. The mining pool's current <<glossary:target threshold>> for accepting shares. (For solo miners, this is the network target.)
 
-Using the transactions received, the mining software adds a nonce to the coinbase extra nonce field and then converts all the transactions into a merkle tree to derive a merkle root it can use in a block header. Whenever the extra nonce field needs to be changed, the mining software rebuilds the necessary parts of the merkle tree and updates the time and merkle root fields in the block header.
+Using the transactions received, the mining software adds a nonce to the coinbase extra nonce field and then converts all the transactions into a <<glossary:merkle tree>> to derive a <<glossary:merkle root>> it can use in a block header. Whenever the extra nonce field needs to be changed, the mining software rebuilds the necessary parts of the merkle tree and updates the time and merkle root fields in the block header.
 
-Like all `dashd` RPCs, `getblocktemplate` is sent over HTTP. To ensure they get the most recent work, most miners use [HTTP longpoll](https://en.wikipedia.org/wiki/Push_technology#Long_polling) to leave a `getblocktemplate` request open at all times. This allows the mining pool to push a new `getblocktemplate` to the miner as soon as any miner on the peer-to-peer network publishes a new block or the pool wants to send more transactions to the mining software.
+Like all `dashd` RPCs, `getblocktemplate` is sent over HTTP. To ensure they get the most recent work, most miners use [HTTP longpoll](https://en.wikipedia.org/wiki/Push_technology#Long_polling) to leave a `getblocktemplate` request open at all times. This allows the mining pool to push a new `getblocktemplate` to the miner as soon as any <<glossary:miner>> on the peer-to-peer <<glossary:network>> publishes a new block or the pool wants to send more transactions to the mining software.
 
 # Stratum
 

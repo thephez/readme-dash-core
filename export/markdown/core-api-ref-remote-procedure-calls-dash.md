@@ -1798,17 +1798,17 @@ failure
 
 The [`voteraw` RPC](core-api-ref-remote-procedure-calls-dash#section-voteraw) compiles and relays a governance vote with provided external signature instead of signing vote internally
 
-*Parameter #1---masternode transaction hash*
+*Parameter #1---masternode collateral transaction hash*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`masternode-tx-hash` | string (hex) | Required<br>(exactly 1) | Hash of the masternode collateral transaction
+`masternode-collateral-tx-hash` | string (hex) | Required<br>(exactly 1) | Hash of the masternode collateral transaction
 
-*Parameter #2---vote signal*
+*Parameter #2---masternode collateral transaction index*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`masternode-tx-index` | string | Required<br>(exactly 1) | Index of the masternode collateral transaction
+`masternode-collateral-tx-index` | string | Required<br>(exactly 1) | Index of the masternode collateral transaction
 
 *Parameter #3---governance hash*
 

@@ -638,19 +638,19 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode. If set to an empty string, the last on-chain operator key of the masternode will be used.
+`operatorPubKey` | string (hex) | Required<br>(exactly 1) | The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode. If set to an empty string, the currently active operator BLS public key is reused.
 
 *Parameter #3---voting address*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, `ownerAddress` will be used.
+`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, the currently active voting key address is reused.
 
 *Parameter #4---operator payout address*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`payoutAddress` | string (hex) | Optional<br>(0 or 1) | The Dash address to use for masternode reward payments. If set to an empty string, the last on-chain payout address of the masternode will be used.
+`payoutAddress` | string (hex) | Optional<br>(0 or 1) | The Dash address to use for masternode reward payments. If set to an empty string, the currently active payout address is reused.
 
 *Parameter #5---fee source address*
 
@@ -2024,7 +2024,7 @@ false
 
 ## Quorum GetRecSig
 
-The `quorum getrecsig` RPC checks gets the recovered signature for a previous threshold-signing message request.
+The `quorum getrecsig` RPC gets the recovered signature for a previous threshold-signing message request.
 
 *Parameter #1---LLMQ Type*
 
