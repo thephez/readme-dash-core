@@ -60,8 +60,10 @@ def main():
     for slug in slugs:
         #print('Slug: {}'.format(slug))
         doc = get_doc_by_slug(slug, VERSION)
-        filename = "{}.md".format(slug)
-        write_to_file(filename, doc['body'])
+        filename_markdown_content = "markdown/{}.md".format(slug)
+        filename_full_content = "full-json/{}.json".format(slug)
+        write_to_file(filename_markdown_content, doc['body'])
+        write_to_file(filename_full_content, json.dumps(doc, indent=1))
 
 if __name__ == '__main__':
     main()
