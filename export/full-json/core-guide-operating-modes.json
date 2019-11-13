@@ -1,0 +1,72 @@
+{
+ "_id": "5db6f093552a86005e7fa890",
+ "version": "5daf2e65f4109c0040fd51e5",
+ "updatedAt": "2019-11-13T21:26:09.502Z",
+ "createdAt": "2019-10-28T13:43:47.059Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5db0a86967f978006336b1b5",
+ "__v": 1,
+ "parentDoc": null,
+ "updates": [],
+ "next": {
+  "pages": [
+   {
+    "category": "Core Guides",
+    "slug": "core-guide-operating-modes-full-node",
+    "name": "Full Node",
+    "icon": "file-text-o",
+    "type": "doc"
+   },
+   {
+    "category": "Core Guides",
+    "slug": "core-guide-operating-modes-simplified-payment-verification-spv",
+    "name": "Simplified Payment Verification (SPV)",
+    "icon": "file-text-o",
+    "type": "doc"
+   }
+  ],
+  "description": ""
+ },
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "api": {
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
+ },
+ "isReference": false,
+ "order": 6,
+ "body": "Currently there are two primary methods of validating the <<glossary:block chain>> as a client: Full <<glossary:nodes>> and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.",
+ "excerpt": "",
+ "slug": "core-guide-operating-modes",
+ "type": "basic",
+ "metadata": {
+  "description": "",
+  "title": "",
+  "image": []
+ },
+ "title": "Operating Modes",
+ "id": "5db6f093552a86005e7fa890",
+ "isApi": false,
+ "body_html": "<div class=\"magic-block-textarea\"><p>Currently there are two primary methods of validating the &lt;&lt;glossary:block chain&gt;&gt; as a client: Full &lt;&lt;glossary:nodes&gt;&gt; and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>\n\n</div>"
+}

@@ -1,0 +1,65 @@
+{
+ "_id": "5db0a910c4e022001110a32e",
+ "version": "5daf2e65f4109c0040fd51e5",
+ "updatedAt": "2019-11-12T18:22:42.674Z",
+ "createdAt": "2019-10-23T19:25:04.512Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5db0a86967f978006336b1b5",
+ "__v": 3,
+ "parentDoc": null,
+ "updates": [],
+ "next": {
+  "pages": [
+   {
+    "category": "Core Guides",
+    "slug": "core-guide-dash-features-instantsend",
+    "name": "Instantsend",
+    "icon": "file-text-o",
+    "type": "doc"
+   }
+  ],
+  "description": ""
+ },
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "api": {
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
+ },
+ "isReference": false,
+ "order": 1,
+ "body": "Dash aims to be the most user-friendly and scalable payments-focused cryptocurrency in the world. The Dash <<glossary:network>> features instant transaction confirmation, double spend protection, anonymity similar to that of physical cash, a self-governing, self-funding model driven by incentivized full <<glossary:nodes>> and a clear [roadmap](https://www.dash.org/roadmap/) for future development.\n\nWhile Dash is based on Bitcoin and compatible with many key components of the Bitcoin ecosystem, its two-tier network structure offers significant improvements in transaction speed, anonymity and governance. This section of the documentation describes these key features that set Dash apart in the blockchain economy.",
+ "excerpt": "",
+ "slug": "core-guide-dash-features",
+ "type": "basic",
+ "metadata": {
+  "description": "",
+  "title": "",
+  "image": []
+ },
+ "title": "Dash Features",
+ "id": "5db0a910c4e022001110a32e",
+ "isApi": false,
+ "body_html": "<div class=\"magic-block-textarea\"><p>Dash aims to be the most user-friendly and scalable payments-focused cryptocurrency in the world. The Dash &lt;&lt;glossary:network&gt;&gt; features instant transaction confirmation, double spend protection, anonymity similar to that of physical cash, a self-governing, self-funding model driven by incentivized full &lt;&lt;glossary:nodes&gt;&gt; and a clear <a href=\"https://www.dash.org/roadmap/\">roadmap</a> for future development.</p>\n<p>While Dash is based on Bitcoin and compatible with many key components of the Bitcoin ecosystem, its two-tier network structure offers significant improvements in transaction speed, anonymity and governance. This section of the documentation describes these key features that set Dash apart in the blockchain economy.</p>\n\n</div>"
+}

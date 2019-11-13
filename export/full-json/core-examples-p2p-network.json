@@ -1,0 +1,93 @@
+{
+ "_id": "5db19f9975818c0034428efb",
+ "version": "5daf2e65f4109c0040fd51e5",
+ "updatedAt": "2019-11-11T22:06:18.297Z",
+ "createdAt": "2019-10-24T12:56:57.418Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5db19f199332b800310886f8",
+ "__v": 2,
+ "parentDoc": null,
+ "updates": [],
+ "next": {
+  "pages": [
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Creating A Bloom Filter",
+    "slug": "core-examples-p2p-network-creating-a-bloom-filter",
+    "category": "Core Examples"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Evaluating A Bloom Filter",
+    "slug": "core-examples-p2p-network-evaluating-a-bloom-filter",
+    "category": "Core Examples"
+   },
+   {
+    "category": "Core Examples",
+    "slug": "core-examples-p2p-network-bloom-filter-script",
+    "name": "Bloom Filter Script",
+    "icon": "file-text-o",
+    "type": "doc"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Retrieving A MerkleBlock",
+    "slug": "core-examples-p2p-network-retrieving-a-merkleblock",
+    "category": "Core Examples"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Parsing A MerkleBlock",
+    "slug": "core-examples-p2p-network-parsing-a-merkleblock",
+    "category": "Core Examples"
+   }
+  ],
+  "description": ""
+ },
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "api": {
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
+ },
+ "isReference": false,
+ "order": 4,
+ "body": "",
+ "excerpt": "",
+ "slug": "core-examples-p2p-network",
+ "type": "basic",
+ "metadata": {
+  "description": "",
+  "title": "",
+  "image": []
+ },
+ "title": "P2P Network",
+ "id": "5db19f9975818c0034428efb",
+ "isApi": false,
+ "body_html": "&nbsp;"
+}

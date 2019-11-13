@@ -1,0 +1,100 @@
+{
+ "_id": "5db079fa29616900509db7f1",
+ "version": "5daf2e65f4109c0040fd51e5",
+ "updatedAt": "2019-11-11T19:51:47.350Z",
+ "createdAt": "2019-10-23T16:04:10.599Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5db061df6d7d670050694628",
+ "__v": 4,
+ "parentDoc": null,
+ "updates": [],
+ "next": {
+  "pages": [
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "OpCodes",
+    "slug": "core-ref-transactions-opcodes",
+    "category": "Core Reference"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Address Conversion",
+    "slug": "core-ref-transactions-address-conversion",
+    "category": "Core Reference"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Raw Transaction Format",
+    "slug": "core-ref-transactions-raw-transaction-format",
+    "category": "Core Reference"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Special Transactions",
+    "slug": "core-ref-transactions-special-transactions",
+    "category": "Core Reference"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "CompactSize Unsigned Integers",
+    "slug": "core-ref-transactions-compactsize-unsigned-integers",
+    "category": "Core Reference"
+   },
+   {
+    "category": "Core Reference",
+    "slug": "core-ref-wallets",
+    "name": "Wallets",
+    "icon": "file-text-o",
+    "type": "doc"
+   }
+  ],
+  "description": ""
+ },
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "api": {
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
+ },
+ "isReference": false,
+ "order": 2,
+ "body": "The following subsections briefly document core transaction details.",
+ "excerpt": "",
+ "slug": "core-ref-transactions",
+ "type": "basic",
+ "metadata": {
+  "description": "",
+  "title": "",
+  "image": []
+ },
+ "title": "Transactions",
+ "id": "5db079fa29616900509db7f1",
+ "isApi": false,
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core transaction details.</p>\n\n</div>"
+}
