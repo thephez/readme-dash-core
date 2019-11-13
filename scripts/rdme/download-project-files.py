@@ -31,7 +31,7 @@ def get_errors():
 
 
 def write_to_file(filename, data):
-    print(filename)
+    print('Writing to: {}'.format(filename))
     with open(filename, "w") as md_file:
         md_file.write(data)
 
@@ -41,21 +41,16 @@ def main():
     for c in CATEGORIES:
         results.append(get_docs_in_category(c))
 
-    #print(json.dumps(results, indent=2))
-
     slugs = []
     for result in results:
         for r in result:
             slugs.append(r['slug'])
-            #print(r)
             #print('{} ({})'.format(r['title'], r['slug']))
             doc = get_doc_by_slug(r['slug'], VERSION)
-            #print(json.dumps(doc, indent=2))
+
             if 'children' in r:
                 for child in r['children']:
-                    #print('{} ({})'.format(child['title'], child['slug']))
                     slugs.append(child['slug'])
-
 
     for slug in slugs:
         #print('Slug: {}'.format(slug))
