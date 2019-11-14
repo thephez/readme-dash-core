@@ -1,41 +1,48 @@
 {
  "_id": "5db0adeba1353d026b1a34f8",
  "version": "5daf2e65f4109c0040fd51e5",
- "updatedAt": "2019-11-11T19:50:48.451Z",
+ "updatedAt": "2019-11-14T18:29:33.495Z",
  "createdAt": "2019-10-23T19:45:47.427Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "5db061df6d7d670050694628",
- "__v": 9,
+ "__v": 10,
  "parentDoc": null,
  "updates": [],
  "next": {
   "pages": [
    {
-    "category": "Core Reference",
-    "slug": "core-ref-block-chain",
-    "name": "Block Chain",
+    "type": "doc",
     "icon": "file-text-o",
-    "type": "doc"
+    "name": "Block Chain",
+    "slug": "core-ref-block-chain",
+    "category": "Core Reference"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Transactions",
+    "slug": "core-ref-transactions",
+    "category": "Core Reference"
    },
    {
     "category": "Core Reference",
-    "slug": "core-ref-transactions",
-    "name": "Transactions",
+    "slug": "core-ref-wallets",
+    "name": "Wallets",
     "icon": "file-text-o",
     "type": "doc"
    },
    {
     "type": "doc",
     "icon": "file-text-o",
-    "name": "Wallets",
-    "slug": "core-ref-wallets",
+    "name": "P2P Network",
+    "slug": "core-ref-p2p-network",
     "category": "Core Reference"
    },
    {
     "category": "Core Reference",
-    "slug": "core-ref-p2p-network",
-    "name": "P2P Network",
+    "slug": "core-ref-improvement-proposals",
+    "name": "Improvement Proposals",
     "icon": "file-text-o",
     "type": "doc"
    }

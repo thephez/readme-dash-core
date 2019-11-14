@@ -1,17 +1,17 @@
 # GetAddressBalance
 
-*Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
+*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
 The [`getaddressbalance` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddressbalance) returns the balance for address(es).
 
-*Parameter #1---an array of addresses*
+*Parameter #1---an array of <<glossary:addresses>>*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `addresses` | object | Required<br>(exactly 1) | An array of P2PKH or P2SH Dash address(es)
 →Address | string (base58) | Required<br>(1 or more) | The base58check encoded address
 
-*Result---the current balance in duffs and the total number of duffs received (including change)*
+*Result---the current balance in <<glossary:duffs>> and the total number of duffs received (including change)*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
@@ -43,7 +43,7 @@ Result:
 
 # GetAddressDeltas
 
-*Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
+*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
 The [`getaddressdeltas` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddressdeltas) returns all changes for an address.
 
@@ -111,7 +111,7 @@ Result:
 
 # GetAddressMempool
 
-*Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
+*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
 The [`getaddressmempool` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddressmempool) returns all mempool deltas for an address.
 
@@ -141,18 +141,26 @@ Name | Type | Presence | Description
 Get the deltas for an address:
 
 ``` bash
-dash-cli getaddressmempool '{"addresses": ["yWjoZBvnUKWhpKMbBkVVnnMD8Bzno9j6tQ"]}'
+dash-cli getaddressmempool '{"addresses": ["yVcYtcKd3nSi85JFtE8ZSDPimj3VMTJB8k"]}'
 ```
 
 Result:
 
-``` text
-  Example result needed
+``` json
+[
+  {
+    "address": "yVcYtcKd3nSi85JFtE8ZSDPimj3VMTJB8k",
+    "txid": "e53d871df8b26116fbc1b766172323f9c477375133eec8ea5c66f1867a61a533",
+    "index": 1,
+    "satoshis": 100000000000,
+    "timestamp": 1573753889
+  }
+]
 ```
 
 # GetAddressTxids
 
-*Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
+*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
 The [`getaddresstxids` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddresstxids) returns the txids for an address(es).
 
@@ -201,7 +209,7 @@ Result:
 
 # GetAddressUtxos
 
-*Requires wallet support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
+*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
 The [`getaddressutxos` RPC](core-api-ref-remote-procedure-calls-address-index#section-getaddressutxos) returns all unspent outputs for an address.
 

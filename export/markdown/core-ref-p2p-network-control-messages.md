@@ -124,9 +124,13 @@ The seed is `nHashNum * 0xfba4c795 + nTweak` as a *uint32\_t*, where the values 
 If the seed resulting from the formula above is larger than four bytes, it must be truncated to its four most significant bytes (for example, `0x8967452301 & 0xffffffff → 0x67452301`).
 
 The actual hash function implementation used is the [32-bit Murmur3 hash function](https://en.wikipedia.org/wiki/MurmurHash).
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** the Murmur3 hash function has separate 32-bit and 64-bit versions that produce different results for the same <<glossary:input>>.  Only the 32-bit Murmur3 version is used with Dash bloom filters.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "**Warning:** the Murmur3 hash function has separate 32-bit and 64-bit versions that produce different results for the same <<glossary:input>>.  Only the 32-bit Murmur3 version is used with Dash bloom filters.",
+  "title": "Murmer3 Version"
+}
+[/block]
 The data to be hashed can be any transaction element which the bloom filter can match. See the next subsection for the list of transaction elements checked against the filter. The largest element which can be matched is a script data push of 520 bytes, so the data should never exceed 520 bytes.
 
 The example below from Dash Core [bloom.cpp](https://github.com/dashpay/dash/blob/333e1eaeea80344e5a28db6efbce2691c85e2b25/src/bloom.cpp#L58) combines all the steps above to create the hash function template. The seed is the first parameter; the data to be hashed is the second parameter. The result is a uint32\_t modulo the size of the bit field in bits.

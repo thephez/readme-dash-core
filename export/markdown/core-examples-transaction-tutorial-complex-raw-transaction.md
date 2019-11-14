@@ -1,6 +1,6 @@
 In this example, we'll create a <<glossary:transaction>> with two <<glossary:inputs>> and two <<glossary:outputs>>.  We'll sign each of the inputs separately, as might happen if the two inputs belonged to different people who agreed to create a transaction together (such as a CoinJoin transaction).
 
-# List unspent outputs
+# 1. List unspent outputs
 [block:code]
 {
   "codes": [
@@ -63,12 +63,12 @@ In this example, we'll create a <<glossary:transaction>> with two <<glossary:inp
   }
 ]
 ```
-``` bash
 
-# Select UTXOs
+# 2. Select UTXOs
 
 For our two inputs, we select two UTXOs by placing the txid and output index numbers (vouts) in shell variables.  We also save the addresses corresponding to the public keys (hashed or unhashed) used in those transactions. We need the addresses so we can get the corresponding private keys from our wallet.
 
+``` bash
 > UTXO1_TXID=ea6d596da55a137846f8b08bfd414b4667ce456f9e3b3182e6f05810e8613d84
 > UTXO1_VOUT=0
 > UTXO1_ADDRESS=yWtgzKSckhedxtJ8NXhShWGjfBivkvBGgG
@@ -78,7 +78,7 @@ For our two inputs, we select two UTXOs by placing the txid and output index num
 > UTXO2_ADDRESS=yRdk89fwSW1mUBxQo5fCmEfTva7b4wh2H5
 ```
 
-# Get private keys
+# 3. Get private keys
 [block:callout]
 {
   "type": "danger",
@@ -100,7 +100,7 @@ cPtZ9nagmjQ5bRKMuqoDz8xni6hRPfZ1zp3TSrqH3j3RyUThTYGN
 > UTXO2_PRIVATE_KEY=cPtZ9nagmjQ5bRKMuqoDz8xni6hRPfZ1zp3TSrqH3j3RyUThTYGN
 ```
 
-# Get new addresses
+# 4. Get new addresses
 
 For our two outputs, get two new <<glossary:addresses>>.
 
@@ -114,7 +114,7 @@ yesLaP5XFTaLZiWAo2zK8mFfUCtV8rRhKw
 > NEW_ADDRESS2=yesLaP5XFTaLZiWAo2zK8mFfUCtV8rRhKw
 ```
 
-# Create raw transaction
+# 5. Create raw transaction
 
 Create the <<glossary:raw transaction>> using the [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-createrawtransaction) much the same as before, except now we have two inputs and two outputs.
 
@@ -145,7 +145,7 @@ a56d596dea0000000000ffffffff30d100f7762956100a2396403c60e13e7a13\
 > RAW_TX=0100000002843d61e81058f0e682313b9e6f45ce67464b41fd8bb0f[...]
 ```
 
-# Sign raw transaction
+# 6. Sign raw transaction
 
 Signing the raw transaction with `signrawtransaction` gets more complicated as we now have three arguments:
 
@@ -155,7 +155,7 @@ Signing the raw transaction with `signrawtransaction` gets more complicated as w
 
 3. The private key we want to use to sign one of the inputs.
 
-## First input
+## 6a. First input
 
 The result is a raw transaction with only one input signed; the fact that the transaction isn't fully signed is indicated by value of the `complete` JSON field.  We save the incomplete, partly-signed raw transaction hex to a shell variable.
 
@@ -193,7 +193,7 @@ The result is a raw transaction with only one input signed; the fact that the tr
 > PARTLY_SIGNED_RAW_TX=0100000002843d61e81058f0e682313b9e6f45ce6[...]
 ```
 
-## Second input
+## 6b. Second input
 
 To sign the second input, we repeat the process we used to sign the first input using the second private key. Now that both inputs are signed, the `complete` result is *true*.
 

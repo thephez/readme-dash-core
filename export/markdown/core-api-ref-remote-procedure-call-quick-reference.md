@@ -28,7 +28,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [GetMemPoolEntry](core-api-ref-remote-procedure-calls-blockchain#section-getmempoolentry): returns mempool data for given transaction (must be in mempool). **Updated in Dash Core 0.14.0**
 * [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getmempoolinfo): returns information about the node's current transaction memory pool. **Updated in Dash Core 0.14.1**
 * [GetRawMemPool](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getrawmempool): returns all transaction identifiers (TXIDs) in the memory pool as a JSON array, or detailed information about each transaction in the memory pool as a JSON object. **Updated in Dash Core 0.14.1**
-* [GetMerkleBlocks](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getmerkleblocks): returns an array of hex-encoded merkleblocks for <count> blocks<!--noref--> starting from <hash> which match <filter>. **New in Dash Core 0.14.1**
+* [GetMerkleBlocks](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getmerkleblocks): returns an array of hex-encoded merkleblocks for <count> blocks starting from <hash> which match <filter>. **New in Dash Core 0.14.1**
 * [GetSpecialTxes](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getspecialtxes): returns an array of special transactions found in the specified block **New in Dash Core 0.13.1**
 * [GetSpentInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getspentinfo): returns the txid and index where an output is spent (requires `spentindex` to be enabled). New in Dash Core 0.12.1
 * [GetTxOut](/docs/core-api-ref-remote-procedure-calls-blockchain#section-gettxout): returns details about an unspent transaction output (UTXO). **Updated in Dash Core 0.14.1**
@@ -124,7 +124,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [AbandonTransaction](/docs/core-api-ref-remote-procedure-calls-wallet#section-abandontransaction): marks an in-wallet transaction and all its in-wallet descendants as abandoned. This allows their inputs to be respent.
 * [AbortRescan](/docs/core-api-ref-remote-procedure-calls-wallet#section-abortrescan): stops current wallet rescan. **New in Dash Core 0.14.1**
 * [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-addmultisigaddress): adds a P2SH multisig address to the wallet.
-* [BackupWallet](/docs/core-api-ref-remote-procedure-calls-wallet#section-backupwallet): safely copies `wallet.dat`<!--noref--> to the specified file, which can be a directory or a path with filename.
+* [BackupWallet](/docs/core-api-ref-remote-procedure-calls-wallet#section-backupwallet): safely copies `wallet.dat` to the specified file, which can be a directory or a path with filename.
 * [DumpHDInfo](/docs/core-api-ref-remote-procedure-calls-wallet#section-dumphdinfo): returns an object containing sensitive private info about this HD wallet New in Dash Core 0.12.2
 * [DumpPrivKey](/docs/core-api-ref-remote-procedure-calls-wallet#section-dumpprivkey): returns the wallet-import-format (WIP) private key corresponding to an address. (But does not remove it from the wallet.)
 * [DumpWallet](/docs/core-api-ref-remote-procedure-calls-wallet#section-dumpwallet): creates or overwrites a file with all wallet keys in a human-readable format. *Updated in Dash Core 0.13.0*

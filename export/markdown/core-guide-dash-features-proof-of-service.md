@@ -24,8 +24,8 @@ For example, using the values from above with 5000 masternodes:
 
 - In the second 5000 block cycle, the second DKG failure occurs too close to the first and results in the PoSe score exceeding the maximum limit. This results in the masternode receiving a PoSe Ban.
 
-| Payment Cycle | Block Number | Event | Score Change | PoSe Score | Masternode Status |
-| --- | --- | --- | --- | --- | --- |
+| Payment Cycle | Block Number | Event | Score Change | PoSe Score | MN Status |
+| :---: | :--- | --- | :---: | :---: | :---: |
 | 1 | 1 | DKG Failure (1) | +3333 | 3333 | Valid |
 | 1 | 1734 | 1733 Blocks Mined | -1733 | 1600 | Valid |
 | 1 | 1734 | DKG Failure (2) | +3333 | 4933 | Valid |
