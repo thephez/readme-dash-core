@@ -44,7 +44,7 @@ Name | Type | Presence | Description
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
 →<br>`known_block` | boolean | Required<br>(exactly 1) | True if the block is known by this node
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet getbestchainlock
@@ -173,7 +173,7 @@ Name | Type | Presence | Description
 →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
 <br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 Get a block in raw hex:
 
@@ -376,14 +376,14 @@ Name | Type | Presence | Description
 → → →<br>`startTime` | numeric<br>(int) | Required<br>(exactly 1) | The Unix epoch time when the softfork voting begins
 → → →<br>`timeout` | numeric<br>(int) | Required<br>(exactly 1) | The Unix epoch time at which the deployment is considered failed if not yet locked in
 → → →<br>`since` | numeric<br>(int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.14.0*<br><br>The height of the first block to which the status applies
-→ → →<br>`statistics` | string : object | Required<br>(exactly 1) | *Added in Dash Core 0.14.1*<br><br>Numeric statistics about BIP9 signaling for a softfork (only for \started\" status)"
-→ → → →<br>`period` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.14.1*<br><br>The length in blocks of the BIP9 signaling period.  Field is only shown when status is `started`
-→ → → →<br>`threshold` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.14.1*<br><br>The number of blocks with the version bit set required to activate the feature.  Field is only shown when status is `started`
-→ → → →<br>`elapsed` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.14.1*<br><br>The number of blocks elapsed since the beginning of the current period.  Field is only shown when status is `started`
-→ → → →<br>`count` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.14.1*<br><br>The number of blocks with the version bit set in the current period.  Field is only shown when status is `started`
+→ → →<br>`statistics` | string : object | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br><br>Numeric statistics about BIP9 signaling for a softfork (only for \started\" status)"
+→ → → →<br>`period` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The length in blocks of the BIP9 signaling period.  Field is only shown when status is `started`
+→ → → →<br>`threshold` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks with the version bit set required to activate the feature.  Field is only shown when status is `started`
+→ → → →<br>`elapsed` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks elapsed since the beginning of the current period.  Field is only shown when status is `started`
+→ → → →<br>`count` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks with the version bit set in the current period.  Field is only shown when status is `started`
 →<br>`possible` | bool | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.11.0*<br><br>Returns false if there are not enough blocks left in this period to pass activation threshold.  Field is only shown when status is `started`
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet getblockchaininfo
@@ -861,7 +861,7 @@ Name | Type | Presence | Description
 →<br>`utxo_increase` | numeric | Required<br>(exactly 1) | The increase/decrease in the number of unspent outputs
 →<br>`utxo_size_inc` | numeric | Required<br>(exactly 1) | The increase/decrease in size for the utxo index (not discounting op_return and similar)
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli getblockstats 1000 '["blockhash","subsidy", "txs"]'
@@ -949,7 +949,7 @@ Name | Type | Presence | Description
 →<br>`txcount` | number (int) | Required<br>(exactly 1) | The total number of transactions in the chain up to that point
 →<br>`txrate` | number (int) | Required<br>(exactly 1) | The average rate of transactions per second in the window
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet getchaintxstats
@@ -1270,9 +1270,9 @@ Name | Type | Presence | Description
 →<br>`usage` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.11.0*<br><br>Total memory usage for the mempool in bytes
 →<br>`maxmempool` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>Maximum memory usage for the mempool in bytes
 →<br>`mempoolminfee` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The lowest fee per kilobyte paid by any transaction in the memory pool
-→<br>`instantsendlocks` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.14.1*<br><br>Number of unconfirmed InstantSend locks
+→<br>`instantsendlocks` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br><br>Number of unconfirmed InstantSend locks
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet getmempoolinfo
@@ -1405,7 +1405,7 @@ Result:
 
 # GetMerkleBlocks
 
-*Added in Dash Core 0.14.1*
+*Added in Dash Core 0.15.0*
 
 The [`getmerkleblocks` RPC](core-api-ref-remote-procedure-calls-blockchain#section-getmerkleblocks) returns an array of hex-encoded merkleblocks for <count> blocks starting from <hash> which match <filter>.
 
@@ -1434,7 +1434,7 @@ Name | Type | Presence | Description
 `result` | array | Required<br>(exactly 1) | An array of merkleblocks
 →<br>Merkle Block | string (hex) | Optional<br>(1 or more) | A serialized, hex-encoded merkleblock
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli getmerkleblocks \
@@ -1700,7 +1700,7 @@ Name | Type | Presence | Description
 → → →<br>Address | string | Required<br>(1 or more) | A P2PKH or P2SH address
 →<br>`coinbase` | bool | Required<br>(exactly 1) | Set to `true` if the transaction output belonged to a coinbase transaction; set to `false` for all other transactions.  Coinbase transactions need to have 101 confirmations before their outputs can be spent
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 Get the UTXO from the following transaction from the first output index ("0"),
 searching the memory pool if necessary.
@@ -1814,7 +1814,7 @@ Name | Type | Presence | Description
 →<br>`disk_size` | number (int) | Required<br>(exactly 1) | The estimated size of the chainstate on disk
 →<br>`total_amount` | number (Dash) | Required<br>(exactly 1) | The total amount of Dash in the UTXO set
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet gettxoutsetinfo

@@ -121,7 +121,7 @@ Name | Type | Presence | Description
 →<br>`error` | JSON array (strings) | Optional<br>(0 or 1) | Errors encountered during processing
 →<br>`blocks` | number | Required<br>(exactly 1) | Block number where the estimate was found
 
-*Examples from Dash Core 0.14.1*
+*Examples from Dash Core 0.15.0*
 
 ``` bash
 dash-cli estimatesmartfee 6

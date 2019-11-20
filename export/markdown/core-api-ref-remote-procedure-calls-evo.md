@@ -2192,7 +2192,7 @@ Name | Type | Presence | Description
 → →<br>`isValidMember` | bool | Required<br>(exactly 1) | Indicates if the member is valid
 → →<br>`memberIndex` | number | Required<br>(exactly 1) | Index of the member within the quorum
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet quorum memberof 1 \

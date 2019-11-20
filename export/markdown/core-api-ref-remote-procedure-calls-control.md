@@ -8,7 +8,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Debug category | string | Required<br>(1 or more) | The debug category to activate. Use a `+` to specify multiple categories. Categories will be one of the following:<br>• `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `addrman` <br>• `bench` <br>• `cmpctblock` <br>• `coindb` <br>• `db` <br>• `estimatefee` <br>• `http` <br>• `leveldb` <br>• `libevent` <br>• `mempool` <br>• `mempoolrej` <br>• `net` <br>• `proxy` <br>• `prune` <br>• `qt` <br>• `rand` <br>• `reindex` <br>• `rpc` <br>• `selectcoins` <br>• `tor` <br>• `zmq` <br>• `dash` (all subcategories)<br><br>The `dash` sub-categories can be enabled individually:<br>• `chainlocks` <br>• `gobject` <br>• `instantsend` <br>• `keepass` <br>• `llmq` <br>• `llmq-dkg` <br>• `llmq-sigs` <br>• `mnpayments` <br>• `mnsync` <br>• `privatesend` <br>• `spork` <br><br><br>Note: No error will be thrown even if the specified category doesn't match any of the above
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet debug "net+mempool"
@@ -56,7 +56,7 @@ Name | Type | Presence | Description
 →<br>`relayfee` | number (duffs) | Required<br>(exactly 1) | The minimum fee per kilobyte a transaction must pay in order for this node to accept it into its memory pool
 →<br>`errors` | string | Required<br>(exactly 1) | A plain-text description of any errors this node has encountered or detected.  If there are no errors, an empty string will be returned.  This is not related to the JSON-RPC `error` field
 
-*Example from Dash Core 0.14.1 with wallet support enabled*
+*Example from Dash Core 0.15.0 with wallet support enabled*
 
 ``` bash
 dash-cli -testnet getinfo
@@ -105,7 +105,7 @@ The [`getmemoryinfo` RPC](core-api-ref-remote-procedure-calls-control#section-ge
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-mode| string | Optional<br>Default: `stats` | *Added in Dash Core 0.14.1*<br><br>Determines what kind of information is returned.<br>- `stats` returns general statistics about memory usage in the daemon.<br>- `mallocinfo` returns an XML string describing low-level heap state (only available if compiled with glibc 2.10+).
+mode| string | Optional<br>Default: `stats` | *Added in Dash Core 0.15.0*<br><br>Determines what kind of information is returned.<br>- `stats` returns general statistics about memory usage in the daemon.<br>- `mallocinfo` returns an XML string describing low-level heap state (only available if compiled with glibc 2.10+).
 
 *Result---information about memory usage*
 
@@ -218,7 +218,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | A JSON object show a list of the logging categories that are active
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 Include a category in logging
 
@@ -350,7 +350,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | number (int) | Required<br>(exactly 1) | The number of seconds that the server has been running
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet uptime

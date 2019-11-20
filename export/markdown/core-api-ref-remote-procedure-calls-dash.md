@@ -144,7 +144,7 @@ Name | Type | Presence | Description
 →<br>`state` | string | Required<br>(exactly 1) | Current state of the mixing session
 →<br>`entries_count` | number (int) | Required<br>(exactly 1) | The number of entries in the mixing session
 
-*Example from Dash Core 0.14.1 (regular node)*
+*Example from Dash Core 0.15.0 (regular node)*
 
 ``` bash
 dash-cli -testnet getprivatesendinfo
@@ -292,7 +292,7 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`use-IS` | boolean | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.14.1*
+`use-IS` | boolean | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.15.0*
 
 *Parameter #6---outputHash*
 
@@ -1708,7 +1708,7 @@ Name | Type | Presence | Description
 `result` | object | Required<br>(exactly 1) | Object containing status
 →<br>`Spork Value` | int64_t | Required<br>(1 or more) | Spork value (epoch datetime to enable/disable)
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet spork show

@@ -300,7 +300,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | null/string | Required<br>(exactly 1) | If the block submission succeeded, set to JSON `null`.  If submission failed, set to one of the following strings: `duplicate`, `duplicate-invalid`, `inconclusive`, or `rejected`.  The JSON-RPC `error` field will still be set to `null` if submission failed for one of these reasons
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 Submit the following block with the a dummy value, "test".
 

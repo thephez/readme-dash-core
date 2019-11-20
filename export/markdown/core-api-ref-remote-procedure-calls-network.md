@@ -87,7 +87,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | null | Required<br>(exactly 1) | JSON `null` when the node was disconnected
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 Disconnects following node by address.
 

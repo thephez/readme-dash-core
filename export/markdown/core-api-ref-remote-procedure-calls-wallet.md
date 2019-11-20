@@ -44,7 +44,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | null | Required<br>(exactly 1) | `true` when the command was successful or `false` if not successful.
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 Abort the running wallet rescan
 
@@ -1809,7 +1809,7 @@ Name | Type | Presence | Description
 →<br>`removed` | array | Optional<br>(0 or 1) | Structure is the same as `transactions`. Only present if `include_removed` is `true`.<br>_Note_: transactions that were re-added in the active chain will appear as-is in this array, and may thus have a positive confirmation count.
 →<br>`lastblock` | string (hex) | Required<br>(exactly 1) | The header hash of the block with the number of confirmations specified in the *target confirmations* parameter, encoded as hex in RPC byte order
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 Get all transactions since a particular block (including watch-only
 transactions) and the header hash of the sixth most recent block.
@@ -2041,7 +2041,7 @@ Name | Type | Presence | Description
 → →<br>`ps_rounds` | number (int) | Required<br>(exactly 1) | The number of PrivateSend rounds
 → →<br>`safe` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.15.0*<br><br>Whether this output is considered safe to spend. Unconfirmed transactions from outside keys are considered unsafe and are not eligible for spending by `fundrawtransaction` and `sendtoaddress`.
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 Get all outputs confirmed at least 6 times for a particular
 address:
@@ -2129,7 +2129,7 @@ Name | Type | Presence | Description
 `result` | array | Required<br>(exactly 1) | An array of strings containing a list of currently loaded wallet files
 →<br>Wallet | string | Required<br>(0 or more) | The name of a wallet file
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 ``` bash
 dash-cli -testnet listwallets
@@ -2507,7 +2507,7 @@ Subtract Fee From Amount | array | Optional<br>(0 or 1) | An array of addresses.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Use InstantSend | bool | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.14.1*
+Use InstantSend | bool | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.15.0*
 
 *Parameter #8---use PrivateSend*
 
@@ -2661,7 +2661,7 @@ Subtract Fee From Amount | boolean | Optional<br>(0 or 1) | The fee will be dedu
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Use InstantSend | bool | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.14.1*
+Use InstantSend | bool | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.15.0*
 
 *Parameter #7---use PrivateSend*
 

@@ -405,10 +405,10 @@ Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/a4f5ba38b65384f
 | 10019 | 20 | `SPORK_20_INSTANTSEND_`<br>`LLMQ_BASED` | Enable LLMQ-based InstantSend.
 | | | |
 | | | **Removed Sporks** |
-| _10004_ | _5_ | `INSTANTSEND_MAX_VALUE` | _Removed in Dash Core 0.14.1.<br>Controls the max value for an InstantSend transaction (currently 2000 dash)_
+| _10004_ | _5_ | `INSTANTSEND_MAX_VALUE` | _Removed in Dash Core 0.15.0.<br>Controls the max value for an InstantSend transaction (currently 2000 dash)_
 | _10007_ | _8_ | `MASTERNODE_PAYMENT_`<br>`ENFORCEMENT` | _Removed in Dash Core 0.14.0.<br>Requires masternodes to be paid by miners when blocks are processed_
 | _10009_ | _10_ | `MASTERNODE_PAY_`<br>`UPDATED_NODES` | _Removed in Dash Core 0.14.0.<br>Only current protocol version masternode's will be paid (not older nodes)_
-| _10011_ | _12_ | `RECONSIDER_BLOCKS` | _Removed in Dash Core 0.14.1.<br>Forces reindex of a specified number of blocks to recover from unintentional network forks_
+| _10011_ | _12_ | `RECONSIDER_BLOCKS` | _Removed in Dash Core 0.15.0.<br>Forces reindex of a specified number of blocks to recover from unintentional network forks_
 | _10012_ | _13_ | `OLD_SUPERBLOCK_FLAG` | _Removed in Dash Core 0.12.3.<br>No network function since block 614820_
 | _10013_ | _14_ | `REQUIRE_SENTINEL_FLAG` | _Removed in Dash Core 0.14.0.<br>Only masternode's running sentinel will be paid_
 | _10017_ | _18_ | `QUORUM_DEBUG_ENABLED` | _Removed in Dash Core 0.14.0.<br><br>Temporarily used on Testnet only quorum debugging._

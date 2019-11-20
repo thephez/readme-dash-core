@@ -418,7 +418,7 @@ The [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) pro
 | ---------- | ----------- | --------- | -------- | -------- |
 | 4 | nMsgSessionID | int | Required | Session ID
 | 4 | nMsgState | int | Required | Current state of mixing process
-| 4 | nMsgEntriesCount | int | Required | _Deprecated in Dash Core 0.14.1_<br><br>Number of entries in the mixing pool
+| 4 | nMsgEntriesCount | int | Required | _Deprecated in Dash Core 0.15.0_<br><br>Number of entries in the mixing pool
 | 4 | nMsgStatusUpdate | int | Required | Update state and/or signal if entry was accepted or not
 | 4 | nMsgMessageID | int | Required | ID of the typical masternode reply message
 
