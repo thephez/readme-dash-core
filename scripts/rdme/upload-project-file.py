@@ -64,4 +64,6 @@ def main(args):
 
 
 if __name__ == '__main__':
+    # Call like (supports multiple file args):
+    #   python3 upload-project-file.py core-api-ref-remote-procedure-calls-dash
     main(sys.argv)
