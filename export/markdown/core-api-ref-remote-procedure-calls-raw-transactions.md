@@ -17,7 +17,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(Exactly 1) | The resulting raw transaction in serialized transaction format encoded as hex.
 
-*Example from Dash Core 0.14.1*
+*Example from Dash Core 0.15.0*
 
 The following example shows a fully signed two input transaction being assembled
 by combining two partially signed transactions. The first hex-encoded string is
@@ -393,7 +393,7 @@ Options | Object | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.13.0*<br><br>
 → <br>`changePosition` | nummeric (int) | Optional<br>(0 or 1) | The index of the change output. If not set, the change position is randomly chosen
 `includeWatching` | bool | Optional<br>(0 or 1) | Inputs from watch-only addresses are also considered. The default is `false`
 → <br>`lockUnspent` | bool | Optional<br>(0 or 1) | The selected outputs are locked after running the rpc call. The default is `false`
-→ <br>`reserveChangeKey` | bool | Optional<br>(0 or 1) | *Deprecated and ignored in Dash Core 0.14.1*<br><br>Reserves the change output key from the keypool. The default is `true`. Before Bitcoin Core 0.14.0, the used keypool key was never marked as change-address key and directly returned to the keypool (leading to address reuse).  
+→ <br>`reserveChangeKey` | bool | Optional<br>(0 or 1) | *Deprecated and ignored in Dash Core 0.15.0*<br><br>Reserves the change output key from the keypool. The default is `true`. Before Bitcoin Core 0.14.0, the used keypool key was never marked as change-address key and directly returned to the keypool (leading to address reuse).  
 → <br>`feeRate` | numeric (bitcoins) | Optional<br>(0 or 1) | The specific feerate  you are willing to pay(BTC per KB). If not set, the wallet determines the fee
 → <br>`subtractFeeFromOutputs` | array | Optional<br>(0 or 1) | A json array of integers. The fee will be equally deducted from the amount of each specified output. The outputs are specified by their zero-based index, before any change output is added.
 → →<br>Output index | numeric (int) | Optional<br>(0 or more) | A output index number (vout) from which the fee should be subtracted. If multiple vouts are provided, the total fee will be divided by the number of vouts listed and each vout will have that amount subtracted from it.
@@ -743,7 +743,7 @@ Allow High Fees | bool | Optional<br>(0 or 1) | Set to `true` to allow the trans
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Use InstantSend | bool | Optional<br>(0 or 1) | *Depcrecated and ignored since Dash Core 0.14.1*
+Use InstantSend | bool | Optional<br>(0 or 1) | *Depcrecated and ignored since Dash Core 0.15.0*
 
 *Result---a TXID or error message*
 
