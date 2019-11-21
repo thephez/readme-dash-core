@@ -290,14 +290,12 @@ cTGSKYaQTQabnjNSwCqpjYXiucVujTXiwp9dzmJV9cNAiayAJusi 2017-11-28T18:21:37Z reserv
 *Requires wallet support.*
 
 The [`encryptwallet` RPC](core-api-ref-remote-procedure-calls-wallet#section-encryptwallet) encrypts the wallet with a passphrase.  This is only to enable encryption for the first time. After encryption is enabled, you will need to enter the passphrase to use private keys.
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** if using this RPC on the command line, remember
-that your shell probably saves your command lines (including the value
-of the passphrase parameter). In addition, there is no RPC to completely
-disable encryption. If you want to return to an unencrypted wallet, you
-must create a new wallet and restore your data from a backup made with
-the [`dumpwallet` RPC](core-api-ref-remote-procedure-calls-wallet#section-dumpwallet).
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "**Warning:** if using this RPC on the command line, remember that your shell probably saves your command lines (including the value of the passphrase parameter). In addition, there is no RPC to completely disable encryption. If you want to return to an unencrypted wallet, you must create a new wallet and restore your data from a backup made with the [`dumpwallet` RPC](core-api-ref-remote-procedure-calls-wallet#section-dumpwallet)."
+}
+[/block]
 *Parameter #1---a passphrase*
 
 Name | Type | Presence | Description
@@ -336,10 +334,12 @@ HD). You need to make a new backup.
 *Requires wallet support.*
 
 The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet#section-getaccount) returns the name of the account associated with the given address.
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `setaccount` will be removed in a later version of Dash
-Core.  Use the RPCs listed in the See Also subsection below instead.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "**Warning:** `setaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
+}
+[/block]
 *Parameter #1---a Dash address*
 
 Name | Type | Presence | Description
@@ -373,10 +373,12 @@ doc test
 *Requires wallet support.*
 
 The [`getaccountaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-getaccountaddress) returns the current Dash address for receiving payments to this account. If the account doesn't exist, it creates both the account and a new address for receiving payment.  Once a payment has been received to an address, future calls to this RPC for the same account will return a different address.
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** `getaccountaddress` will be removed in a later version of Dash
-Core.  Use the RPCs listed in the See Also subsection below instead.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "**Warning:** `getaccountaddress` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
+}
+[/block]
 *Parameter #1---an account name*
 
 Name | Type | Presence | Description

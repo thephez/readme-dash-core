@@ -1,7 +1,10 @@
 # EstimatePriority
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
+}
+[/block]
 The [`estimatepriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimatepriority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) which will remain supported for adding fee deltas to transactions.
 
 *Parameter #1---how many blocks the transaction may wait before being included as a free high-priority transaction*
@@ -45,9 +48,12 @@ Result:
 * [EstimateFee](/docs/core-api-ref-remote-procedure-calls-utility#section-estimatefee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 
 # EstimateSmartPriority
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
+}
+[/block]
 The [`estimatesmartpriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimatesmartpriority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) which will remain supported for adding fee deltas to transactions.
 
 *Parameter #1---how many blocks the transaction may wait before being included as a free high-priority transaction*
@@ -101,28 +107,37 @@ Result:
 # GetHashesPerSec
 
 *Requires wallet support.*
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) The [`gethashespersec` RPC](core-api-ref-remote-procedure-calls-removed#section-gethashespersec) was removed in Bitcoin Core 0.11.0 and is not part of Dash.
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "The [`gethashespersec` RPC](core-api-ref-remote-procedure-calls-removed#section-gethashespersec) was removed in Bitcoin Core 0.11.0 and is not part of Dash."
+}
+[/block]
 *See also*
 
 * [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
 * [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-getmininginfo): returns various mining-related information.
 
 # GetWork
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) The [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-getwork) was removed in Bitcoin Core 0.10.0. and is not part of Dash.
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "The [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-getwork) was removed in Bitcoin Core 0.10.0. and is not part of Dash."
+}
+[/block]
 *See also*
 
 * [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-getblocktemplate): gets a block template or proposal for use with mining software.
 * [SubmitBlock](/docs/core-api-ref-remote-procedure-calls-mining#section-submitblock): accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.
 
 # GetGenerate
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "**_Removed in Dash Core 0.12.3 / Bitcoin Core 0.13.0._**"
+}
+[/block]
 *Requires wallet support.*
-
-**_Removed in Dash Core 0.12.3 / Bitcoin Core 0.13.0._**
 
 The [`getgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-getgenerate) was removed in Dash Core 0.12.3.
 
@@ -154,9 +169,12 @@ false
 * [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-setgenerate): was removed in Dash Core 0.12.3.
 
 # MasternodeBroadcast
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
+}
+[/block]
 The [`masternodebroadcast` RPC](core-api-ref-remote-procedure-calls-removed#section-masternodebroadcast) was removed in Dash Core 0.14.0.
 
 *Parameter #1---masternode broadcast command*
@@ -358,9 +376,12 @@ Result:
 *See also: none*
 
 # SentinelPing
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
+}
+[/block]
 The [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed#section-sentinelping) was removed in Dash Core 0.14.0.
 
 *Parameter #1---sentinel version*
@@ -389,10 +410,13 @@ true
 *See also: none*
 
 # SetGenerate
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "**_Removed in Dash Core 0.12.3 / Bitcoin Core 0.13.0._**"
+}
+[/block]
 *Requires wallet support.*
-
-**_Removed in Dash Core 0.12.3 / Bitcoin Core 0.13.0._**
 
 The [`setgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-setgenerate) was removed in Dash Core 0.12.3.
 

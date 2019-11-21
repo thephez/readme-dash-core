@@ -1982,9 +1982,13 @@ Result:
 ## Quorum Sign
 
 The `quorum sign` RPC requests threshold-signing for a message.
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) Note: Used for RegTest testing only.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "Note: Used for RegTest testing only.",
+  "title": "Regtest Network Only"
+}
+[/block]
 *Parameter #1---LLMQ Type*
 
 Name | Type | Presence | Description
@@ -2080,8 +2084,13 @@ Result:
 
 The `quorum hasrecsig` RPC checks for a recovered signature for a previous threshold-signing message request.
 
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) Note: Used for RegTest testing only.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "Note: Used for RegTest testing only.",
+  "title": "Regtest Network Only"
+}
+[/block]
 *Parameter #1---LLMQ Type*
 
 Name | Type | Presence | Description
@@ -2123,8 +2132,13 @@ true
 
 The `quorum isconflicting` RPC checks if there is a conflict for a threshold-signing message request.
 
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) Note: Used for RegTest testing only.
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "Note: Used for RegTest testing only.",
+  "title": "Regtest Network Only"
+}
+[/block]
 *Parameter #1---LLMQ Type*
 
 Name | Type | Presence | Description

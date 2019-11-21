@@ -673,8 +673,13 @@ Result (wrapped):
 ```
 
 ## GObject Getvotes
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) **Warning:** **_Removed in Dash Core 0.14.0._**
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** **_Removed in Dash Core 0.14.0._**",
+  "title": "Deprecation Warning"
+}
+[/block]
 
 ## GObject Getcurrentvotes
 
@@ -1376,9 +1381,13 @@ Result:
 ```
 
 **Deprecated RPCs**
-
-![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) The following RPCs were deprecated by Dash Core 0.14.0
-
+[block:callout]
+{
+  "type": "danger",
+  "title": "Removed RPCs",
+  "body": "The following RPCs were deprecated by Dash Core 0.14.0 and have been removed."
+}
+[/block]
 **Masternode Check**
 
 Forces a check of all masternodes and removes invalid ones.
