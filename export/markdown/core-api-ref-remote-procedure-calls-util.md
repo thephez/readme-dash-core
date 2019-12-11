@@ -60,13 +60,19 @@ The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-utility#section-esti
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Blocks | number (int) | Required<br>(exactly 1) | The maximum number of blocks a transaction should have to wait before it is predicted to be included in a block. Has to be between 1 and 25 blocks
+Blocks | number (int) | Required<br>(exactly 1) | The maximum number of blocks a transaction should have to wait before it is predicted to be included in a block. Has to be between 2 and 25 blocks
 
 *Result---the fee the transaction needs to pay per kilobyte*
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "If the node doesn't have enough information to make an estimate, the value `-1` will be returned.",
+  "title": "Inability to estimate"
+}
+[/block]
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`result` | number (Dash) | Required<br>(exactly 1) | The estimated fee the transaction should pay in order to be included within the specified number of blocks.  If the node doesn't have enough information to make an estimate, the value `-1` will be returned
+`result` | number (Dash) | Required<br>(exactly 1) | The estimated fee the transaction should pay in order to be included within the specified number of blocks.  
 
 *Examples from Dash Core 0.12.2*
 

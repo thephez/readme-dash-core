@@ -743,7 +743,13 @@ Allow High Fees | bool | Optional<br>(0 or 1) | Set to `true` to allow the trans
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Use InstantSend | bool | Optional<br>(0 or 1) | *Depcrecated and ignored since Dash Core 0.15.0*
+Use InstantSend | bool | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.15.0*
+
+*Parameter #4--whether to bypass policy limits*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Bypass Limits | bool | Optional<br>(0 or 1) | Bypass transaction policy limits
 
 *Result---a TXID or error message*
 
