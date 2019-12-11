@@ -16,7 +16,7 @@
  "link_external": false,
  "link_url": "",
  "sync_unique": "",
- "hidden": true,
+ "hidden": false,
  "api": {
   "results": {
    "codes": [
