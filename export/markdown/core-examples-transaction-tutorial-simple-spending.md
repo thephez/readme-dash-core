@@ -15,7 +15,7 @@ yLp6ZJueuigiF4s9E1Pv8tEunDPEsjyQfd
 
 Send 10 dash to the address using the [`sendtoaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-sendtoaddress).  The returned hex string is the transaction identifier (<<glossary:TXID>>).
 
-The [`sendtoaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-sendtoaddress) automatically selects an <<glossary:unspent transaction output>> (UTXO) from which to spend the duffs. In this case, it withdrew the duffs from our only available UTXO, the <<glossary:coinbase transaction>> for <<glossary:block>> #1 which matured with the creation of block #101. To spend a specific UTXO, you could use the [`sendfrom` RPC](core-api-ref-remote-procedure-calls-wallet#section-sendfrom) instead.
+The [`sendtoaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-sendtoaddress) automatically selects an <<glossary:unspent transaction output>> (UTXO) from which to spend the duffs. In this case, it withdrew the duffs from our only available UTXO, the <<glossary:coinbase transaction>> for <<glossary:block>> #1 which matured with the creation of block #101. To spend a specific UTXO, you could use the [`sendfrom` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-sendfrom) instead.
 
 ``` bash
 > dash-cli -regtest sendtoaddress $NEW_ADDRESS 10.00
