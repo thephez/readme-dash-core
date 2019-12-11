@@ -1,8 +1,6 @@
 {
  "_id": "5db73c731cdf05001898633e",
  "version": "5daf2e65f4109c0040fd51e5",
- "updatedAt": "2019-11-20T14:11:16.142Z",
- "createdAt": "2019-10-28T19:07:31.813Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "5db0a86967f978006336b1b5",
@@ -11,6 +9,8 @@
  "updates": [
   "5dc1d392429c7c00634e8f70"
  ],
+ "updatedAt": "2019-10-30T13:59:32.159Z",
+ "createdAt": "2019-10-28T19:07:31.813Z",
  "next": {
   "pages": [
    {

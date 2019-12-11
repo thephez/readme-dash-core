@@ -1,14 +1,14 @@
 {
  "_id": "5db70d7485f8ef004c3f02fb",
  "version": "5daf2e65f4109c0040fd51e5",
- "updatedAt": "2019-11-20T14:11:16.149Z",
- "createdAt": "2019-10-28T15:47:00.090Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
  "parentDoc": "5db70cf2700ab3005442c13d",
  "category": "5db0a86967f978006336b1b5",
  "__v": 5,
  "updates": [],
+ "updatedAt": "2019-11-12T22:03:34.675Z",
+ "createdAt": "2019-10-28T15:47:00.090Z",
  "next": {
   "pages": [
    {
