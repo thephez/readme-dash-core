@@ -412,7 +412,13 @@ Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/a4f5ba38b65384f
 | _10012_ | _13_ | `OLD_SUPERBLOCK_FLAG` | _Removed in Dash Core 0.12.3.<br>No network function since block 614820_
 | _10013_ | _14_ | `REQUIRE_SENTINEL_FLAG` | _Removed in Dash Core 0.14.0.<br>Only masternode's running sentinel will be paid_
 | _10017_ | _18_ | `QUORUM_DEBUG_ENABLED` | _Removed in Dash Core 0.14.0.<br><br>Temporarily used on Testnet only quorum debugging._
-
+[block:callout]
+{
+  "type": "info",
+  "title": "",
+  "body": "As of Dash Core 0.15.0, `SPORK_15_DETERMINISTIC_MNS_ENABLED`, `SPORK_16_INSTANTSEND_AUTOLOCKS`, and `SPORK_20_INSTANTSEND_LLMQ_BASED` have no code logic behind them. They were previously used as part of the DIP0003, DIP0008 and DIP0010 activation process which is finished now. They are still kept and relayed only to ensure smooth operation of v0.14 clients and will be removed in some future verions."
+}
+[/block]
 To verify `vchSig`, compare the hard-coded spork public key (`strSporkPubKey` from [`src/chainparams.cpp`](https://github.com/dashpay/dash/blob/eaf90b77177efbaf9cbed46e822f0d794f1a0ee5/src/chainparams.cpp#L158)) with the public key recovered from the [`spork` message](core-ref-p2p-network-control-messages#section-spork)'s hash and `vchSig` value (implementation details for Dash Core can be found in `CPubKey::RecoverCompact`). The hash is a double SHA-256 hash of:
 
 * The spork magic message (`"DarkCoin Signed Message:\n"`)

@@ -383,12 +383,19 @@ ab17057f9ce4b50c2aef4fadf3729a2e ... Hash (txlvote)
 The [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) requests the <<glossary:TXIDs>> of transactions that the receiving <<glossary:node>> has verified as valid but which have not yet appeared in a <<glossary:block>>. That is, transactions which are in the receiving node's memory pool. The response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is one or more [`inv` messages](core-ref-p2p-network-data-messages#section-inv) containing the TXIDs in the usual <<glossary:inventory>> format.
 
 Sending the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is mostly useful when a program first connects to the network. Full nodes can use it to quickly gather most or all of the unconfirmed transactions available on the network; this is especially useful for miners trying to gather transactions for their transaction fees. SPV clients can set a filter before sending a `mempool` to only receive transactions that match that filter; this allows a recently-started client to get most or all unconfirmed transactions related to its wallet.
-
+[block:callout]
+{
+  "type": "info",
+  "body": "Since Dash Core 0.15.0, the mempool message was expanded to include syncing of [InstantSend Lock](docs/core-ref-p2p-network-instantsend-messages#section-islock) inventories. Additionally, nodes now attempt to sync their mempool with peers at startup by default. This allows nodes to more quickly detect any double-spend attempts as well as show InstantSend lock status correctly for transactions received while offline.",
+  "title": "Mempool Synchronization"
+}
+[/block]
 The `inv` response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is, at best, one node's view of the network---not a complete list of every <<glossary:unconfirmed transaction>> on the network. Here are some additional reasons the list might not be complete:
 
 * Before Bitcoin Core 0.9.0, the response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) was only one [`inv` message](core-ref-p2p-network-data-messages#section-inv). An [`inv` message](core-ref-p2p-network-data-messages#section-inv) is limited to 50,000 inventories, so a node with a memory pool larger than 50,000 entries would not send everything.  Later versions of Bitcoin Core send as many [`inv` messages](core-ref-p2p-network-data-messages#section-inv) as needed to reference its complete memory pool.
 
 * The [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is not currently fully compatible with the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload)'s `BLOOM_UPDATE_ALL` and `BLOOM_UPDATE_P2PUBKEY_ONLY` flags. Mempool transactions are not sorted like in-block transactions, so a transaction (tx2) spending an <<glossary:output>> can appear before the transaction (tx1) containing that output, which means the automatic filter update mechanism won't operate until the second-appearing transaction (tx1) is seen---missing the first-appearing transaction (tx2). It has been proposed in [Bitcoin Core issue #2381](https://github.com/bitcoin/bitcoin/issues/2381) that the transactions should be sorted before being processed by the filter.
+
 
 There is no payload in a [`mempool` message](core-ref-p2p-network-data-messages#section-mempool).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
