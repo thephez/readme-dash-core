@@ -1,9 +1,7 @@
 language: python
-python:
-  - "3.7"
 
 before_install:
-  - ls
-  
+  - pip --version
+
 script:
   - scripts/download-project-files.py
