@@ -1,7 +1,7 @@
 language: python
 
-before_install:
-  - pip --version
+# Makes Travis skip looking for requirements.txt
+install: pip --version
 
 script:
   - scripts/download-project-files.py
