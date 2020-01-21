@@ -35,7 +35,7 @@ def get_errors():
 
 def write_to_file(filename, data):
     print('Writing to: {}'.format(filename))
-    with open(filename, "w") as md_file:
+    with open(filename, "w", encoding="utf8") as md_file:
         md_file.write(data)
 
 
