@@ -9,3 +9,6 @@ before_script:
 
 script:
   - scripts/download-project-files.py
+
+after_script:
+  ls -alh markdown/
