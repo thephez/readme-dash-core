@@ -3,5 +3,9 @@ language: python
 # Makes Travis skip looking for requirements.txt
 install: pip --version
 
+before_script:
+  - mkdir -p markdown full-json html
+  - ls -alh
+
 script:
   - scripts/download-project-files.py
