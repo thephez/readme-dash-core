@@ -392,10 +392,7 @@ Sending the [`mempool` message](core-ref-p2p-network-data-messages#section-mempo
 [/block]
 The `inv` response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is, at best, one node's view of the network---not a complete list of every <<glossary:unconfirmed transaction>> on the network. Here are some additional reasons the list might not be complete:
 
-* Before Bitcoin Core 0.9.0, the response to the [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) was only one [`inv` message](core-ref-p2p-network-data-messages#section-inv). An [`inv` message](core-ref-p2p-network-data-messages#section-inv) is limited to 50,000 inventories, so a node with a memory pool larger than 50,000 entries would not send everything.  Later versions of Bitcoin Core send as many [`inv` messages](core-ref-p2p-network-data-messages#section-inv) as needed to reference its complete memory pool.
-
 * The [`mempool` message](core-ref-p2p-network-data-messages#section-mempool) is not currently fully compatible with the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload)'s `BLOOM_UPDATE_ALL` and `BLOOM_UPDATE_P2PUBKEY_ONLY` flags. Mempool transactions are not sorted like in-block transactions, so a transaction (tx2) spending an <<glossary:output>> can appear before the transaction (tx1) containing that output, which means the automatic filter update mechanism won't operate until the second-appearing transaction (tx1) is seen---missing the first-appearing transaction (tx2). It has been proposed in [Bitcoin Core issue #2381](https://github.com/bitcoin/bitcoin/issues/2381) that the transactions should be sorted before being processed by the filter.
-
 
 There is no payload in a [`mempool` message](core-ref-p2p-network-data-messages#section-mempool).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
