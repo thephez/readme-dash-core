@@ -39,7 +39,7 @@ def get_errors():
 
 
 def write_to_file(filename, data):
-    print('Writing to: {}'.format(filename))
+    #print('Writing to: {}'.format(filename))
     with open(filename, "w") as md_file:
         md_file.write(data)
 
@@ -61,7 +61,7 @@ def main():
                     slugs.append(child['slug'])
 
     for slug in slugs:
-        #print('Slug: {}'.format(slug))
+        print('Processing slug: {}'.format(slug))
         doc = get_doc_by_slug(slug, VERSION)
         filename_markdown_content = "markdown/{}.md".format(slug)
         filename_full_content = "full-json/{}.json".format(slug)
