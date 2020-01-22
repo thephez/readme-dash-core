@@ -4,11 +4,13 @@ language: python
 install: pip --version
 
 before_script:
-  - mkdir -p markdown full-json html
-  - ls -alh
+  - rm -rf export/markdown/* export/full-json/* export/html/*
+  #- ls -alh
+  - cd export
 
 script:
-  - scripts/download-project-files.py
+  - ../scripts/download-project-files.py
 
 after_script:
-  ls -alh markdown/
+  - ls -alh markdown/
+  - git status
