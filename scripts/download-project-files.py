@@ -3,6 +3,11 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 import os
+import sys
+
+# Necessary for Travis
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 API_KEY = os.environ.get("DASH_CORE_README_API_KEY")
 VERSION = 'v0.15.0'
