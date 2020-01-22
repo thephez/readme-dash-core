@@ -68,7 +68,7 @@ def main():
         filename_html_content = "html/{}.html".format(slug)
         write_to_file(filename_markdown_content, doc['body'])
         write_to_file(filename_full_content, json.dumps(doc, indent=1))
-        write_to_file(filename_html_content, doc['body_html'])
+        #write_to_file(filename_html_content, doc['body_html'])
 
 if __name__ == '__main__':
     main()
