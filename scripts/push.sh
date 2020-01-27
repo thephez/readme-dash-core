@@ -6,7 +6,6 @@ setup_git() {
 }
 
 commit_website_files() {
-  git pull
   git checkout -b backup-test001
   #git add . *.json
   git add -A
@@ -15,7 +14,7 @@ commit_website_files() {
 
 upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/thephez/readme-dash-core.git > /dev/null 2>&1
-  git push -f --set-upstream origin-pages backup-test0001
+  git push --set-upstream origin-pages backup-test0001
 }
 
 setup_git
@@ -27,8 +26,9 @@ ls
 cd ..
 ls
 git clone https://${GH_TOKEN}@github.com/thephez/readme-dash-core.git rdme #> /dev/null 2>&1
+cp -R $TRAVIS_BUILD_DIR/export rdme/export
 cd rdme
-git push
+#git push
 
 #mkdir -p ../rdme-core/
 #cp -R export/ ../rdme-core
@@ -39,7 +39,7 @@ git push
 #git init
 #git status
 
-#commit_website_files
+commit_website_files
 #upload_files
 
 #git remote -v
