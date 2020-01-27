@@ -20,14 +20,24 @@ upload_files() {
 
 setup_git
 
-mkdir -p ../rdme-core/
-cp -R export/ ../rdme-core
-ls ../rdme-core
-ls ../rdme-core/export
+ls $TRAVIS_BUILD_DIR
 
-cd ../rdme-core
-git init
-git status
+ls
+
+cd ..
+ls
+git clone https://${GH_TOKEN}@github.com/thephez/readme-dash-core.git rdme #> /dev/null 2>&1
+cd rdme
+git push
+
+#mkdir -p ../rdme-core/
+#cp -R export/ ../rdme-core
+#ls ../rdme-core
+#ls ../rdme-core/export
+
+#cd ../rdme-core
+#git init
+#git status
 
 #commit_website_files
 #upload_files
