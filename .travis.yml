@@ -13,7 +13,6 @@ script:
 
 after_script:
   #- ls -alh markdown/
-  - git status
+  #- git status
   - cd ..
-  - ls
   - scripts/push.sh

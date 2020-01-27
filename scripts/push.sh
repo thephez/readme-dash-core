@@ -7,13 +7,14 @@ setup_git() {
 
 commit_website_files() {
   git checkout -b backup
-  git add . *.json
+  #git add . *.json
+  git add -A
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 }
 
 upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/thephez/rdme-core.git > /dev/null 2>&1
-  #git push --quiet --set-upstream origin-pages core-backup
+  git push --quiet --set-upstream origin-pages core-backup
 }
 
 setup_git
@@ -21,5 +22,5 @@ commit_website_files
 upload_files
 
 git remote -v
-git status
-git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+#git status
+#git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
