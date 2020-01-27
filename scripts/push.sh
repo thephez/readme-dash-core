@@ -16,7 +16,6 @@ upload_files() {
   #git push --quiet --set-upstream origin-pages core-backup
 }
 
-cd
 setup_git
 commit_website_files
 upload_files
