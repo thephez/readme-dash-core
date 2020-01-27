@@ -13,8 +13,6 @@ script:
 
 after_script:
   #- ls -alh markdown/
-  - git checkout -b backup
   - git status
-  - git remote -v
-  - git push origin HEAD:backup
-  - git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  - cd
+  - scripts/push.sh
