@@ -19,8 +19,18 @@ upload_files() {
 }
 
 setup_git
-commit_website_files
-upload_files
+
+mkdir -p ../rdme-core/
+cp -R export/ ../rdme-core
+ls ../rdme-core
+ls ../rdme-core/export
+
+cd ../rdme-core
+git init
+git status
+
+#commit_website_files
+#upload_files
 
 #git remote -v
 #git status
