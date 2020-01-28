@@ -1,4 +1,5 @@
 #!/bin/sh
+BACKUP_REPO_DIR="rdme"
 
 setup_git() {
   git config --global user.email "travis@travis-ci.org"
@@ -6,15 +7,15 @@ setup_git() {
 }
 
 prepare_backup_repo() {
-  cd ..
-  git clone https://${GH_TOKEN}@github.com/thephez/rdme-core.git rdme #> /dev/null 2>&1
-  rm -rf rdme/*
-  mkdir -p rdme/docs
-  cp -R $TRAVIS_BUILD_DIR/export/* rdme/docs
+  cd $TRAVIS_BUILD_DIR
+  git clone https://${GH_TOKEN}@github.com/thephez/rdme-core.git $BACKUP_REPO_DIR #> /dev/null 2>&1
+  rm -rf $BACKUP_REPO_DIR/*
+  mkdir -p $BACKUP_REPO_DIR/docs
+  cp -R $TRAVIS_BUILD_DIR/export/* $BACKUP_REPO_DIR/docs
 }
 
 commit_website_files() {
-  cd rdme
+  cd $BACKUP_REPO_DIR
   #git pull --rebase
   #git checkout -b backup-test001
   git add -A
