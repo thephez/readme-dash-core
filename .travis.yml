@@ -4,15 +4,13 @@ language: python
 install: pip --version
 
 before_script:
-  #- ls -alh
-  - rm -rf export/markdown/core*.md export/full-json/* export/html/*
+  - rm -rf export/
+  - mkdir -p export/markdown export/full-json export/html
   - cd export
 
 script:
   - ../scripts/download-project-files.py
 
 after_script:
-  #- ls -alh markdown/
-  #- git status
   - cd ..
   - scripts/push.sh
