@@ -1,4 +1,0 @@
----
-title: "Dash Whitepaper"
-excerpt: ""
----
