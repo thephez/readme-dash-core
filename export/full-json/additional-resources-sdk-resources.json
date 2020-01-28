@@ -1,57 +1,57 @@
 {
- "_id": "5dc41e158d68610011d6a313",
- "version": "5daf2e65f4109c0040fd51e5",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5dc41cb75124a90036070278",
- "__v": 0,
- "parentDoc": null,
- "updates": [],
- "updatedAt": "2019-11-27T22:20:14.855Z",
- "createdAt": "2019-11-07T13:37:25.809Z",
- "next": {
-  "pages": [],
-  "description": ""
- },
- "link_external": false,
- "link_url": "https://docs.dash.org/en/stable/developers/integration.html#sdk-resources",
- "sync_unique": "",
- "hidden": false,
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
+  "url": "", 
+  "params": [], 
   "results": {
    "codes": [
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 200
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 400
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "auth": "required",
-  "params": [],
-  "url": "",
+  }, 
+  "auth": "required", 
   "method": "get"
- },
- "isReference": false,
- "order": 2,
- "body": "",
- "excerpt": "",
- "slug": "additional-resources-sdk-resources",
- "type": "link",
+ }, 
+ "updatedAt": "2019-11-27T22:20:14.855Z", 
+ "sync_unique": "", 
+ "id": "5dc41e158d68610011d6a313", 
+ "createdAt": "2019-11-07T13:37:25.809Z", 
+ "category": "5dc41cb75124a90036070278", 
+ "title": "SDK Resources", 
+ "next": {
+  "pages": [], 
+  "description": ""
+ }, 
+ "version": "5daf2e65f4109c0040fd51e5", 
+ "hidden": false, 
+ "type": "link", 
  "metadata": {
-  "description": "",
-  "title": "",
-  "image": []
- },
- "title": "SDK Resources",
- "id": "5dc41e158d68610011d6a313",
- "isApi": false,
- "body_html": "&nbsp;"
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": false, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "additional-resources-sdk-resources", 
+ "link_url": "https://docs.dash.org/en/stable/developers/integration.html#sdk-resources", 
+ "isApi": false, 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 0, 
+ "_id": "5dc41e158d68610011d6a313", 
+ "order": 2, 
+ "updates": []
 }
