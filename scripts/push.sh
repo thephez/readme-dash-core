@@ -12,7 +12,7 @@ prepare_backup_repo() {
   git clone https://${GH_TOKEN}@github.com/thephez/rdme-core.git $BACKUP_REPO_DIR #> /dev/null 2>&1
   rm -rf $BACKUP_REPO_DIR/*
   mkdir -p $BACKUP_REPO_DIR/docs
-  cp -R $TRAVIS_BUILD_DIR/export/* $BACKUP_REPO_DIR/docs
+  cp -R $TRAVIS_BUILD_DIR/export/* $BACKUP_REPO_DIR
 }
 
 commit_website_files() {
