@@ -5,6 +5,14 @@ setup_git() {
   git config --global user.name "Travis CI"
 }
 
+prepare_backup_repo() {
+  cd ..
+  git clone https://${GH_TOKEN}@github.com/thephez/rdme-core.git rdme #> /dev/null 2>&1
+  rm -rf rdme/*
+  mkdir -p rdme/docs
+  cp -R $TRAVIS_BUILD_DIR/export/* rdme/docs
+}
+
 commit_website_files() {
   cd rdme
   #git pull --rebase
@@ -19,12 +27,6 @@ upload_files() {
 }
 
 setup_git
-
-cd ..
-git clone https://${GH_TOKEN}@github.com/thephez/rdme-core.git rdme #> /dev/null 2>&1
-rm -rf rdme/*
-mkdir -p rdme/docs
-cp -R $TRAVIS_BUILD_DIR/export/* rdme/docs
-
+prepare_backup_repo
 commit_website_files
 upload_files
