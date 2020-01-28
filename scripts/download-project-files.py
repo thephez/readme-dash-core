@@ -1,7 +1,13 @@
+#!/usr/bin/python
 import requests
 from requests.auth import HTTPBasicAuth
 import json
 import os
+import sys
+
+# Necessary for Travis
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 API_KEY = os.environ.get("DASH_CORE_README_API_KEY")
 VERSION = 'v0.15.0'
@@ -33,7 +39,7 @@ def get_errors():
 
 
 def write_to_file(filename, data):
-    print('Writing to: {}'.format(filename))
+    #print('Writing to: {}'.format(filename))
     with open(filename, "w") as md_file:
         md_file.write(data)
 
@@ -55,14 +61,14 @@ def main():
                     slugs.append(child['slug'])
 
     for slug in slugs:
-        #print('Slug: {}'.format(slug))
+        print('Processing slug: {}'.format(slug))
         doc = get_doc_by_slug(slug, VERSION)
         filename_markdown_content = "markdown/{}.md".format(slug)
         filename_full_content = "full-json/{}.json".format(slug)
         filename_html_content = "html/{}.html".format(slug)
         write_to_file(filename_markdown_content, doc['body'])
         write_to_file(filename_full_content, json.dumps(doc, indent=1))
-        write_to_file(filename_html_content, doc['body_html'])
+        #write_to_file(filename_html_content, doc['body_html'])
 
 if __name__ == '__main__':
     main()
