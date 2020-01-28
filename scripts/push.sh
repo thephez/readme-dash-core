@@ -27,7 +27,11 @@ setup_git
 #ls $TRAVIS_BUILD_DIR
 cd ..
 git clone https://${GH_TOKEN}@github.com/thephez/rdme-core.git rdme #> /dev/null 2>&1
-cp -R $TRAVIS_BUILD_DIR/export rdme
+ls
+rm -rf rdme/*
+ls
+mkdir -p rdme/docs
+cp -R $TRAVIS_BUILD_DIR/export/* rdme/docs
 
 commit_website_files
 upload_files
