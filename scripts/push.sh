@@ -9,14 +9,17 @@ setup_git() {
 
 prepare_backup_repo() {
   cd $TRAVIS_BUILD_DIR
+  cd ..
   git clone https://${GH_TOKEN}@github.com/thephez/backup-core-readme.git $BACKUP_REPO_DIR
-  rm -rf $BACKUP_REPO_DIR/*
-  mkdir -p $BACKUP_REPO_DIR/docs
+  cd $BACKUP_REPO_DIR
+  rm -rf */
+  ls ..
+  #mkdir -p $BACKUP_REPO_DIR/docs
   cp -R $TRAVIS_BUILD_DIR/export/* $BACKUP_REPO_DIR
 }
 
 commit_website_files() {
-  cd $BACKUP_REPO_DIR
+  #cd $BACKUP_REPO_DIR
   git add -A
   git commit --message "Travis auto-backup: $TRAVIS_BUILD_NUMBER at $DT"
 }
