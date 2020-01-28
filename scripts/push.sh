@@ -1,5 +1,6 @@
 #!/bin/sh
 BACKUP_REPO_DIR="rdme"
+DT="$(date -u)"
 
 setup_git() {
   git config --global user.email "travis@travis-ci.org"
@@ -19,7 +20,7 @@ commit_website_files() {
   #git pull --rebase
   #git checkout -b backup-test001
   git add -A
-  git commit --message "Travis auto-backup: $TRAVIS_BUILD_NUMBER"
+  git commit --message "Travis auto-backup: $TRAVIS_BUILD_NUMBER at $DT"
 }
 
 upload_files() {
