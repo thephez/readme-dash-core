@@ -8,10 +8,10 @@ setup_git() {
 }
 
 prepare_backup_repo() {
-  git clone https://${GH_TOKEN}@github.com/thephez/backup-core-readme.git $TRAVIS_BUILD_DIR/$BACKUP_REPO_DIR
-  cd $TRAVIS_BUILD_DIR/$BACKUP_REPO_DIR
+  git clone https://${GH_TOKEN}@github.com/thephez/backup-core-readme.git $HOME/$BACKUP_REPO_DIR
+  cd $HOME/$BACKUP_REPO_DIR
   rm -rf */
-  cp -R $TRAVIS_BUILD_DIR/export/* $TRAVIS_BUILD_DIR/$BACKUP_REPO_DIR
+  cp -R $TRAVIS_BUILD_DIR/export/* $HOME/$BACKUP_REPO_DIR
 }
 
 commit_website_files() {
