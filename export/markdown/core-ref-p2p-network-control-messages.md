@@ -390,7 +390,7 @@ The [`spork` message](core-ref-p2p-network-control-messages#section-spork) tells
 | 8 | nTimeSigned | int64_t | Required | Time the spork value was signed
 | 66 | vchSig | char[] | Required | Length (1 byte) + Signature (65 bytes)
 
-Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/a4f5ba38b65384fb9243ce78c111feceb377e1a9/src/spork.h#L20))
+Active Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/a4f5ba38b65384fb9243ce78c111feceb377e1a9/src/spork.h#L20))
 
 | Spork ID | Num. | Name | Description |
 | :----------: | :----------: | ----------- | ----------- |
@@ -398,13 +398,23 @@ Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/a4f5ba38b65384f
 | 10002 | 3 | `INSTANTSEND_BLOCK_`<br>`FILTERING` | Turns on and off InstantSend block filtering
 | 10005 | 6 | `NEW_SIGS` | Turns on and off new signature format for Dash-specific messages
 | 10008 | 9 | `SUPERBLOCKS_ENABLED` | Superblocks are enabled (10% of the block reward allocated to fund the dash treasury for funding approved proposals)
-| 10014 | 15 | `DETERMINISTIC_MNS_`<br>`ENABLED` | Deterministic masternode lists are enabled
-| 10015 | 16 | `INSTANTSEND_AUTOLOCKS` | Automatic InstantSend for transactions with <=4 inputs (also eliminates the special InstantSend fee requirement for these transactions)
 | 10016 | 17 | `SPORK_17_QUORUM_DKG_`<br>`ENABLED` | Enable long-living masternode quorum (LLMQ) distributed key generation (DKG). When enabled, simple PoSe  scoring and banning is active as well.
 | 10018 | 19 | `SPORK_19_CHAINLOCKS_`<br>`ENABLED` | Enable LLMQ-based ChainLocks.
+
+**Deprecated Sporks**
+The following sporks are still present for backwards compatibility with Dash Core v0.14 clients, but no longer have logic associated with them. They will be removed in a future release of Dash Core.
+
+| Spork ID | Num. | Name | Description |
+| :----------: | :----------: | ----------- | ----------- |
+| 10014 | 15 | `DETERMINISTIC_MNS_`<br>`ENABLED` | Deterministic masternode lists are enabled
+| 10015 | 16 | `INSTANTSEND_AUTOLOCKS` | Automatic InstantSend for transactions with <=4 inputs (also eliminates the special InstantSend fee requirement for these transactions)
 | 10019 | 20 | `SPORK_20_INSTANTSEND_`<br>`LLMQ_BASED` | Enable LLMQ-based InstantSend.
-| | | |
-| | | **Removed Sporks** |
+
+**Removed Sporks**
+The following sporks were used in the past but are no longer necessary and have been removed.
+
+| Spork ID | Num. | Name | Description |
+| :----------: | :----------: | ----------- | ----------- |
 | _10004_ | _5_ | `INSTANTSEND_MAX_VALUE` | _Removed in Dash Core 0.15.0.<br>Controls the max value for an InstantSend transaction (currently 2000 dash)_
 | _10007_ | _8_ | `MASTERNODE_PAYMENT_`<br>`ENFORCEMENT` | _Removed in Dash Core 0.14.0.<br>Requires masternodes to be paid by miners when blocks are processed_
 | _10009_ | _10_ | `MASTERNODE_PAY_`<br>`UPDATED_NODES` | _Removed in Dash Core 0.14.0.<br>Only current protocol version masternode's will be paid (not older nodes)_
