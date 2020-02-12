@@ -315,7 +315,7 @@ Name | Type | Presence | Description
 **Details of the `data-hex` field:**
 
 The `data-hex` field is comprised of a JSON object as described in [GObject
-Deserialize](#gobject-deserialize) which is serialized to hex.
+Deserialize](#section-g-object-deserialize) which is serialized to hex.
 
 An example of a proposal JSON object is shown here:
 
@@ -1245,7 +1245,7 @@ Result:
 The `masternode list` prints a list of all known masternodes.
 
 This RPC uses the same parameters and returns the same data as
-[masternodelist](/docs/core-api-ref-remote-procedure-calls-dash#section-masternode-list). Please reference it for full details.
+[masternodelist](/docs/core-api-ref-remote-procedure-calls-dash#section-masternodelist). Please reference it for full details.
 
 *Example from Dash Core 0.12.2*
 
@@ -1410,11 +1410,11 @@ Prints masternode.conf in JSON format.
 
 *See also:*
 
-* [MasternodeList](/docs/core-api-ref-remote-procedure-calls-dash#section-masternode-list): returns a list of masternodes in different modes.
+* [MasternodeList](/docs/core-api-ref-remote-procedure-calls-dash#section-masternodelist): returns a list of masternodes in different modes.
 
-# MasternodeList
+# Masternodelist
 
-The [`masternodelist` RPC](core-api-ref-remote-procedure-calls-dash#section-masternode-list) returns a list of masternodes in different modes.
+The [`masternodelist` RPC](core-api-ref-remote-procedure-calls-dash#section-masternodelist) returns a list of masternodes in different modes.
 
 *Parameter #1---List mode*
 
@@ -1625,7 +1625,7 @@ success
 *See also:*
 
 * [Masternode](/docs/core-api-ref-remote-procedure-calls-dash#section-masternode): provides a set of commands for managing masternodes and displaying information about them.
-* [MasternodeList](/docs/core-api-ref-remote-procedure-calls-dash#section-masternode-list): returns a list of masternodes in different modes.
+* [MasternodeList](/docs/core-api-ref-remote-procedure-calls-dash#section-masternodelist): returns a list of masternodes in different modes.
 
 # PrivateSend
 
