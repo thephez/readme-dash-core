@@ -65,7 +65,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 # [Evolution RPCs](core-api-ref-remote-procedure-calls-evo)
 
-* [BLS](/docs/core-api-ref-remote-procedure-calls-evo#section-b-l-s): provides a set of commands to execute BLS-related actions. **Updated in Dash Core 0.14.0**
+* [BLS](/docs/core-api-ref-remote-procedure-calls-evo#section-bls): provides a set of commands to execute BLS-related actions. **Updated in Dash Core 0.14.0**
 * [ProTx](/docs/core-api-ref-remote-procedure-calls-evo#section-pro-tx): provides a set of commands to execute ProTx related actions. **Updated in Dash Core 0.14.0**
 * [Quorum](/docs/core-api-ref-remote-procedure-calls-evo#section-quorum): provides a set of commands for quorums (LLMQs). **New in Dash Core 0.14.0**
 
@@ -78,7 +78,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 * [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software. *Updated in Dash Core 0.13.0*
 * [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
-* [GetNetworkHashPS](/docs/core-api-ref-remote-procedure-calls-mining#section-get-network-hash-p-s): returns the estimated network hashes per second based on the last n blocks.
+* [GetNetworkHashPS](/docs/core-api-ref-remote-procedure-calls-mining#section-get-network-hash-ps): returns the estimated network hashes per second based on the last n blocks.
 * [PrioritiseTransaction](/docs/core-api-ref-remote-procedure-calls-mining#section-prioritise-transaction): adds virtual priority or fee to a transaction, allowing it to be accepted into blocks mined by this node (or miners which use this node) with a lower priority or fee. (It can also remove virtual priority or fee, requiring the transaction have a higher priority or fee to be accepted into a locally-mined block.) **Updated in Dash Core 0.14.0**
 * [SubmitBlock](/docs/core-api-ref-remote-procedure-calls-mining#section-submit-block): accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.
 
@@ -125,7 +125,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [AbortRescan](/docs/core-api-ref-remote-procedure-calls-wallet#section-abort-rescan): stops current wallet rescan. **New in Dash Core 0.15.0**
 * [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address): adds a P2SH multisig address to the wallet.
 * [BackupWallet](/docs/core-api-ref-remote-procedure-calls-wallet#section-backup-wallet): safely copies `wallet.dat` to the specified file, which can be a directory or a path with filename.
-* [DumpHDInfo](/docs/core-api-ref-remote-procedure-calls-wallet#section-dump-h-d-info): returns an object containing sensitive private info about this HD wallet New in Dash Core 0.12.2
+* [DumpHDInfo](/docs/core-api-ref-remote-procedure-calls-wallet#section-dump-hd-info): returns an object containing sensitive private info about this HD wallet New in Dash Core 0.12.2
 * [DumpPrivKey](/docs/core-api-ref-remote-procedure-calls-wallet#section-dump-priv-key): returns the wallet-import-format (WIP) private key corresponding to an address. (But does not remove it from the wallet.)
 * [DumpWallet](/docs/core-api-ref-remote-procedure-calls-wallet#section-dump-wallet): creates or overwrites a file with all wallet keys in a human-readable format. *Updated in Dash Core 0.13.0*
 * [EncryptWallet](/docs/core-api-ref-remote-procedure-calls-wallet#section-encrypt-wallet): encrypts the wallet with a passphrase.  This is only to enable encryption for the first time. After encryption is enabled, you will need to enter the passphrase to use private keys.
