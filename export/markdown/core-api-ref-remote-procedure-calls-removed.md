@@ -45,7 +45,7 @@ Result:
 
 *See also*
 
-* [EstimateFee](/docs/core-api-ref-remote-procedure-calls-utility#section-estimate-fee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
+* [EstimateFee](/docs/core-api-ref-remote-procedure-calls-util#section-estimate-fee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 
 # EstimateSmartPriority
 [block:callout]

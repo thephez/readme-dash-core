@@ -28,7 +28,7 @@ Result (no output from `dash-cli` because result is set to `null`).
 
 *See also*
 
-* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-send-raw-transaction): validates a transaction and broadcasts it to the peer-to-peer network.
+* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-send-raw-transaction): validates a transaction and broadcasts it to the peer-to-peer network.
 
 # AbortRescan
 
@@ -116,8 +116,8 @@ Result:
 
 *See also*
 
-* [CreateMultiSig](/docs/core-api-ref-remote-procedure-calls-utility#section-create-multi-sig): creates a P2SH multi-signature address.
-* [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decode-script): decodes a hex-encoded P2SH redeem script.
+* [CreateMultiSig](/docs/core-api-ref-remote-procedure-calls-util#section-create-multi-sig): creates a P2SH multi-signature address.
+* [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-script): decodes a hex-encoded P2SH redeem script.
 
 # BackupWallet
 
@@ -633,7 +633,7 @@ Result:
 
 *See also*
 
-* [GetRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-get-raw-transaction): gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
+* [GetRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-get-raw-transaction): gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
 
 # GetUnconfirmedBalance
 
@@ -2405,7 +2405,7 @@ H4XULzfHCf16In2ECk9Ta9QxQPq639zQto2JA3OLlo3JbUdrClvJ89+A1z+Z9POd6l8LJhn1jGpQYF8m
 
 *See also*
 
-* [VerifyMessage](/docs/core-api-ref-remote-procedure-calls-utility#section-verify-message): verifies a signed message.
+* [VerifyMessage](/docs/core-api-ref-remote-procedure-calls-util#section-verify-message): verifies a signed message.
 
 # WalletLock
 

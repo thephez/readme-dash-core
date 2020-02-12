@@ -1,6 +1,6 @@
 # CreateMultiSig
 
-The [`createmultisig` RPC](core-api-ref-remote-procedure-calls-utility#section-create-multi-sig) creates a P2SH multi-signature address.
+The [`createmultisig` RPC](core-api-ref-remote-procedure-calls-util#section-create-multi-sig) creates a P2SH multi-signature address.
 
 *Parameter #1---the number of signatures required*
 
@@ -50,11 +50,11 @@ Result:
 *See also*
 
 * [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address): adds a P2SH multisig address to the wallet.
-* [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decode-script): decodes a hex-encoded P2SH redeem script.
+* [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-script): decodes a hex-encoded P2SH redeem script.
 
 # EstimateFee
 
-The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-utility#section-estimate-fee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
+The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-util#section-estimate-fee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 
 *Parameter #1---how many blocks the transaction may wait before being included*
 
@@ -104,7 +104,7 @@ Result:
 
 # EstimateSmartFee
 
-The [`estimatesmartfee` RPC](core-api-ref-remote-procedure-calls-utility#section-estimate-smart-fee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
+The [`estimatesmartfee` RPC](core-api-ref-remote-procedure-calls-util#section-estimate-smart-fee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
 
 *Parameter #1---how many confirmations the transaction may wait before being included*
 
@@ -167,7 +167,7 @@ Result:
 
 *Added in Dash Core 0.12.3 / Bitcoin Core 0.13.0*
 
-The [`signmessagewithprivkey` RPC](core-api-ref-remote-procedure-calls-utility#section-sign-message-with-priv-key) signs a message with a given private key.
+The [`signmessagewithprivkey` RPC](core-api-ref-remote-procedure-calls-util#section-sign-message-with-priv-key) signs a message with a given private key.
 
 *Parameter #1---the private key to sign with*
 
@@ -205,11 +205,11 @@ IBx8jxFjutPlcZcFdQPlA2n/B4yTrYhH43qYJURKRj7LWhSD0ERE/nnRLOnXi/gwULUcqfqOKqnqkSvu
 *See also*
 
 * [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-sign-message): signs a message with the private key of an address.
-* [VerifyMessage](/docs/core-api-ref-remote-procedure-calls-utility#section-verify-message): verifies a signed message.
+* [VerifyMessage](/docs/core-api-ref-remote-procedure-calls-util#section-verify-message): verifies a signed message.
 
 # ValidateAddress
 
-The [`validateaddress` RPC](core-api-ref-remote-procedure-calls-utility#section-validate-address) returns information about the given Dash address.
+The [`validateaddress` RPC](core-api-ref-remote-procedure-calls-util#section-validate-address) returns information about the given Dash address.
 
 *Parameter #1---a P2PKH or P2SH address*
 
@@ -301,7 +301,7 @@ Result:
 
 # VerifyMessage
 
-The [`verifymessage` RPC](core-api-ref-remote-procedure-calls-utility#section-verify-message) verifies a signed message.
+The [`verifymessage` RPC](core-api-ref-remote-procedure-calls-util#section-verify-message) verifies a signed message.
 
 *Parameter #1---the address corresponding to the signing key*
 
