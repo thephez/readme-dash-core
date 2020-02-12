@@ -24,7 +24,7 @@ Classical (financial) transactions have a `type` of 0 while special transactions
 
 The <<glossary:masternode>> Registration (ProRegTx) special transaction is used to join the masternode list by proving ownership of the 1000 DASH necessary to create a masternode.
 
-A ProRegTx is created and sent using the [`protx` RPC](core-api-ref-remote-procedure-calls-evo#section-protx). The ProRegTx must either include an <<glossary:output>> with 1000 DASH (`protx register`) or refer to an existing unspent output holding 1000 DASH (`protx fund_register`). If the 1000 DASH is an output of the ProRegTx, the collateralOutpoint hash field should be null.
+A ProRegTx is created and sent using the [`protx` RPC](core-api-ref-remote-procedure-calls-evo#section-pro-tx). The ProRegTx must either include an <<glossary:output>> with 1000 DASH (`protx register`) or refer to an existing unspent output holding 1000 DASH (`protx fund_register`). If the 1000 DASH is an output of the ProRegTx, the collateralOutpoint hash field should be null.
 
 The special transaction type is 1 and the extra payload consists of the following data:
 
