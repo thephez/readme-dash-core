@@ -41,6 +41,7 @@ def create_payload(json_data, markdown_text):
 def main(args):
     for i in range(1, len(args)):
         filename = args[i] #'api-upload-test'
+        print(filename)
 
         # Contains title, category, slug info
         json_data = read_json_from_file('full-json/{}.json'.format(filename))
@@ -55,6 +56,7 @@ def main(args):
         # Create payload and send
         payload = create_payload(json_data, full_text)
         try:
+            print('Updating: {}'.format(payload['title']))
             response = api_put(url, payload, headers)
             # TODO: add some checking to verify upload succesful
             print('Updated: "{}" ({})'.format(payload['title'], url))
@@ -66,4 +68,7 @@ def main(args):
 if __name__ == '__main__':
     # Call like (supports multiple file args):
     #   python3 upload-project-file.py core-api-ref-remote-procedure-calls-dash
-    main(sys.argv)
+    if len(sys.argv) < 2:
+        print('Usage: upload-project-file.py <slugname1> <slugname2>')
+    else:
+        main(sys.argv)
