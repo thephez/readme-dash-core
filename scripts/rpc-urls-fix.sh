@@ -41,6 +41,7 @@ perl \
 -pe "s~#section-getpoolinfo\Q)\E~#section-get-pool-info)~g;" \
 -pe "s~#section-getprivatesendinfo\Q)\E~#section-get-private-send-info)~g;" \
 -pe "s~#section-getsuperblockbudget\Q)\E~#section-get-superblock-budget)~g;" \
+-pe "s~#section-gobject\Q)\E~#section-g-object)~g;" \
 -pe "s~#section-masternodelist\Q)\E~#section-masternode-list)~g;" \
 -pe "s~#section-mnsync\Q)\E~#section-mn-sync)~g;" \
 -pe "s~#section-privatesend\Q)\E~#section-private-send)~g;" \
@@ -81,7 +82,7 @@ perl \
 -pe "s~#section-abortrescan\Q)\E~#section-abort-rescan)~g;" \
 -pe "s~#section-addmultisigaddress\Q)\E~#section-add-multi-sig-address)~g;" \
 -pe "s~#section-backupwallet\Q)\E~#section-backup-wallet)~g;" \
--pe "s~#section-dumphdinfo\Q)\E~#section-dump-hdinfo)~g;" \
+-pe "s~#section-dumphdinfo\Q)\E~#section-dump-hd-info)~g;" \
 -pe "s~#section-dumpprivkey\Q)\E~#section-dump-priv-key)~g;" \
 -pe "s~#section-dumpwallet\Q)\E~#section-dump-wallet)~g;" \
 -pe "s~#section-encryptwallet\Q)\E~#section-encrypt-wallet)~g;" \
