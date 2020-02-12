@@ -226,7 +226,7 @@ Result (whitespace added):
 
 *See also*
 
-* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#section-get-block-notxdetails) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-http-rest-requests#section-get-block) returns.
+* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#section-get-block-no-tx-details) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-http-rest-requests#section-get-block) returns.
 * [GetBestBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-best-block-hash) RPC: returns the header hash of the most recent block on the best block chain.
 * [GetBlock](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block) RPC: gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.
 * [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block-hash) RPC: returns the header hash of a block at the given height in the local best block chain.
@@ -684,7 +684,7 @@ Result (whitespace added):
 
 *See also*
 
-* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#section-get-block-notxdetails) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block) returns.
+* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#section-get-block-no-tx-details) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block) returns.
 * [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block-hash) RPC: returns the header hash of a block at the given height in the local best block chain.
 * [GetBlockHeader](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block-header) RPC: gets a block header with a particular header hash from the local block database either as a JSON object or as a serialized block header.
 
@@ -751,7 +751,7 @@ Result (whitespace added):
 
 *See also*
 
-* [GET MemPool/Info](/docs/core-api-ref-http-rest-requests#section-get-mempool-info): returns information about the node's current transaction memory pool.
+* [GET MemPool/Info](/docs/core-api-ref-http-rest-requests#section-get-mem-pool-info): returns information about the node's current transaction memory pool.
 * [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-info) RPC: returns information about the node's current transaction memory pool.
 * [GetRawMemPool](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-raw-mem-pool) RPC: returns all transaction identifiers (TXIDs) in the memory pool as a JSON array, or detailed information about each transaction in the memory pool as a JSON object.
 
@@ -800,7 +800,7 @@ Result (whitespace added):
 
 *See also*
 
-* [GET MemPool/Contents](/docs/core-api-ref-http-rest-requests#section-get-mempool-contents): returns all transaction in the memory pool with detailed information.
+* [GET MemPool/Contents](/docs/core-api-ref-http-rest-requests#section-get-mem-pool-contents): returns all transaction in the memory pool with detailed information.
 * [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-info) RPC: returns information about the node's current transaction memory pool.
 
 # GET Tx
