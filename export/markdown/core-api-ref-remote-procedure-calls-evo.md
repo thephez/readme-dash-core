@@ -70,7 +70,7 @@ Result:
 
 *Added in Dash Core 0.13.0*
 
-The [`protx` RPC](core-api-ref-remote-procedure-calls-evolution#section-protx) provides a set of commands to execute ProTx related actions.
+The [`protx` RPC](core-api-ref-remote-procedure-calls-evolution#section-pro-tx) provides a set of commands to execute ProTx related actions.
 
 ## ProTx Register
 
