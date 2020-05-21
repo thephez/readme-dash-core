@@ -5,7 +5,7 @@
   "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
 }
 [/block]
-The [`estimatepriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimate-priority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritise-transaction) which will remain supported for adding fee deltas to transactions.
+The [`estimatepriority` RPC](core-api-ref-remote-procedure-calls-removed.md#sectionestimate-priority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining.md#sectionprioritise-transaction) which will remain supported for adding fee deltas to transactions.
 
 *Parameter #1---how many blocks the transaction may wait before being included as a free high-priority transaction*
 
@@ -45,7 +45,7 @@ Result:
 
 *See also*
 
-* [EstimateFee](/docs/core-api-ref-remote-procedure-calls-util#section-estimate-fee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
+* [EstimateFee](/docs/core-api-ref-remote-procedure-calls-util.md#sectionestimate-fee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 
 # EstimateSmartPriority
 [block:callout]
@@ -54,7 +54,7 @@ Result:
   "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
 }
 [/block]
-The [`estimatesmartpriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimate-smart-priority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritise-transaction) which will remain supported for adding fee deltas to transactions.
+The [`estimatesmartpriority` RPC](core-api-ref-remote-procedure-calls-removed.md#sectionestimate-smart-priority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining.md#sectionprioritise-transaction) which will remain supported for adding fee deltas to transactions.
 
 *Parameter #1---how many blocks the transaction may wait before being included as a free high-priority transaction*
 
@@ -102,7 +102,7 @@ Result:
 
 *See also*
 
-* [EstimatePriority](/docs/core-api-ref-remote-procedure-calls-removed#section-estimate-priority): was removed in Dash Core 0.14.0.
+* [EstimatePriority](/docs/core-api-ref-remote-procedure-calls-removed.md#sectionestimate-priority): was removed in Dash Core 0.14.0.
 
 # GetInfo
 [block:callout]
@@ -112,7 +112,7 @@ Result:
   "title": ""
 }
 [/block]
-The [`getinfo` RPC](core-api-ref-remote-procedure-calls-control#section-get-info) prints various information about the node and the network.
+The [`getinfo` RPC](core-api-ref-remote-procedure-calls-control.md#sectionget-info) prints various information about the node and the network.
 
 *Parameters: none*
 
@@ -173,11 +173,11 @@ Result:
 
 *See also*
 
-* [GetBlockChainInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block-chain-info): provides information about the current state of the block chain.
-* [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-info): returns information about the node's current transaction memory pool.
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
-* [GetNetworkInfo](/docs/core-api-ref-remote-procedure-calls-network#section-get-network-info): returns information about the node's connection to the network.
-* [GetWalletInfo](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-wallet-info): provides information about the wallet.
+* [GetBlockChainInfo](/docs/core-api-ref-remote-procedure-calls-blockchain.md#sectionget-block-chain-info): provides information about the current state of the block chain.
+* [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain.md#sectionget-mem-pool-info): returns information about the node's current transaction memory pool.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining.md#sectionget-mining-info): returns various mining-related information.
+* [GetNetworkInfo](/docs/core-api-ref-remote-procedure-calls-network.md#sectionget-network-info): returns information about the node's connection to the network.
+* [GetWalletInfo](/docs/core-api-ref-remote-procedure-calls-wallet.md#sectionget-wallet-info): provides information about the wallet.
 
 # MasternodeBroadcast
 [block:callout]
@@ -186,7 +186,7 @@ Result:
   "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
 }
 [/block]
-The [`masternodebroadcast` RPC](core-api-ref-remote-procedure-calls-removed#section-masternode-broadcast) was removed in Dash Core 0.14.0.
+The [`masternodebroadcast` RPC](core-api-ref-remote-procedure-calls-removed.md#sectionmasternode-broadcast) was removed in Dash Core 0.14.0.
 
 *Parameter #1---masternode broadcast command*
 
@@ -287,7 +287,7 @@ Result | object | Required<br>(exactly 1) | Object containing result data
 →<br>`vchSig` | string (base64) | Required<br>(exactly 1) | Masternode signature
 →<br>`sigTime` | int64_t | Required<br>(exactly 1) | Signature time as a Unix epoch
 →<br>`protocolVersion` | int | Required<br>(exactly 1) | Dash protocol version
-→<br>`nLastDsq` | int64_t | Required<br>(exactly 1) | Dsq count from the last [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) from this node
+→<br>`nLastDsq` | int64_t | Required<br>(exactly 1) | Dsq count from the last [`dsq` message](core-ref-p2p-network-privatesend-messages.md#sectiondsq) from this node
 →<br>lastPing | object | Required<br>(exactly 1) | Ping object (`mnp` message)
 → →<br>`outpoint` | string (hex) | Required<br>(exactly 1) | Masternode outpoint
 → →<br>`blockHash` | string (hex) | Required<br>(exactly 1) | Block hash from 12 blocks prior to the current tip
@@ -393,7 +393,7 @@ Result:
   "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
 }
 [/block]
-The [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed#section-sentinel-ping) was removed in Dash Core 0.14.0.
+The [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed.md#sectionsentinel-ping) was removed in Dash Core 0.14.0.
 
 *Parameter #1---sentinel version*
 
