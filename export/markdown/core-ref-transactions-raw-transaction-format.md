@@ -24,7 +24,7 @@ A transaction may have multiple <<glossary:inputs>> and <<glossary:outputs>>, so
 
 # JSON-RPC Responses
 
-When retrieving transaction data via Dash Core RPCs (e.g. the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-getrawtransaction)), the transaction data is returned in the following format.
+When retrieving transaction data via Dash Core RPCs (e.g. the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-get-raw-transaction)), the transaction data is returned in the following format.
 
 Version 1 and 2 Transaction Structure (prior to DIP2 activation in Dash Core v0.13.0):
 ``` json
@@ -121,7 +121,7 @@ Each <<glossary:output>> spends a certain number of <<glossary:duffs>>, placing 
 
 **Example**
 
-The sample raw transaction itemized below is the one created in the [Simple Raw Transaction section](core-examples-transactions-transaction-tutorial#simple-raw-transaction) of the Developer Examples. It spends a previous pay-to-pubkey output by paying to a new pay-to-pubkey-hash (P2PKH) output.
+The sample raw transaction itemized below is the one created in the [Simple Raw Transaction section](core-examples-transaction-tutorial#simple-raw-transaction) of the Developer Examples. It spends a previous pay-to-pubkey output by paying to a new pay-to-pubkey-hash (P2PKH) output.
 
 ``` text
 01000000 ................................... Version

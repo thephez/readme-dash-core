@@ -1,57 +1,58 @@
 {
- "_id": "5dc41cc66e402d00ec3fcac7",
- "version": "5daf2e65f4109c0040fd51e5",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5dc41cb75124a90036070278",
- "__v": 0,
- "parentDoc": null,
- "updates": [],
- "updatedAt": "2019-11-27T22:20:14.854Z",
- "createdAt": "2019-11-07T13:31:50.130Z",
- "next": {
-  "pages": [],
+ "metadata": {
+  "image": [],
+  "title": "",
   "description": ""
  },
- "link_external": false,
- "link_url": "https://docs.dash.org/en/stable/introduction/about.html#whitepaper",
- "sync_unique": "",
- "hidden": false,
  "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "name": "",
-     "code": "{}",
+     "status": 200,
      "language": "json",
-     "status": 200
+     "code": "{}",
+     "name": ""
     },
     {
-     "name": "",
-     "code": "{}",
+     "status": 400,
      "language": "json",
-     "status": 400
+     "code": "{}",
+     "name": ""
     }
    ]
   },
-  "auth": "required",
-  "params": [],
-  "url": "",
-  "method": "get"
+  "params": []
  },
- "isReference": false,
- "order": 0,
- "body": "",
- "excerpt": "",
- "slug": "additional-resources-dash-whitepaper",
- "type": "link",
- "metadata": {
+ "next": {
   "description": "",
-  "title": "",
-  "image": []
+  "pages": []
  },
  "title": "Dash Whitepaper",
- "id": "5dc41cc66e402d00ec3fcac7",
+ "updates": [],
+ "type": "link",
+ "slug": "additional-resources-dash-whitepaper",
+ "excerpt": "",
+ "body": "",
+ "order": 1,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://docs.dash.org/en/stable/introduction/about.html#whitepaper",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "createdAt": "2019-11-07T13:31:50.130Z",
+ "updatedAt": "2019-11-27T22:20:14.854Z",
+ "_id": "5e96055329a18c0025d39254",
+ "version": "5e96055329a18c0025d39261",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5e96055329a18c0025d391e8",
+ "__v": 0,
+ "parentDoc": null,
  "isApi": false,
+ "id": "5e96055329a18c0025d39254",
  "body_html": "&nbsp;"
 }

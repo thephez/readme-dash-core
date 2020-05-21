@@ -1,6 +1,6 @@
 # CreateMultiSig
 
-The [`createmultisig` RPC](core-api-ref-remote-procedure-calls-utility#section-createmultisig) creates a P2SH multi-signature address.
+The [`createmultisig` RPC](core-api-ref-remote-procedure-calls-util#section-create-multi-sig) creates a P2SH multi-signature address.
 
 *Parameter #1---the number of signatures required*
 
@@ -8,12 +8,18 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Required | number (int) | Required<br>(exactly 1) | The minimum (*m*) number of signatures required to spend this m-of-n multisig script
 
-*Parameter #2---the full public keys, or addresses for known public keys*
-
+*Parameter #2---the full public keys*
+[block:callout]
+{
+  "type": "warning",
+  "body": "As of Dash Core 0.16.0, using addresses with `createmultisig` is deprecated. Clients must transition to using [`addmultisigaddress`](core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address) to create multisig addresses with addresses known to the wallet before upgrading to v0.17. To use the deprecated functionality in 0.16.0, start dashd with `-deprecatedrpc=createmultisig`.",
+  "title": "Deprecation Warning"
+}
+[/block]
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Keys Or Addresses | array | Required<br>(exactly 1) | An array of strings with each string being a public key or address
-→<br>Key Or Address | string | Required<br>(1 or more) | A public key against which signatures will be checked.  If wallet support is enabled, this may be a P2PKH address belonging to the wallet---the corresponding public key will be substituted.  There must be at least as many keys as specified by the Required parameter, and there may be more keys
+Keys | array | Required<br>(exactly 1) | An array of strings with each string being a public key
+→<br>Key | string | Required<br>(1 or more) | A public key against which signatures will be checked. There must be at least as many keys as specified by the `Required` parameter, and there may be more keys
 
 *Result---P2SH address and hex-encoded redeem script*
 
@@ -23,17 +29,15 @@ Name | Type | Presence | Description
 →<br>`address` | string (base58) | Required<br>(exactly 1) | The P2SH address for this multisig redeem script
 →<br>`redeemScript` | string (hex) | Required<br>(exactly 1) | The multisig redeem script encoded as hex
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.16.0*
 
-Creating a 2-of-3 P2SH multisig address by mixing two P2PKH addresses and
-one full public key:
+Creating a 1-of-2 P2SH multisig address by mixing two full public keys:
 
 ``` bash
-dash-cli -testnet createmultisig 2 '''
+dash-cli -testnet createmultisig 1 '''
   [
-    "yNpezfFDfoikDuT1f4iK75AiLp2YLPsGAb",
-    "0311f97539724e0de38fb1ff79f5148e5202459d06ed07193ab18c730274fd0d88",
-    "yVJj7TB3ZhMcSP2wo65ZFNqy23BQH9tT87"
+    "03283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d3",
+    "02594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb6223"
   ]
 '''
 ```
@@ -42,19 +46,19 @@ Result:
 
 ``` json
 {
-  "address": "8uJLxDxk2gEMbidF5vT8XLS2UCgQmVcroW",
-  "redeemScript": "522102eacba539d92eb88d4e73bb32749d79f53f6e8d7947ac40a71bd4b26c13b6ec29210311f97539724e0de38fb1ff79f5148e5202459d06ed07193ab18c730274fd0d882103251f25a5c0291446d801ba6df122f67a7dd06c60a9b332b7b29cc94f3b8f57d053ae"
+  "address": "8jYUv8hJcbSUPbwYmzp1XMPU6SXoic3hwi",
+  "redeemScript": "512103283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d32102594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb622352ae"
 }
 ```
 
 *See also*
 
-* [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-addmultisigaddress): adds a P2SH multisig address to the wallet.
-* [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decodescript): decodes a hex-encoded P2SH redeem script.
+* [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address): adds a P2SH multisig address to the wallet.
+* [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-script): decodes a hex-encoded P2SH redeem script.
 
 # EstimateFee
 
-The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-utility#section-estimatefee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
+The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-util#section-estimate-fee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 
 *Parameter #1---how many blocks the transaction may wait before being included*
 
@@ -100,11 +104,11 @@ Result:
 
 *See also*
 
-* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#section-settxfee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
+* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#section-set-tx-fee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
 
 # EstimateSmartFee
 
-The [`estimatesmartfee` RPC](core-api-ref-remote-procedure-calls-utility#section-estimatesmartfee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
+The [`estimatesmartfee` RPC](core-api-ref-remote-procedure-calls-util#section-estimate-smart-fee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
 
 *Parameter #1---how many confirmations the transaction may wait before being included*
 
@@ -161,13 +165,13 @@ Result:
 
 *See also*
 
-* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#section-settxfee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
+* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#section-set-tx-fee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
 
 # SignMessageWithPrivKey
 
 *Added in Dash Core 0.12.3 / Bitcoin Core 0.13.0*
 
-The [`signmessagewithprivkey` RPC](core-api-ref-remote-procedure-calls-utility#section-signmessagewithprivkey) signs a message with a given private key.
+The [`signmessagewithprivkey` RPC](core-api-ref-remote-procedure-calls-util#section-sign-message-with-priv-key) signs a message with a given private key.
 
 *Parameter #1---the private key to sign with*
 
@@ -204,12 +208,12 @@ IBx8jxFjutPlcZcFdQPlA2n/B4yTrYhH43qYJURKRj7LWhSD0ERE/nnRLOnXi/gwULUcqfqOKqnqkSvu
 
 *See also*
 
-* [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-signmessage): signs a message with the private key of an address.
-* [VerifyMessage](/docs/core-api-ref-remote-procedure-calls-utility#section-verifymessage): verifies a signed message.
+* [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-sign-message): signs a message with the private key of an address.
+* [VerifyMessage](/docs/core-api-ref-remote-procedure-calls-util#section-verify-message): verifies a signed message.
 
 # ValidateAddress
 
-The [`validateaddress` RPC](core-api-ref-remote-procedure-calls-utility#section-validateaddress) returns information about the given Dash address.
+The [`validateaddress` RPC](core-api-ref-remote-procedure-calls-util#section-validate-address) returns information about the given Dash address.
 
 *Parameter #1---a P2PKH or P2SH address*
 
@@ -296,12 +300,12 @@ Result:
 
 *See also*
 
-* [ImportAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-importaddress): adds an address or pubkey script to the wallet without the associated private key, allowing you to watch for transactions affecting that address or pubkey script without being able to spend any of its outputs.
-* [GetNewAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-getnewaddress): returns a new Dash address for receiving payments. If an account is specified, payments received with the address will be credited to that account.
+* [ImportAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-import-address): adds an address or pubkey script to the wallet without the associated private key, allowing you to watch for transactions affecting that address or pubkey script without being able to spend any of its outputs.
+* [GetNewAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-new-address): returns a new Dash address for receiving payments. If an account is specified, payments received with the address will be credited to that account.
 
 # VerifyMessage
 
-The [`verifymessage` RPC](core-api-ref-remote-procedure-calls-utility#section-verifymessage) verifies a signed message.
+The [`verifymessage` RPC](core-api-ref-remote-procedure-calls-util#section-verify-message) verifies a signed message.
 
 *Parameter #1---the address corresponding to the signing key*
 
@@ -313,7 +317,7 @@ Address | string (base58) | Required<br>(exactly 1) | The P2PKH address correspo
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Signature | string (base64) | Required<br>(exactly 1) | The signature created by the signer encoded as base-64 (the format output by the [`signmessage` RPC](core-api-ref-remote-procedure-calls-wallet#section-signmessage))
+Signature | string (base64) | Required<br>(exactly 1) | The signature created by the signer encoded as base-64 (the format output by the [`signmessage` RPC](core-api-ref-remote-procedure-calls-wallet#section-sign-message))
 
 *Parameter #3---the message*
 
@@ -347,4 +351,4 @@ true
 
 *See also*
 
-* [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-signmessage): signs a message with the private key of an address.
+* [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-sign-message): signs a message with the private key of an address.

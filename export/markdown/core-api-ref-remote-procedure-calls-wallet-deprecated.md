@@ -1,8 +1,20 @@
+[block:callout]
+{
+  "type": "danger",
+  "body": "RPCs that require wallet support are **not available on masternodes** for security reasons. Such RPCs are designated with a \"_Requires wallet support_\" message.",
+  "title": "Wallet Support"
+}
+[/block]
+
 # GetAccount
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
+}
+[/block]
 
-*Requires wallet support.*
-
-The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaccount) returns the name of the account associated with the given address.
+The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-account) returns the name of the account associated with the given address.
 [block:callout]
 {
   "type": "warning",
@@ -36,13 +48,17 @@ doc test
 
 *See also*
 
-* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaddressesbyaccount): returns a list of every address assigned to a particular account.
+* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-addresses-by-account): returns a list of every address assigned to a particular account.
 
 # GetAccountAddress
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
+}
+[/block]
 
-*Requires wallet support.*
-
-The [`getaccountaddress` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaccountaddress) returns the current Dash address for receiving payments to this account. If the account doesn't exist, it creates both the account and a new address for receiving payment.  Once a payment has been received to an address, future calls to this RPC for the same account will return a different address.
+The [`getaccountaddress` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-account-address) returns the current Dash address for receiving payments to this account. If the account doesn't exist, it creates both the account and a new address for receiving payment.  Once a payment has been received to an address, future calls to this RPC for the same account will return a different address.
 [block:callout]
 {
   "type": "warning",
@@ -78,15 +94,19 @@ yNUQ6RzTpNj5GP5ebdRcusJ7K9JJKx6VvV
 
 *See also*
 
-* [GetNewAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-getnewaddress): returns a new Dash address for receiving payments. If an account is specified, payments received with the address will be credited to that account.
-* [GetRawChangeAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-getrawchangeaddress): returns a new Dash address for receiving change. This is for use with raw transactions, not normal use.
-* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaddressesbyaccount): returns a list of every address assigned to a particular account.
+* [GetNewAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-new-address): returns a new Dash address for receiving payments. If an account is specified, payments received with the address will be credited to that account.
+* [GetRawChangeAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-raw-change-address): returns a new Dash address for receiving change. This is for use with raw transactions, not normal use.
+* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-addresses-by-account): returns a list of every address assigned to a particular account.
 
 # GetAddressesByAccount
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
+}
+[/block]
 
-*Requires wallet support.*
-
-The [`getaddressesbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaddressesbyaccount) returns a list of every address assigned to a particular account.
+The [`getaddressesbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-addresses-by-account) returns a list of every address assigned to a particular account.
 [block:callout]
 {
   "type": "warning",
@@ -126,14 +146,18 @@ Result:
 
 *See also*
 
-* [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaccount): returns the name of the account associated with the given address.
-* [GetBalance](/docs/core-api-ref-remote-procedure-calls-wallet#section-getbalance): gets the balance in decimal dash across all accounts or for a particular account.
+* [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-account): returns the name of the account associated with the given address.
+* [GetBalance](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-balance): gets the balance in decimal dash across all accounts or for a particular account.
 
 # GetReceivedByAccount
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
+}
+[/block]
 
-*Requires wallet support.*
-
-The [`getreceivedbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-getreceivedbyaccount) returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
+The [`getreceivedbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-received-by-account) returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 [block:callout]
 {
   "type": "warning",
@@ -182,15 +206,19 @@ Result:
 
 *See also*
 
-* [GetReceivedByAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
-* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaddressesbyaccount): returns a list of every address assigned to a particular account.
-* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-listaccounts): lists accounts and their balances.
+* [GetReceivedByAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-received-by-address): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
+* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-addresses-by-account): returns a list of every address assigned to a particular account.
+* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-list-accounts): lists accounts and their balances.
 
 # ListAccounts
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
+}
+[/block]
 
-*Requires wallet support.*
-
-The [`listaccounts` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-listaccounts) lists accounts and their balances.
+The [`listaccounts` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-list-accounts) lists accounts and their balances.
 [block:callout]
 {
   "type": "warning",
@@ -246,15 +274,19 @@ Result:
 
 *See also*
 
-* [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaccount): returns the name of the account associated with the given address.
-* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaddressesbyaccount): returns a list of every address assigned to a particular account.
-* [ListReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-listreceivedbyaccount): lists the total number of dash received by each account.
+* [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-account): returns the name of the account associated with the given address.
+* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-addresses-by-account): returns a list of every address assigned to a particular account.
+* [ListReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-list-received-by-account): lists the total number of dash received by each account.
 
 # ListReceivedByAccount
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
+}
+[/block]
 
-*Requires wallet support.*
-
-The [`listreceivedbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-listreceivedbyaccount) lists the total number of dash received by each account.
+The [`listreceivedbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-list-received-by-account) lists the total number of dash received by each account.
 [block:callout]
 {
   "type": "warning",
@@ -326,13 +358,17 @@ Result (edited to only show the first two results):
 
 *See also*
 
-* [ListReceivedByAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-listreceivedbyaddress): lists the total number of dash received by each address.
-* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
-* [GetReceivedByAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
+* [ListReceivedByAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-list-received-by-address): lists the total number of dash received by each address.
+* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-received-by-account): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
+* [GetReceivedByAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-received-by-address): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
 
 # Move
-
-*Requires wallet support.*
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
+}
+[/block]
 
 The [`move` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-move) moves a specified amount from one account in your wallet to another using an off-block-chain transaction.
 [block:callout]
@@ -402,16 +438,19 @@ true
 
 *See also*
 
-* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-listaccounts): lists accounts and their balances.
-* [SendFrom](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-sendfrom): spends an amount from a local account to a dash address.
-* [SendToAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-sendtoaddress): spends an amount to a given address.
+* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-list-accounts): lists accounts and their balances.
+* [SendFrom](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-send-from): spends an amount from a local account to a dash address.
+* [SendToAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-send-to-address): spends an amount to a given address.
 
 # SendFrom
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**). Requires an unlocked wallet or an unencrypted wallet."
+}
+[/block]
 
-*Requires wallet support. Requires an unlocked wallet or an
-unencrypted wallet.*
-
-The [`sendfrom` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-sendfrom) spends an amount from a local account to a dash address.
+The [`sendfrom` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-send-from) spends an amount from a local account to a dash address.
 
 [block:callout]
 {
@@ -499,14 +538,18 @@ cd64b9d55c63bf247f2eca32f978e340622107b607a46c422dabcdc20c0571fe
 
 *See also*
 
-* [SendToAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-sendtoaddress): spends an amount to a given address.
-* [SendMany](/docs/core-api-ref-remote-procedure-calls-wallet#section-sendmany): creates and broadcasts a transaction which sends outputs to multiple addresses.
+* [SendToAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-send-to-address): spends an amount to a given address.
+* [SendMany](/docs/core-api-ref-remote-procedure-calls-wallet#section-send-many): creates and broadcasts a transaction which sends outputs to multiple addresses.
 
 # SetAccount
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
+}
+[/block]
 
-*Requires wallet support.*
-
-The [`setaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-setaccount) puts the specified address in the given account.
+The [`setaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#section-set-account) puts the specified address in the given account.
 [block:callout]
 {
   "type": "warning",
@@ -545,6 +588,6 @@ dash-cli -testnet setaccount \
 
 *See also*
 
-* [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaccount): returns the name of the account associated with the given address.
-* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-listaccounts): lists accounts and their balances.
-* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-getaddressesbyaccount): returns a list of every address assigned to a particular account.
+* [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-account): returns the name of the account associated with the given address.
+* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-list-accounts): lists accounts and their balances.
+* [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-addresses-by-account): returns a list of every address assigned to a particular account.

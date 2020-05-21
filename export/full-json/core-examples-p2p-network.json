@@ -1,93 +1,94 @@
 {
- "_id": "5db19f9975818c0034428efb",
- "version": "5daf2e65f4109c0040fd51e5",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5db19f199332b800310886f8",
- "__v": 2,
- "parentDoc": null,
- "updates": [],
- "updatedAt": "2019-10-24T19:10:55.837Z",
- "createdAt": "2019-10-24T12:56:57.418Z",
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
+    {
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    }
+   ]
+  },
+  "params": []
+ },
  "next": {
+  "description": "",
   "pages": [
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Creating A Bloom Filter",
+    "category": "Core Examples",
     "slug": "core-examples-p2p-network-creating-a-bloom-filter",
-    "category": "Core Examples"
-   },
-   {
-    "type": "doc",
+    "name": "Creating A Bloom Filter",
     "icon": "file-text-o",
-    "name": "Evaluating A Bloom Filter",
-    "slug": "core-examples-p2p-network-evaluating-a-bloom-filter",
-    "category": "Core Examples"
+    "type": "doc"
    },
    {
     "category": "Core Examples",
-    "slug": "core-examples-p2p-network-bloom-filter-script",
-    "name": "Bloom Filter Script",
+    "slug": "core-examples-p2p-network-evaluating-a-bloom-filter",
+    "name": "Evaluating A Bloom Filter",
     "icon": "file-text-o",
     "type": "doc"
    },
    {
     "type": "doc",
     "icon": "file-text-o",
-    "name": "Retrieving A MerkleBlock",
-    "slug": "core-examples-p2p-network-retrieving-a-merkleblock",
+    "name": "Bloom Filter Script",
+    "slug": "core-examples-p2p-network-bloom-filter-script",
     "category": "Core Examples"
    },
    {
-    "type": "doc",
+    "category": "Core Examples",
+    "slug": "core-examples-p2p-network-retrieving-a-merkleblock",
+    "name": "Retrieving A MerkleBlock",
     "icon": "file-text-o",
-    "name": "Parsing A MerkleBlock",
+    "type": "doc"
+   },
+   {
+    "category": "Core Examples",
     "slug": "core-examples-p2p-network-parsing-a-merkleblock",
-    "category": "Core Examples"
+    "name": "Parsing A MerkleBlock",
+    "icon": "file-text-o",
+    "type": "doc"
    }
-  ],
-  "description": ""
- },
- "link_external": false,
- "link_url": "",
- "sync_unique": "",
- "hidden": false,
- "api": {
-  "results": {
-   "codes": [
-    {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 200
-    },
-    {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 400
-    }
-   ]
-  },
-  "auth": "required",
-  "params": [],
-  "url": "",
-  "method": "get"
- },
- "isReference": false,
- "order": 4,
- "body": "",
- "excerpt": "",
- "slug": "core-examples-p2p-network",
- "type": "basic",
- "metadata": {
-  "description": "",
-  "title": "",
-  "image": []
+  ]
  },
  "title": "P2P Network",
- "id": "5db19f9975818c0034428efb",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-examples-p2p-network",
+ "excerpt": "",
+ "body": "",
+ "order": 4,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "createdAt": "2019-10-24T12:56:57.418Z",
+ "updatedAt": "2019-10-24T19:10:55.837Z",
+ "_id": "5e96055329a18c0025d3920f",
+ "version": "5e96055329a18c0025d39261",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5e96055329a18c0025d391e5",
+ "__v": 2,
+ "parentDoc": null,
  "isApi": false,
+ "id": "5e96055329a18c0025d3920f",
  "body_html": "&nbsp;"
 }

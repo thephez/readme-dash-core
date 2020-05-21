@@ -1,6 +1,6 @@
 # CombineRawTransaction
 
-The [`combinerawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-combinerawtransaction) combine multiple partially signed transactions into one transaction.
+The [`combinerawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-combine-raw-transaction) combine multiple partially signed transactions into one transaction.
 
 The combined transaction may be another partially signed transaction or a
 fully signed transaction.
@@ -48,15 +48,15 @@ a8f027d8a77cbdcb88ac00000000
 
 *See also:*
 
-* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
-* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
-* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
+* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-create-raw-transaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-raw-transaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
+* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-sign-raw-transaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-send-raw-transaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
 
 # CreateRawTransaction
 
-The [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction) creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+The [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-create-raw-transaction) creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 
 *Parameter #1---Inputs*
 
@@ -113,15 +113,15 @@ cfc9f32ef388acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b4\
 
 *See also*
 
-* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-combinerawtransaction): combine multiple partially signed transactions into one transaction.
-* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
-* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
+* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-combine-raw-transaction): combine multiple partially signed transactions into one transaction.
+* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-raw-transaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
+* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-sign-raw-transaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-send-raw-transaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
 
 # DecodeRawTransaction
 
-The [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction) decodes a serialized transaction hex string into a JSON object describing the transaction.
+The [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-decode-raw-transaction) decodes a serialized transaction hex string into a JSON object describing the transaction.
 
 *Parameter #1---serialized transaction in hex*
 
@@ -308,14 +308,14 @@ Result:
 
 *See also*
 
-* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-combinerawtransaction): combine multiple partially signed transactions into one transaction.
-* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
-* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
+* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-combine-raw-transaction): combine multiple partially signed transactions into one transaction.
+* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-create-raw-transaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-sign-raw-transaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-send-raw-transaction): validates a transaction and broadcasts it to the peer-to-peer network.
 
 # DecodeScript
 
-The [`decodescript` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-decodescript) decodes a hex-encoded P2SH redeem script.
+The [`decodescript` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-decode-script) decodes a hex-encoded P2SH redeem script.
 
 *Parameter #1---a hex-encoded redeem script*
 
@@ -364,15 +364,19 @@ Result:
 
 *See also*
 
-* [CreateMultiSig](/docs/core-api-ref-remote-procedure-calls-utility#section-createmultisig): creates a P2SH multi-signature address.
+* [CreateMultiSig](/docs/core-api-ref-remote-procedure-calls-util#section-create-multi-sig): creates a P2SH multi-signature address.
 
 ﻿
 
 # FundRawTransaction
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)."
+}
+[/block]
 
-*Requires wallet support.*
-
-The [`fundrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-fundrawtransaction) adds inputs to a transaction until it has enough in value to meet its out value.  This will not modify existing inputs, and will add one change output to the outputs.
+The [`fundrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-fund-raw-transaction) adds inputs to a transaction until it has enough in value to meet its out value.  This will not modify existing inputs, and will add one change output to the outputs.
 Note that inputs which were signed may need to be resigned after completion since in/outputs have been added.  The inputs added will not be signed, use signrawtransaction for that.
 All existing inputs must have their previous output transaction be in the wallet.
 
@@ -427,22 +431,19 @@ Result:
 
 *See also*
 
-* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
-* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
-* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
+* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-create-raw-transaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-raw-transaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
+* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-sign-raw-transaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-send-raw-transaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
 
 ﻿
 
 # GetRawTransaction
 
-The [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-getrawtransaction) gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
+The [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-get-raw-transaction) gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
 
-Note: By default this function only works for mempool transactions. If the
-`-txindex` option is enabled, it also works for blockchain transactions. For now,
-it also works for transactions with unspent outputs although this feature is
-deprecated.
+Note: By default this function only works for mempool transactions. When called with a blockhash argument, getrawtransaction will return the transaction if the specified block is available and the transaction is found in that block. When called without a blockhash argument, getrawtransaction will return the transaction if it is in the mempool, or if -txindex is enabled and the transaction is in a block in the blockchain.
 
 [block:callout]
 {
@@ -462,7 +463,13 @@ TXID | string (hex) | Required<br>(exactly 1) | The TXID of the transaction to g
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Format | bool | Optional<br>(0 or 1) | *Updated in Dash Core 0.12.3 / Bitcoin Core 0.14.0*<br><br>Set to `false` (the default) to return the serialized transaction as hex.  Set to `true` to return a decoded transaction.  Before 0.12.3, use `0` and `1`, respectively
+Verbose | bool | Optional<br>(0 or 1) | *Updated in Dash Core 0.12.3 / Bitcoin Core 0.14.0*<br><br>Set to `false` (the default) to return the serialized transaction as hex.  Set to `true` to return a decoded transaction in JSON.  Before 0.12.3, use `0` and `1`, respectively
+
+*Parameter #3---hash of a block to look in for the transaction*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Block Hash | bool | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The hash of the block in which to look for the transaction
 
 *Result (if transaction not found)---`null`*
 
@@ -481,6 +488,7 @@ Name | Type | Presence | Description
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | If the transaction was found, this will be an object describing it
+→<br>`in_active_chain` | bool | Required<br>(exactly 1) | ) Whether specified block is in the active chain or not (only present with explicit `blockhash` argument)
 →<br>`txid` | string (hex) | Required<br>(exactly 1) | The transaction's TXID encoded as hex in RPC byte order
 →<br>`size` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The serialized transaction size
 →<br>`version` | number (int) | Required<br>(exactly 1) | The transaction format version number
@@ -519,9 +527,9 @@ Name | Type | Presence | Description
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | If the transaction has been included in a block on the local best block chain, this is how many confirmations it has.  Otherwise, this is `0`
 →<br>`time` | number (int) | Optional<br>(0 or 1) | If the transaction has been included in a block on the local best block chain, this is the block header time of that block (may be in the future)
 →<br>`blocktime` | number (int) | Optional<br>(0 or 1) | This field is currently identical to the time field described above
-→<br>`instantlock` | bool | Required<br>(exactly 1) | If set to `true`, this transaction is locked (by InstantSend or a ChainLock)
-→<br>`instantlock_internal` | bool | Required<br>(exactly 1) | If set to `true`, this transaction has an InstantSend lock
-→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
+→<br>`instantlock` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction is locked (by InstantSend or a ChainLock)
+→<br>`instantlock_internal` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction has an InstantSend lock
+→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
 
 *Examples from Dash Core 0.14.0*
 
@@ -720,12 +728,12 @@ Result:
 
 *See also*
 
-* [GetSpecialTxes](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getspecialtxes): returns an array of special transactions found in the specified block
-* [GetTransaction](/docs/core-api-ref-remote-procedure-calls-wallet#section-gettransaction): gets detailed information about an in-wallet transaction.
+* [GetSpecialTxes](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-special-txes): returns an array of special transactions found in the specified block
+* [GetTransaction](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-transaction): gets detailed information about an in-wallet transaction.
 
 # SendRawTransaction
 
-The [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction) validates a transaction and broadcasts it to the peer-to-peer network.
+The [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-send-raw-transaction) validates a transaction and broadcasts it to the peer-to-peer network.
 
 *Parameter #1---a serialized transaction to broadcast*
 
@@ -780,14 +788,14 @@ Result:
 
 *See also*
 
-* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-combinerawtransaction): combine multiple partially signed transactions into one transaction.
-* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
-* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-combine-raw-transaction): combine multiple partially signed transactions into one transaction.
+* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-create-raw-transaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-raw-transaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
+* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-sign-raw-transaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
 
 # SignRawTransaction
 
-The [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction) signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+The [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-sign-raw-transaction) signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
 
 *Parameter #1---the transaction to sign*
 
@@ -818,7 +826,7 @@ Private Keys | array | Optional<br>(0 or 1) | An array holding private keys.  If
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
+SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-sign-raw-transaction) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
 
 *Result---the transaction with any signatures made*
 
@@ -851,7 +859,7 @@ Result:
 
 *See also*
 
-* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-combinerawtransaction): combine multiple partially signed transactions into one transaction.
-* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
-* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
+* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-combine-raw-transaction): combine multiple partially signed transactions into one transaction.
+* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-create-raw-transaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-raw-transaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
+* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-send-raw-transaction): validates a transaction and broadcasts it to the peer-to-peer network.

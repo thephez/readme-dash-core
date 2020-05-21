@@ -1,100 +1,101 @@
 {
- "_id": "5db079fa29616900509db7f1",
- "version": "5daf2e65f4109c0040fd51e5",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5db061df6d7d670050694628",
- "__v": 4,
- "parentDoc": null,
- "updates": [],
- "updatedAt": "2019-10-23T22:38:58.439Z",
- "createdAt": "2019-10-23T16:04:10.599Z",
- "next": {
-  "pages": [
-   {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "OpCodes",
-    "slug": "core-ref-transactions-opcodes",
-    "category": "Core Reference"
-   },
-   {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Address Conversion",
-    "slug": "core-ref-transactions-address-conversion",
-    "category": "Core Reference"
-   },
-   {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Raw Transaction Format",
-    "slug": "core-ref-transactions-raw-transaction-format",
-    "category": "Core Reference"
-   },
-   {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Special Transactions",
-    "slug": "core-ref-transactions-special-transactions",
-    "category": "Core Reference"
-   },
-   {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "CompactSize Unsigned Integers",
-    "slug": "core-ref-transactions-compactsize-unsigned-integers",
-    "category": "Core Reference"
-   },
-   {
-    "category": "Core Reference",
-    "slug": "core-ref-wallets",
-    "name": "Wallets",
-    "icon": "file-text-o",
-    "type": "doc"
-   }
-  ],
+ "metadata": {
+  "image": [],
+  "title": "",
   "description": ""
  },
- "link_external": false,
- "link_url": "",
- "sync_unique": "",
- "hidden": false,
  "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "name": "",
-     "code": "{}",
+     "status": 200,
      "language": "json",
-     "status": 200
+     "code": "{}",
+     "name": ""
     },
     {
-     "name": "",
-     "code": "{}",
+     "status": 400,
      "language": "json",
-     "status": 400
+     "code": "{}",
+     "name": ""
     }
    ]
   },
-  "auth": "required",
-  "params": [],
-  "url": "",
-  "method": "get"
+  "params": []
  },
- "isReference": false,
- "order": 2,
- "body": "The following subsections briefly document core transaction details.",
- "excerpt": "",
- "slug": "core-ref-transactions",
- "type": "basic",
- "metadata": {
+ "next": {
   "description": "",
-  "title": "",
-  "image": []
+  "pages": [
+   {
+    "category": "Core Reference",
+    "slug": "core-ref-transactions-opcodes",
+    "name": "OpCodes",
+    "icon": "file-text-o",
+    "type": "doc"
+   },
+   {
+    "category": "Core Reference",
+    "slug": "core-ref-transactions-address-conversion",
+    "name": "Address Conversion",
+    "icon": "file-text-o",
+    "type": "doc"
+   },
+   {
+    "category": "Core Reference",
+    "slug": "core-ref-transactions-raw-transaction-format",
+    "name": "Raw Transaction Format",
+    "icon": "file-text-o",
+    "type": "doc"
+   },
+   {
+    "category": "Core Reference",
+    "slug": "core-ref-transactions-special-transactions",
+    "name": "Special Transactions",
+    "icon": "file-text-o",
+    "type": "doc"
+   },
+   {
+    "category": "Core Reference",
+    "slug": "core-ref-transactions-compactsize-unsigned-integers",
+    "name": "CompactSize Unsigned Integers",
+    "icon": "file-text-o",
+    "type": "doc"
+   },
+   {
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Wallets",
+    "slug": "core-ref-wallets",
+    "category": "Core Reference"
+   }
+  ]
  },
  "title": "Transactions",
- "id": "5db079fa29616900509db7f1",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-ref-transactions",
+ "excerpt": "",
+ "body": "The following subsections briefly document core transaction details.",
+ "order": 2,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "createdAt": "2019-10-23T16:04:10.599Z",
+ "updatedAt": "2019-10-23T22:38:58.439Z",
+ "_id": "5e96055329a18c0025d391f2",
+ "version": "5e96055329a18c0025d39261",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5e96055329a18c0025d391e2",
+ "__v": 4,
+ "parentDoc": null,
  "isApi": false,
+ "id": "5e96055329a18c0025d391f2",
  "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core transaction details.</p>\n\n</div>"
 }
