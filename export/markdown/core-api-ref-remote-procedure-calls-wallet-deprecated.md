@@ -147,7 +147,7 @@ Result:
 *See also*
 
 * [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#section-get-account): returns the name of the account associated with the given address.
-* [GetBalance](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-balance): gets the balance in decimal dash across all accounts or for a particular account.
+* [GetBalance](/docs/core-api-ref-remote-procedure-calls-wallet#getbalance): gets the balance in decimal dash across all accounts or for a particular account.
 
 # GetReceivedByAccount
 [block:callout]
