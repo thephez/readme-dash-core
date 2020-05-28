@@ -5,7 +5,7 @@ import os
 import sys
 
 API_KEY = os.environ.get("DASH_CORE_README_API_KEY")
-VERSION = 'v0.15.0'
+VERSION = 'v0.16.0'
 
 def api_put(url, payload, headers=None):
     response = requests.put(url, data=payload, headers=headers, auth=HTTPBasicAuth(API_KEY,''))
