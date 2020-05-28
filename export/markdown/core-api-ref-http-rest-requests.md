@@ -29,7 +29,7 @@ Result | object | Required<br>(exactly 1) | An object containing the requested b
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →<br>`size` | number (int) | Required<br>(exactly 1) | The size of this block in serialized block format, counted in bytes
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
+→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#block-versions)
 →<br>`versionHex` | number (int) | Required<br>(exactly 1) | This block's version number formatted in hexadecimal.
 →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →<br>`tx` | array | Required<br>(exactly 1) | An array containing all transactions in this block.  The transactions appear in the array in the same order they appear in the serialized block
@@ -226,14 +226,14 @@ Result (whitespace added):
 
 *See also*
 
-* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#section-get-block-no-tx-details) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-http-rest-requests#section-get-block) returns.
+* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#get-blocknotxdetails) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-http-rest-requests#get-block) returns.
 * [GetBestBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getbestblockhash) RPC: returns the header hash of the most recent block on the best block chain.
 * [GetBlock](/docs/core-api-ref-remote-procedure-calls-blockchain#getblock) RPC: gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.
 * [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getblockhash) RPC: returns the header hash of a block at the given height in the local best block chain.
 
 # GET Block/NoTxDetails
 
-The `GET block/notxdetails` operation gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-http-rest-requests#section-get-block) returns.
+The `GET block/notxdetails` operation gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-http-rest-requests#get-block) returns.
 
 *Request*
 
@@ -262,7 +262,7 @@ Result | object | Required<br>(exactly 1) | An object containing the requested b
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →<br>`size` | number (int) | Required<br>(exactly 1) | The size of this block in serialized block format, counted in bytes
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
+→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#block-versions)
 →<br>`versionHex` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>This block's version number formatted in hexadecimal.  See [BIP9 assignments]
 →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →<br>`tx` | array | Required<br>(exactly 1) | An array containing all transactions in this block.  The transactions appear in the array in the same order they appear in the serialized block
@@ -334,7 +334,7 @@ Result (whitespace added):
 
 *See also*
 
-* [GET Block](/docs/core-api-ref-http-rest-requests#section-get-block): gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.
+* [GET Block](/docs/core-api-ref-http-rest-requests#get-block): gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.
 * [GetBlock](/docs/core-api-ref-remote-procedure-calls-blockchain#getblock) RPC: gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.
 * [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getblockhash) RPC: returns the header hash of a block at the given height in the local best block chain.
 * [GetBestBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getbestblockhash) RPC: returns the header hash of the most recent block on the best block chain.
@@ -610,7 +610,7 @@ Result | array | Required<br>(exactly 1) | An array containing the requested blo
 →→<br>`hash` | string (hex) | Required<br>(exactly 1) | The hash of this block's block header encoded as hex in RPC byte order.  This is the same as the hash provided in parameter #2
 →→<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →→<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
+→→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#block-versions)
 →→<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →→<br>`time` | number (int) | Required<br>(exactly 1) | The value of the *time* field in the block header, indicating approximately when the block was created
 →→<br>`mediantime` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The median time of the 11 blocks before the most recent block on the blockchain.  Used for validating transaction locktime under BIP113
@@ -684,7 +684,7 @@ Result (whitespace added):
 
 *See also*
 
-* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#section-get-block-no-tx-details) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block) returns.
+* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#get-blocknotxdetails) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-remote-procedure-calls-blockchain#getblock) returns.
 * [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getblockhash) RPC: returns the header hash of a block at the given height in the local best block chain.
 * [GetBlockHeader](/docs/core-api-ref-remote-procedure-calls-blockchain#getblockheader) RPC: gets a block header with a particular header hash from the local block database either as a JSON object or as a serialized block header.
 
@@ -751,7 +751,7 @@ Result (whitespace added):
 
 *See also*
 
-* [GET MemPool/Info](/docs/core-api-ref-http-rest-requests#section-get-mem-pool-info): returns information about the node's current transaction memory pool.
+* [GET MemPool/Info](/docs/core-api-ref-http-rest-requests#get-mempoolinfo): returns information about the node's current transaction memory pool.
 * [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#getmempoolinfo) RPC: returns information about the node's current transaction memory pool.
 * [GetRawMemPool](/docs/core-api-ref-remote-procedure-calls-blockchain#getrawmempool) RPC: returns all transaction identifiers (TXIDs) in the memory pool as a JSON array, or detailed information about each transaction in the memory pool as a JSON object.
 
@@ -800,7 +800,7 @@ Result (whitespace added):
 
 *See also*
 
-* [GET MemPool/Contents](/docs/core-api-ref-http-rest-requests#section-get-mem-pool-contents): returns all transaction in the memory pool with detailed information.
+* [GET MemPool/Contents](/docs/core-api-ref-http-rest-requests#get-mempoolcontents): returns all transaction in the memory pool with detailed information.
 * [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#getmempoolinfo) RPC: returns information about the node's current transaction memory pool.
 
 # GET Tx
