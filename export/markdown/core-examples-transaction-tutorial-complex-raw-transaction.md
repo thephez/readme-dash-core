@@ -82,7 +82,7 @@ For our two inputs, we select two UTXOs by placing the txid and output index num
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** Users should never manually manage private keys on mainnet. As dangerous as raw transactions are (see warnings above), making a mistake with a private key can be much worse---as in the case of a HD wallet [cross-generational key compromise](core-guide-wallets-wallet-files#section-hardened-keys). \n**These examples are to help you learn, not for you to emulate on mainnet.**",
+  "body": "**Warning:** Users should never manually manage private keys on mainnet. As dangerous as raw transactions are (see warnings above), making a mistake with a private key can be much worse---as in the case of a HD wallet [cross-generational key compromise](core-guide-wallets-wallet-files#hardened-keys). \n**These examples are to help you learn, not for you to emulate on mainnet.**",
   "title": "Private Key Warning"
 }
 [/block]
