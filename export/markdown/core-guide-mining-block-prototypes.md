@@ -6,7 +6,7 @@ The simplest and earliest method was the now-deprecated Dash Core [`getwork` RPC
 
 # getblocktemplate RPC
 
-An improved method is the Dash Core [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-get-block-template). This provides the mining software with much more information:
+An improved method is the Dash Core [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#getblocktemplate). This provides the mining software with much more information:
 
 1. The information necessary to construct a <<glossary:coinbase transaction>> paying the pool or the solo miner's `dashd` wallet.
 
